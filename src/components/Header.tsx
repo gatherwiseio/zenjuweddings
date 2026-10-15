@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between gap-6 px-6 py-6 md:px-14 md:py-7">
-      <Link href="/" aria-label="Zenju Weddings, home">
+      <Link href="/">
         <Logo />
       </Link>
       <button

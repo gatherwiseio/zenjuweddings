@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Script } from "@/components/Script";
 
@@ -16,18 +17,29 @@ export function Hero() {
   return (
     <section className="pb-20 md:pb-28">
       <div className="relative mx-4 h-[min(720px,82vh)] min-h-[480px] overflow-hidden bg-ink md:mx-8">
+        {/* The optimized still paints first (it's the LCP element); the video plays over it once ready. */}
+        <Image
+          src="/images/current-site/hero-video-still.jpg"
+          alt=""
+          fill
+          preload
+          sizes="100vw"
+          className="object-cover"
+        />
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
-          src="/video/hero.mp4"
-          poster="/images/current-site/hero-video-still.jpg"
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
           aria-hidden="true"
-        />
+        >
+          {/* Phones get the 720p file (5 MB instead of 11 MB). */}
+          <source src="/video/hero-720.mp4" type="video/mp4" media="(max-width: 767px)" />
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
         {/* Soft fade along the bottom edge only, so the small white text stays legible over white linens. */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-ink/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 px-6 pb-8 text-center text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.55),0_2px_20px_rgb(0_0_0/0.45)] md:pb-12">
