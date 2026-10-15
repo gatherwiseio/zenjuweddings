@@ -27,9 +27,12 @@ export function Header() {
         <Logo />
       </Link>
       <div className="flex items-center gap-3">
-        <a href={`mailto:${contact.email}?subject=Inquiry`} className={`${buttonClass("primary")} hidden sm:inline-flex`}>
-          Inquire
-        </a>
+        {/* Wrapper does the hiding: the button's own inline-flex would override `hidden`. */}
+        <span className="hidden sm:block">
+          <a href={`mailto:${contact.email}?subject=Inquiry`} className={buttonClass("primary")}>
+            Inquire
+          </a>
+        </span>
         <button
           type="button"
           onClick={() => setOpen(true)}
