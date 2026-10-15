@@ -71,7 +71,7 @@ export const packages: Package[] = [
   },
   {
     id: "hoopono",
-    image: { src: "/images/current-site/package-hoopono-paradise-cove.jpg", alt: "Newlyweds walking out to cheering guests at Paradise Cove", focus: "center" },
+    image: { src: "/images/current-site/package-hoopono-banyan.jpg", alt: "Newlyweds smiling together beneath a canopy of banyan trees", focus: "center" },
     name: "Hoʻopono",
     type: "Day-of coordination",
     meaning: "“Faithful” in Hawaiian",
