@@ -24,7 +24,7 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 ### Home
 1. Hero: live video background, using the existing video from the current website
 2. About Zenju Weddings
-3. Services / packages preview
+3. Services / packages preview: all 4 packages from her site (Kuʻu Lei, Hoʻopono, Barefoot Nuptials, Events), each with a "What's included" pop-up and "Learn more" → /services#<id>
 4. Gallery preview
 5. Reviews
 6. Call to action to contact Yanicke
@@ -60,7 +60,7 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 
 ## Brand
 Full copy, package details, vendor list, and media links pulled from the current site: `content/current-site.md`.
-- **Logo:** none exists. Use a text wordmark ("Zenju Weddings") until Yanicke supplies one
+- **Logo:** supplied 2026-10-15 (green lotus circle + "Zenju Weddings / and events of Hawaii, LLC"), low-res (478×288). Keep the lotus mark and favicon; redo the wordmark. Files in `public/images/brand/`. Lotus redrawn as a vector (`public/images/brand/lotus.svg`). Favicons: original green `favicon-green.svg` (#8FB23F) is live as `src/app/icon.svg` + `apple-icon.png`; dark `favicon-dark.svg` kept as an alternative. **Header logo** (`src/components/Logo.tsx`): green lotus + "ZENJU WEDDINGS" (Jost 400, tracked uppercase) over a gold "Honolulu · Hawaii" line; used in header, menu and footer. Options canvas: https://claude.ai/artifact/AbwRWni7GAUkaJVYFoFLjQ (exploration; header logo chosen above)
 - **Colors:** none defined (current Wix site uses default blue #3A54B4; not a brand color)
 - **Fonts:** none defined (current site uses Helvetica Light)
 - **Photos:** 25 portfolio photos + hero video on the current site (links in `content/current-site.md`)
@@ -83,20 +83,21 @@ Full copy, package details, vendor list, and media links pulled from the current
 
 ## Chosen direction
 - **Direction:** A, Island Editorial, revised (mostly white). Design: https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (artboard "A · Island Editorial")
-- **Colors:** white #FFFFFF (page) · light grey #EEF0F2 (occasional band) · fog #DCE0E4 (image backdrop) · charcoal #27262A (text, highlighted panels) · cream #F5F2E9 (text on charcoal) · muted cream #E6DFCF / #CFCBC2 (secondary text on charcoal) · rule grey #6B6A70 (lines on charcoal)
+- **Colors:** gold #82632A / gold-light #D4B26A (links, section labels, card numbers, bullets) · white #FFFFFF (page) · light grey #EEF0F2 (occasional band) · fog #DCE0E4 (image backdrop) · charcoal #27262A (text, highlighted panels) · cream #F5F2E9 (text on charcoal) · muted cream #E6DFCF / #CFCBC2 (secondary text on charcoal) · rule grey #6B6A70 (lines on charcoal)
 - **Heading font:** Jost 200 (light), large and centered, 46–68px desktop
-- **Accent font:** Pinyon Script, one word per heading ("aloha", "beautifully", "our packages")
+- **Accent font:** Pinyon Script, hero headline only ("aloha"). Not used for labels or section titles (user feedback: hard to read).
+- **Section headings:** every section uses `SectionHeading`, after brookekeegan.com: Jost 300, 36px mobile / 52px desktop, centered, normal case, with an optional tracked uppercase label line beneath. No divider lines.
 - **Body font:** Jost 300, 17–19px, line-height 1.7
 - **Labels / nav:** Jost 400, 12–13px, uppercase, 2.4–3px tracking
 - **Type scale:** 68 / 58 / 46 / 40 / 19 / 17 / 13 / 12
 - **Spacing feel:** very airy, 112–128px section padding, 1040–1180px max content width
-- **Buttons / links:** outlined pill (1px, full radius, uppercase tracked) for Menu and Inquire; underlined uppercase text links elsewhere
+- **Buttons / links:** shared `Button` component. **Link** (default) = gold #82632A, semibold, underlined uppercase, no arrow (gold-light #D4B26A on charcoal): Meet the team, View the gallery, phone. **Primary** = filled pill, conversion only (Inquire, Email us). **Secondary** = outlined pill (Learn more on cards, Menu, Close). Links to unbuilt pages stay inactive until marked live in `src/content/site.ts`.
 - **Image treatment:** full-width photo/video in a large inset frame (32px white margin); square corners; object-fit cover
 - **Hero:** white menu bar (wordmark left, Menu pill right) → video in inset frame (~640px) → headline + tagline on white → short rule
 
 ## Assets needed
 - Downloaded from the current site (with OK, 2026-10-15) and resized for web: `public/images/current-site/` (hero video still, portrait, team photo, 4 package photos, 25 portfolio photos).
 - **Professional headshot of Yanicke.** The only portrait on the current site is a phone screenshot, cropped for now.
-- Hero video file itself (1080p MP4 link in `content/current-site.md`), to download in Phase 4.
-- Reviews (parked).
-- Logo (none exists, text wordmark for now).
+- Hero video downloaded to `public/video/hero.mp4` (1080p, 11 MB).
+- Reviews (parked). The homepage shows three clearly marked `[Placeholder review]` cards; replace them in `src/content/site.ts`.
+- Logo: confirm the header lockup with Yanicke.
