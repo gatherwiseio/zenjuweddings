@@ -83,7 +83,8 @@
   --bullet-offset: 0.6em;
   --bullet-offset-sm: 0.55em;
   --duration-slow: 1200ms;
-  --package-img-h: 320px;
+  --package-img-h: 360px;
+  --focus-lower: center 70%;
 }
 
 @layer base {

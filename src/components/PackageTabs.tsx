@@ -27,7 +27,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
   return (
     <div className="flex w-full max-w-content flex-col gap-14 lg:flex-row lg:gap-20">
       <div className="flex flex-col gap-10 lg:w-96 lg:shrink-0">
-        <SectionHeading title="Our Packages" label="Customized to suit your budget and style" tone="dark" align="left" />
+        <SectionHeading title="Our Packages" label="Tailored to your budget" tone="dark" align="left" />
         <div role="tablist" aria-label="Packages" aria-orientation="vertical" onKeyDown={onKeyDown} className="flex flex-col border-t border-rule">
           {packages.map((pkg, i) => {
             const active = i === selected;
@@ -74,7 +74,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
             alt={current.image.alt}
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
-            className={`object-cover ${current.image.focus === "top" ? "object-top" : "object-center"}`}
+            className={`object-cover ${{ top: "object-top", center: "object-center", lower: "object-(--focus-lower)" }[current.image.focus]}`}
           />
         </div>
         <p className="label text-xs font-medium text-gold-light">
