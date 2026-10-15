@@ -1,7 +1,9 @@
 import Image from "next/image";
 
-// Header lockup: Yanicke's green lotus (vector redraw of her original mark) beside a
-// proper-case wordmark (Avenir Next Regular, #416274, matching her logo; cream on dark panels), with a small gold location line. `tone="dark"` for charcoal panels.
+// Header lockup: Yanicke's green lotus beside her wordmark, traced to vector from her original
+// logo ("Zenju Weddings" over the script "and events of Hawaii, LLC"). The two lines are SVG
+// masks filled with color tokens, so the same files serve light and dark backgrounds.
+// The real text is kept for screen readers and search engines.
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <span translate="no" className="flex items-center gap-3 md:gap-4">
@@ -13,21 +15,15 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
         unoptimized
         className="h-10 w-10 md:h-12 md:w-12"
       />
-      <span className="flex flex-col gap-1">
+      <span className="flex flex-col gap-1.5 md:gap-2">
+        <span className="sr-only">Zenju Weddings and events of Hawaii, LLC</span>
         <span
-          className={`font-logo text-logo leading-none font-normal whitespace-nowrap md:text-logo-lg ${
-            tone === "dark" ? "text-cream" : "text-lagoon"
+          aria-hidden="true"
+          className={`mask-wordmark block aspect-(--aspect-wordmark) w-(--wordmark-w) md:w-(--wordmark-w-lg) ${
+            tone === "dark" ? "bg-cream" : "bg-lagoon"
           }`}
-        >
-          Zenju Weddings
-        </span>
-        <span
-          className={`text-micro leading-none font-medium tracking-logo-sub uppercase md:text-caption ${
-            tone === "dark" ? "text-gold-light" : "text-gold"
-          }`}
-        >
-          Honolulu · Hawaii
-        </span>
+        />
+        <span aria-hidden="true" className="mask-subline block aspect-(--aspect-subline) w-(--subline-w) bg-leaf md:w-(--subline-w-lg)" />
       </span>
     </span>
   );

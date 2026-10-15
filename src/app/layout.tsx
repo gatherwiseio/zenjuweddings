@@ -1,18 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Jost, Nunito_Sans, Pinyon_Script } from "next/font/google";
+import { Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600"],
-});
-
-// Stand-in for the logo's Avenir Next (an Apple system font, not on Google Fonts) on Windows and Android.
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
-  subsets: ["latin"],
-  weight: "400",
 });
 
 const pinyon = Pinyon_Script({
@@ -33,7 +26,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jost.variable} ${nunitoSans.variable} ${pinyon.variable}`}>
+    <html lang="en" className={`${jost.variable} ${pinyon.variable}`}>
       <body>{children}</body>
     </html>
   );

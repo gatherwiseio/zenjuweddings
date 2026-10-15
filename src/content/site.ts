@@ -6,6 +6,7 @@ export const contact = {
   phoneHref: "tel:+18088407404",
   address: ["1050 Bishop Street, Suite 450", "Honolulu, HI 96813"],
   legalName: "Zenju Weddings and Events of Hawaii, LLC",
+  facebook: "https://www.facebook.com/ZenjuWeddings", // from the footer of her current site
 };
 
 // Only Home is live for now; the rest show in the menu but aren't clickable yet.
@@ -71,7 +72,7 @@ export const packages: Package[] = [
   },
   {
     id: "hoopono",
-    image: { src: "/images/current-site/package-hoopono-banyan.jpg", alt: "Newlyweds smiling together beneath a canopy of banyan trees", focus: "center" },
+    image: { src: "/images/current-site/package-hoopono-cake-kiss.jpg", alt: "Newlyweds sharing a kiss as they cut their cake at an evening reception under the palms", focus: "center" },
     name: "Hoʻopono",
     type: "Day-of coordination",
     meaning: "“Faithful” in Hawaiian",
