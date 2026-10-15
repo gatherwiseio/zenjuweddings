@@ -8,7 +8,7 @@ export function Reviews() {
         <SectionHeading title="Kind Words" label="From our couples" />
         <ul className="grid w-full gap-12 md:grid-cols-3 md:gap-14">
           {reviews.map((review, i) => (
-            <li key={i} className="flex flex-col gap-6 border-t border-ink/30 pt-8">
+            <li key={i} className={`reveal-up ${["", "stagger-1", "stagger-2"][i % 3]} flex flex-col gap-6 border-t border-ink/30 pt-8`}>
               <blockquote className="text-xl leading-[1.6] font-extralight md:text-[22px]">{review.quote}</blockquote>
               <p className="label text-xs">
                 {review.name}

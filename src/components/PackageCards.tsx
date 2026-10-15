@@ -27,8 +27,11 @@ export function PackageCards({ packages }: { packages: Package[] }) {
       {/* Each card spans 6 rows of a shared subgrid, so names, descriptions,
           highlights and buttons line up across all four cards. */}
       <ul className="grid w-full max-w-[1280px] gap-x-10 gap-y-16 md:grid-cols-2 xl:grid-cols-4">
-        {packages.map((pkg) => (
-          <li key={pkg.id} className="row-span-6 grid grid-rows-subgrid gap-y-4 border-t border-rule pt-8">
+        {packages.map((pkg, i) => (
+          <li
+            key={pkg.id}
+            className={`reveal-up ${["", "stagger-1", "stagger-2", "stagger-3"][i % 4]} group/card relative row-span-6 grid grid-rows-subgrid gap-y-4 border-t border-rule pt-8 before:absolute before:top-[-1px] before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-gold-light before:transition-transform before:duration-700 before:ease-[cubic-bezier(0.16,1,0.3,1)] hover:before:scale-x-100 focus-within:before:scale-x-100`}
+          >
             <h3 translate="no" className="text-[32px] leading-tight font-light md:text-[34px]">{pkg.name}</h3>
             <p className="label text-xs font-medium text-gold-light">{pkg.type}</p>
             <p className="text-[16px] leading-[1.7] text-cream/90">{pkg.summary}</p>

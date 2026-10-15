@@ -12,12 +12,14 @@ type Tone = "light" | "dark";
 
 const styles: Record<Tone, Record<Variant, string>> = {
   light: {
-    primary: "min-h-11 rounded-full bg-ink px-8 py-3 text-cream hover:bg-black",
+    primary:
+      "min-h-11 rounded-full bg-ink px-8 py-3 text-cream relative isolate overflow-hidden before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-gold before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.16,1,0.3,1)] hover:before:scale-x-100",
     secondary: "min-h-11 rounded-full border border-ink px-6 py-3 hover:bg-ink hover:text-cream",
     link: "font-semibold text-gold underline decoration-1 underline-offset-[6px] hover:text-gold-deep",
   },
   dark: {
-    primary: "min-h-11 rounded-full bg-cream px-8 py-3 text-ink hover:bg-white",
+    primary:
+      "min-h-11 rounded-full bg-cream px-8 py-3 text-ink relative isolate overflow-hidden before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-gold-light before:transition-transform before:duration-500 before:ease-[cubic-bezier(0.16,1,0.3,1)] hover:before:scale-x-100",
     secondary: "min-h-11 rounded-full border border-cream/70 px-6 py-3 hover:bg-cream hover:text-ink",
     link: "font-semibold text-gold-light underline decoration-1 underline-offset-[6px] hover:text-white",
   },

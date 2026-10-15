@@ -27,11 +27,11 @@ export function Hero() {
           fill
           preload
           sizes="100vw"
-          className="object-cover"
+          className="slow-zoom object-cover"
         />
         <video
           ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${playing ? "opacity-100" : "opacity-0"}`}
+          className={`slow-zoom absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${playing ? "opacity-100" : "opacity-0"}`}
           onPlaying={() => setPlaying(true)}
           autoPlay
           muted
