@@ -45,7 +45,6 @@
   /* Letter spacing */
   --tracking-display: -0.01em;
   --tracking-hero: 0.01em;
-  --tracking-email: 0.04em;
   --tracking-brand: 0.1em;
   --tracking-meta: 0.15em;
   --tracking-logo-sm: 0.24em;
@@ -73,8 +72,6 @@
 :root {
   /* Layout sizes, referenced as utilities like h-(--hero-h) */
   --hero-h: min(720px, 82vh);
-  --contact-min-h: 640px;
-  --contact-min-h-lg: 760px;
   --gallery-row: 180px;
   --gallery-row-lg: 260px;
   --portrait-w: 320px;

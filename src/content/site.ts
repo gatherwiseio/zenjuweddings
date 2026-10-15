@@ -146,13 +146,15 @@ export const packages: Package[] = [
   },
 ];
 
+// Captions: from her portfolio page (zenjuweddingsnevents.com/about-3-1) where she labelled the photo;
+// otherwise a plain description of what's in the photo (no invented names or venues).
 export const galleryPreview = [
-  { src: "/images/current-site/portfolio-01.jpg", alt: "Bride and groom walking together outdoors, the groom carrying her bouquet" },
-  { src: "/images/current-site/portfolio-03.jpg", alt: "Couple in traditional South Asian wedding attire beneath a white floral mandap" },
-  { src: "/images/current-site/portfolio-07.jpg", alt: "Ceremony aisle lined with lush white and blush florals" },
-  { src: "/images/current-site/portfolio-09.jpg", alt: "Reception tables dressed in white beneath a tented garden" },
-  { src: "/images/current-site/portfolio-18.jpg", alt: "Two grooms in green maile lei walking down the aisle" },
-  { src: "/images/current-site/portfolio-12.jpg", alt: "Close-up of a white rose and tropical leaf bouquet" },
+  { src: "/images/current-site/portfolio-01.jpg", caption: "Arvind & Victoria", alt: "Arvind and Victoria walking together at their Polish and Indian wedding" },
+  { src: "/images/current-site/portfolio-03.jpg", caption: "Indian ceremony", alt: "Arvind and Victoria at their Indian ceremony beneath a white floral mandap" },
+  { src: "/images/current-site/portfolio-07.jpg", caption: "Head table & cake", alt: "Head table with a white and blush floral runner, and the wedding cake behind" },
+  { src: "/images/current-site/portfolio-09.jpg", caption: "Tented reception", alt: "Reception tables dressed in white beneath a tented garden" },
+  { src: "/images/current-site/portfolio-18.jpg", caption: "Kualoa Ranch", alt: "Two grooms in green maile lei walking down the aisle at Kualoa Ranch" },
+  { src: "/images/current-site/portfolio-12.jpg", caption: "Bridal bouquet", alt: "Close-up of a white rose and tropical leaf bouquet" },
 ];
 
 // PLACEHOLDER: reviews are parked (see BRIEF.md). Replace with real reviews

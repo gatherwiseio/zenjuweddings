@@ -13,7 +13,6 @@ const tiles = [
   "col-span-2 md:col-span-2 md:row-span-1",
   "col-span-2 md:col-span-2 md:row-span-1",
 ];
-const captions = ["Garden vows", "Mandap ceremony", "Floral aisle", "Reception", "Maile lei", "Bridal bouquet"];
 const stagger = ["", "stagger-1", "stagger-2", "stagger-1", "stagger-2", "stagger-3"];
 
 export function GalleryPreview() {
@@ -35,7 +34,7 @@ export function GalleryPreview() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 bottom-0 flex h-1/2 items-end bg-linear-to-t from-ink/70 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-5"
             >
-              <span className="label text-tiny font-medium text-white">{captions[i]}</span>
+              <span className="label text-tiny font-medium text-white">{photo.caption}</span>
             </div>
           </li>
         ))}
