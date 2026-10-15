@@ -15,12 +15,12 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={`reveal-up flex flex-col gap-5 ${align === "center" ? "items-center text-center" : "items-start text-left"} ${className}`}>
-      <h2 className="text-balance text-hero leading-display font-extralight tracking-display md:text-display">
+    <div className={`flex flex-col gap-5 ${align === "center" ? "items-center text-center" : "items-start text-left"} ${className}`}>
+      <h2 className="reveal-rise text-balance text-hero leading-display font-extralight tracking-display md:text-display">
         {title}
       </h2>
       {label && (
-        <p className={`label text-balance text-xs font-medium md:text-label ${tone === "dark" ? "text-gold-light" : "text-gold"}`}>
+        <p className={`reveal-track label text-balance text-xs font-medium md:text-label ${tone === "dark" ? "text-gold-light" : "text-gold"}`}>
           {label}
         </p>
       )}

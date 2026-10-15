@@ -60,7 +60,7 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 
 ## Brand
 Full copy, package details, vendor list, and media links pulled from the current site: `content/current-site.md`.
-- **Logo:** supplied 2026-10-15 (green lotus circle + "Zenju Weddings / and events of Hawaii, LLC"), low-res (478×288). Keep the lotus mark and favicon; redo the wordmark. Files in `public/images/brand/`. Lotus redrawn as a vector (`public/images/brand/lotus.svg`). Favicons: original green `favicon-green.svg` (#8FB23F) is live as `src/app/icon.svg` + `apple-icon.png`; dark `favicon-dark.svg` kept as an alternative. **Header logo** (`src/components/Logo.tsx`): green lotus + "ZENJU WEDDINGS" (Avenir Next Condensed Demi Bold, #416274, tracked uppercase; Barlow Semi Condensed 600 fallback off Apple devices; cream on dark panels) over a gold "Honolulu · Hawaii" line; used in header, menu and footer. Options canvas: https://claude.ai/artifact/AbwRWni7GAUkaJVYFoFLjQ (exploration; header logo chosen above)
+- **Logo:** supplied 2026-10-15 (green lotus circle + "Zenju Weddings / and events of Hawaii, LLC"), low-res (478×288). Keep the lotus mark and favicon; redo the wordmark. Files in `public/images/brand/`. Lotus redrawn as a vector (`public/images/brand/lotus.svg`). Favicons: original green `favicon-green.svg` (#8FB23F) is live as `src/app/icon.svg` + `apple-icon.png`; dark `favicon-dark.svg` kept as an alternative. **Header logo** (`src/components/Logo.tsx`): green lotus + "Zenju Weddings" in proper case, matching her original logo (Avenir Next Regular, #416274 `lagoon`; Nunito Sans fallback off Apple devices; cream on dark panels) over a gold "Honolulu · Hawaii" line; used in header, menu and footer. Options canvas: https://claude.ai/artifact/AbwRWni7GAUkaJVYFoFLjQ (exploration; header logo chosen above)
 - **Colors:** none defined (current Wix site uses default blue #3A54B4; not a brand color)
 - **Fonts:** none defined (current site uses Helvetica Light)
 - **Photos:** 25 portfolio photos + hero video on the current site (links in `content/current-site.md`)
@@ -68,7 +68,8 @@ Full copy, package details, vendor list, and media links pulled from the current
 - **Tagline:** "Exclusive Wedding Planner of Hawaii" (site title)
 - **Location / service area:** Honolulu, Oahu, Hawaii
 - **Inquiry / contact details:** info@zenjuweddingsnevents.com · (808) 840-7404 · 1050 Bishop Street, 450, Honolulu, HI 96813
-- **Reviews:** the six most recent five-star WeddingWire reviews (no review dates shown; skipped one from a fellow planner). Reviewer photos in `public/images/reviews/`; initials where there's no photo.
+- **Reviews:** the six most recent five-star WeddingWire reviews (no review dates, no mention of WeddingWire on the site; skipped one from a fellow planner). One review at a time in a fixed-height spotlight with reviewer photos as tabs; long reviews clamped with "Read full review". Reviewer photos in `public/images/reviews/`; initials where there's no photo.
+- **Motion:** CSS-only, scroll-driven where supported, nothing hidden from search engines, all off under reduced motion. Hero headline and header never start transparent (keeps the LCP). Lighthouse after: SEO 100, performance 96 mobile / 100 desktop.
 
 ## Homepage directions
 - **Sections compared:** Hero (video) · About · Services preview

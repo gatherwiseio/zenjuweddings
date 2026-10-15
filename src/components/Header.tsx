@@ -42,7 +42,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
   return (
     // Pinned so Menu and the primary Inquire action stay reachable down the whole page.
     <header
-      className={`${overlay ? "fixed inset-x-0" : "sticky"} top-0 z-40 flex items-center justify-between gap-6 border-b px-6 py-4 transition-colors duration-300 md:px-14 md:py-5 ${
+      className={`header-in ${overlay ? "fixed inset-x-0" : "sticky"} top-0 z-40 flex items-center justify-between gap-6 border-b px-6 py-4 transition-colors duration-300 md:px-14 md:py-5 ${
         floating ? "border-transparent bg-transparent" : "border-fog/70 bg-white"
       }`}
     >

@@ -165,8 +165,8 @@ export const galleryPreview = [
 
 // The six most recent five-star reviews from her WeddingWire profile, newest first. Review
 // text is as written there (sign-off lines dropped); review dates are left out on purpose.
-// June's review was skipped: it's from a fellow planner, not a couple.
-export const reviewsSource = "https://www.weddingwire.com/reviews/zenju-weddings-and-events-of-hawaii-llc-honolulu/1c5539a87f1c926e.html";
+// June's review was skipped: it's from a fellow planner, not a couple. The site doesn't name
+// the source. Source: https://www.weddingwire.com/reviews/zenju-weddings-and-events-of-hawaii-llc-honolulu/1c5539a87f1c926e.html
 
 export type Review = { name: string; title: string; text: string; photo?: string };
 

@@ -5,8 +5,8 @@ import { contact } from "@/content/site";
 // vertically centered, so neither side sits higher than the other.
 export function Footer() {
   return (
-    <footer className="border-t border-fog px-6 py-12 md:px-14">
-      <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-fog px-6 md:px-14">
+      <div className="reveal-up flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between md:py-12">
         <Logo />
         <address className="flex flex-col gap-1 text-meta leading-relaxed not-italic md:items-end md:text-right">
           <span>
@@ -23,7 +23,8 @@ export function Footer() {
           <span>{contact.address.join(", ")}</span>
         </address>
       </div>
-      <div className="mt-10 flex flex-col gap-2 border-t border-fog pt-6 text-xs tracking-brand text-rule md:flex-row md:justify-between">
+      {/* Slim closing bar: one short line on desktop. */}
+      <div className="flex flex-col gap-1 border-t border-fog py-3.5 text-tiny tracking-brand text-rule md:flex-row md:justify-between">
         <p>© {contact.legalName}</p>
         <p>Exclusive wedding planner of Hawaii, since 2010</p>
       </div>

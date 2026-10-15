@@ -2,14 +2,23 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 
+const statement =
+  "Zenju was founded in 2010 to create unique, elegant and memorable celebrations, beautifully planned in\u00a0paradise.";
+const statementWords = statement.split(" ");
+
 export function About() {
   return (
     <>
       <section className="px-6 pt-8 pb-24 md:px-14 md:pt-12 md:pb-30">
-        <div className="reveal-up mx-auto max-w-statement text-center">
-          <p className="text-3xl leading-statement-sm font-extralight md:text-statement md:leading-statement">
-            Zenju was founded in 2010 to create unique, elegant and memorable celebrations, beautifully planned in
-            paradise.
+        <div className="mx-auto max-w-statement text-center">
+          {/* Words fill in from faint to full as the statement scrolls through (see .word-fill). */}
+          <p className="word-fill text-3xl leading-statement-sm font-extralight md:text-statement md:leading-statement">
+            {statementWords.map((word, i) => (
+              // Per-word index drives each word's slot in the scroll range.
+              <span key={i} style={{ "--i": i } as React.CSSProperties}>
+                {word}{" "}
+              </span>
+            ))}
           </p>
         </div>
       </section>
@@ -19,20 +28,21 @@ export function About() {
         <div className="mx-auto flex max-w-story flex-col gap-14 md:flex-row md:items-center md:gap-20">
           {/* Same frame ratio and center crop as her current About page, with an offset gold frame behind it. */}
           <div className="reveal-left relative w-full max-w-portrait shrink-0 self-center md:w-(--portrait-w)">
-            <div aria-hidden="true" className="absolute inset-0 translate-x-4 translate-y-4 border border-gold md:translate-x-5 md:translate-y-5" />
+            <div aria-hidden="true" className="frame-settle absolute inset-0 translate-x-4 translate-y-4 border border-gold md:translate-x-5 md:translate-y-5" />
             <div className="relative aspect-portrait overflow-hidden">
               <Image
                 src="/images/current-site/yanicke-headshot.jpg"
                 alt="Yanicke Lim Sang, founder of Zenju Weddings"
                 fill
                 sizes="(min-width: 768px) 320px, 340px"
-                className="object-cover"
+                className="image-settle object-cover"
               />
             </div>
           </div>
           <div className="reveal-right flex flex-col gap-6 md:flex-1">
             {/* Pull-quote: Yanicke's own words from the "Our vision" section of her current site. */}
-            <blockquote className="flex flex-col gap-3 border-l border-gold pl-6">
+            <blockquote className="relative flex flex-col gap-3 pl-6">
+              <span aria-hidden="true" className="draw-y absolute inset-y-0 left-0 w-px bg-gold" />
               <p className="text-2xl leading-quote font-light text-balance md:text-quote">
                 It is our privilege and honor to assist our clients in bringing their wedding dreams to life in this
                 paradise.

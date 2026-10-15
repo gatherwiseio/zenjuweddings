@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Header lockup: Yanicke's green lotus (vector redraw of her original mark) beside a
-// tracked uppercase wordmark (Avenir Next Condensed Demi Bold, #416274; cream on dark panels), with a small gold location line. `tone="dark"` for charcoal panels.
+// proper-case wordmark (Avenir Next Regular, #416274, matching her logo; cream on dark panels), with a small gold location line. `tone="dark"` for charcoal panels.
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <span translate="no" className="flex items-center gap-3 md:gap-4">
@@ -13,10 +13,10 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
         unoptimized
         className="h-10 w-10 md:h-12 md:w-12"
       />
-      <span className="flex flex-col gap-1.5">
+      <span className="flex flex-col gap-1">
         <span
-          className={`font-logo text-sm leading-none font-semibold tracking-logo-sm whitespace-nowrap uppercase md:text-lg md:tracking-logo ${
-            tone === "dark" ? "text-cream" : "text-logo"
+          className={`font-logo text-logo leading-none font-normal whitespace-nowrap md:text-logo-lg ${
+            tone === "dark" ? "text-cream" : "text-lagoon"
           }`}
         >
           Zenju Weddings

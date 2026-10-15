@@ -44,7 +44,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
                 aria-controls="package-panel"
                 tabIndex={active ? 0 : -1}
                 onClick={() => setSelected(i)}
-                className={`group flex min-h-11 cursor-pointer items-center justify-between gap-4 border-b border-rule py-5 text-left transition-colors ${
+                className={`reveal-up ${["", "stagger-1", "stagger-2", "stagger-3"][i]} group flex min-h-11 cursor-pointer items-center justify-between gap-4 border-b border-rule py-5 text-left transition-colors ${
                   active ? "text-gold-light" : "text-stone hover:text-cream"
                 }`}
               >
@@ -68,13 +68,13 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
         aria-labelledby={`tab-${current.id}`}
         className="fade-in flex flex-1 flex-col gap-5"
       >
-        <div className="relative h-(--package-img-h) overflow-hidden bg-rule">
+        <div className="wipe-in relative h-(--package-img-h) overflow-hidden bg-rule">
           <Image
             src={current.image.src}
             alt={current.image.alt}
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
-            className={`object-cover ${{ top: "object-top", center: "object-center", lower: "object-(--focus-lower)" }[current.image.focus]}`}
+            className={`zoom-settle object-cover ${{ top: "object-top", center: "object-center", lower: "object-(--focus-lower)" }[current.image.focus]}`}
           />
         </div>
         <p className="label text-xs font-medium text-gold-light">
