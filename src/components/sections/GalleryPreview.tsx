@@ -21,7 +21,7 @@ export function GalleryPreview() {
     <section className="px-4 pb-20 md:px-8 md:pb-30">
       <SectionHeading title="Our Portfolio" label="Moments we’ve loved" className="mb-12 px-2 md:mb-16" />
 
-      <ul className="grid auto-rows-[180px] grid-cols-2 gap-2 md:auto-rows-[260px] md:grid-cols-4 md:gap-3">
+      <ul className="grid auto-rows-(--gallery-row) grid-cols-2 gap-2 md:auto-rows-(--gallery-row-lg) md:grid-cols-4 md:gap-3">
         {galleryPreview.map((photo, i) => (
           <li key={photo.src} className={`reveal-clip group relative overflow-hidden bg-fog ${tiles[i]} ${stagger[i]}`}>
             <Image
@@ -29,13 +29,13 @@ export function GalleryPreview() {
               alt={photo.alt}
               fill
               sizes={i === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-              className="motion-safe-transform object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+              className="motion-safe-transform object-cover transition-transform duration-(--duration-slow) ease-out-expo group-hover:scale-106"
             />
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 bottom-0 flex h-1/2 items-end bg-linear-to-t from-ink/70 to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:p-5"
             >
-              <span className="label text-[11px] font-medium text-white">{captions[i]}</span>
+              <span className="label text-tiny font-medium text-white">{captions[i]}</span>
             </div>
           </li>
         ))}

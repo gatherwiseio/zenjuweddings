@@ -12,7 +12,7 @@ export function Services() {
         <PackageCards packages={packages} />
 
         <div className="flex flex-col items-center gap-7 text-center">
-          <p className="text-[17px] text-cream-muted">Pricing is discussed during your consultation.</p>
+          <p className="text-body text-cream-muted">Pricing is discussed during your consultation.</p>
           <ButtonLink href={`mailto:${contact.email}?subject=Inquiry`} tone="dark">
             Inquire
           </ButtonLink>

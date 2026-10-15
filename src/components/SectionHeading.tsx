@@ -14,11 +14,11 @@ export function SectionHeading({
 }) {
   return (
     <div className={`reveal-up flex flex-col items-center gap-5 text-center ${className}`}>
-      <h2 className="text-balance text-[44px] leading-[1.05] font-extralight tracking-[-0.01em] md:text-[68px]">
+      <h2 className="text-balance text-hero leading-display font-extralight tracking-display md:text-display">
         {title}
       </h2>
       {label && (
-        <p className={`label text-xs font-medium md:text-[13px] ${tone === "dark" ? "text-gold-light" : "text-gold"}`}>
+        <p className={`label text-xs font-medium md:text-label ${tone === "dark" ? "text-gold-light" : "text-gold"}`}>
           {label}
         </p>
       )}

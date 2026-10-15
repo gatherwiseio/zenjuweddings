@@ -16,8 +16,73 @@
   --color-gold-deep: #6b5122;
   --color-gold-light: #d4b26a;
 
+  /* Type scale (font sizes) */
+  --text-micro: 0.5625rem; /* 9px  logo sub-line on phones */
+  --text-caption: 0.625rem; /* 10px logo sub-line */
+  --text-tiny: 0.6875rem; /* 11px small labels, captions */
+  --text-label: 0.8125rem; /* 13px tracked labels, links, buttons */
+  --text-meta: 0.9375rem; /* 15px footer, card lists */
+  --text-body: 1.0625rem; /* 17px body copy */
+  --text-quote-sm: 1.375rem; /* 22px review quotes */
+  --text-quote: 1.75rem; /* 28px pull-quote */
+  --text-h3: 2rem; /* 32px card titles (mobile) */
+  --text-h3-lg: 2.125rem; /* 34px card and dialog titles */
+  --text-hero: 2.75rem; /* 44px hero headline, section titles (mobile) */
+  --text-statement: 2.875rem; /* 46px founding statement */
+  --text-display: 4.25rem; /* 68px section titles */
+  --text-script: 1.18em; /* script accent, relative to its line */
+
+  /* Line heights */
+  --leading-display: 1.05;
+  --leading-heading: 1.15;
+  --leading-statement: 1.3;
+  --leading-statement-sm: 1.35;
+  --leading-quote: 1.4;
+  --leading-prose-tight: 1.6;
+  --leading-prose: 1.7;
+  --leading-prose-loose: 1.75;
+
+  /* Letter spacing */
+  --tracking-display: -0.01em;
+  --tracking-hero: 0.01em;
+  --tracking-email: 0.04em;
+  --tracking-brand: 0.1em;
+  --tracking-meta: 0.15em;
+  --tracking-logo-sm: 0.24em;
+  --tracking-logo: 0.32em;
+  --tracking-logo-sub: 0.34em;
+
+  /* Content widths */
+  --container-portrait: 340px;
+  --container-copy: 560px;
+  --container-story: 980px;
+  --container-statement: 1040px;
+  --container-content: 1180px;
+  --container-wide: 1280px;
+
+  /* Shapes */
+  --aspect-portrait: 268 / 299;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
   --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-script: var(--font-pinyon), cursive;
+}
+
+:root {
+  /* Layout sizes, referenced as utilities like h-(--hero-h) */
+  --hero-h: min(720px, 82vh);
+  --contact-min-h: 640px;
+  --contact-min-h-lg: 760px;
+  --gallery-row: 180px;
+  --gallery-row-lg: 260px;
+  --portrait-w: 320px;
+  --dialog-w: min(560px, calc(100vw - 32px));
+  --dialog-max-h: 88vh;
+  --bullet-offset: 0.6em;
+  --bullet-offset-sm: 0.55em;
+  --duration-slow: 1200ms;
 }
 
 @layer base {

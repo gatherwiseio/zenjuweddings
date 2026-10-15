@@ -15,14 +15,14 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
       />
       <span className="flex flex-col gap-1.5">
         <span
-          className={`text-[14px] leading-none font-normal tracking-[0.24em] whitespace-nowrap uppercase md:text-[18px] md:tracking-[0.32em] ${
+          className={`text-sm leading-none font-normal tracking-logo-sm whitespace-nowrap uppercase md:text-lg md:tracking-logo ${
             tone === "dark" ? "text-cream" : "text-ink"
           }`}
         >
           Zenju Weddings
         </span>
         <span
-          className={`text-[9px] leading-none font-medium tracking-[0.34em] uppercase md:text-[10px] ${
+          className={`text-micro leading-none font-medium tracking-logo-sub uppercase md:text-caption ${
             tone === "dark" ? "text-gold-light" : "text-gold"
           }`}
         >

@@ -26,20 +26,20 @@ export function PackageCards({ packages }: { packages: Package[] }) {
     <>
       {/* Each card spans 6 rows of a shared subgrid, so names, descriptions,
           highlights and buttons line up across all four cards. */}
-      <ul className="grid w-full max-w-[1280px] gap-x-10 gap-y-16 md:grid-cols-2 xl:grid-cols-4">
+      <ul className="grid w-full max-w-wide gap-x-10 gap-y-16 md:grid-cols-2 xl:grid-cols-4">
         {packages.map((pkg, i) => (
           <li
             key={pkg.id}
-            className={`reveal-up ${["", "stagger-1", "stagger-2", "stagger-3"][i % 4]} group/card relative row-span-6 grid grid-rows-subgrid gap-y-4 border-t border-rule pt-8 before:absolute before:top-[-1px] before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-gold-light before:transition-transform before:duration-700 before:ease-[cubic-bezier(0.16,1,0.3,1)] hover:before:scale-x-100 focus-within:before:scale-x-100`}
+            className={`reveal-up ${["", "stagger-1", "stagger-2", "stagger-3"][i % 4]} group/card relative row-span-6 grid grid-rows-subgrid gap-y-4 border-t border-rule pt-8 before:absolute before:-top-px before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-gold-light before:transition-transform before:duration-700 before:ease-out-expo hover:before:scale-x-100 focus-within:before:scale-x-100`}
           >
-            <h3 translate="no" className="text-[32px] leading-tight font-light md:text-[34px]">{pkg.name}</h3>
+            <h3 translate="no" className="text-h3 leading-tight font-light md:text-h3-lg">{pkg.name}</h3>
             <p className="label text-xs font-medium text-gold-light">{pkg.type}</p>
-            <p className="text-[16px] leading-[1.7] text-cream/90">{pkg.summary}</p>
+            <p className="text-base leading-prose text-cream/90">{pkg.summary}</p>
 
-            <ul className="flex flex-col gap-2 border-t border-rule/60 pt-4 text-[15px]">
+            <ul className="flex flex-col gap-2 border-t border-rule/60 pt-4 text-meta">
               {pkg.highlights.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-gold-light" />
+                  <span aria-hidden="true" className="mt-(--bullet-offset) h-1.5 w-1.5 shrink-0 rounded-full bg-gold-light" />
                   {item}
                 </li>
               ))}
@@ -70,14 +70,14 @@ export function PackageCards({ packages }: { packages: Package[] }) {
         onClose={() => setActive(null)}
         onClick={(e) => e.target === dialogRef.current && close()}
         aria-labelledby="package-dialog-title"
-        className="m-auto max-h-[88vh] w-[min(560px,calc(100vw-32px))] overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
+        className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
       >
         {active && (
           <div className="flex flex-col">
             <div className="sticky top-0 flex items-start justify-between gap-6 border-b border-fog bg-white px-8 pt-8 pb-6 md:px-10">
               <div className="flex flex-col gap-2">
                 <p className="label text-xs font-medium text-gold">{active.type}</p>
-                <h3 id="package-dialog-title" translate="no" className="text-[34px] leading-tight font-light">
+                <h3 id="package-dialog-title" translate="no" className="text-h3-lg leading-tight font-light">
                   {active.name}
                 </h3>
               </div>
@@ -90,10 +90,10 @@ export function PackageCards({ packages }: { packages: Package[] }) {
               <h4 className="label text-xs font-semibold">
                 What&rsquo;s included <span className="text-gold">({active.includes.length})</span>
               </h4>
-              <ul className="flex flex-col gap-3 text-[17px] leading-snug">
+              <ul className="flex flex-col gap-3 text-body leading-snug">
                 {active.includes.map((item) => (
                   <li key={item} className="flex gap-4">
-                    <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                    <span aria-hidden="true" className="mt-(--bullet-offset-sm) h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
                     {item}
                   </li>
                 ))}
@@ -101,7 +101,7 @@ export function PackageCards({ packages }: { packages: Package[] }) {
             </div>
 
             <div className="flex flex-col gap-5 border-t border-fog bg-mist px-8 py-7 md:px-10">
-              <p className="text-[15px] leading-relaxed">{active.note}</p>
+              <p className="text-meta leading-relaxed">{active.note}</p>
               <div>
                 <a
                   href={`mailto:${contact.email}?subject=${encodeURIComponent(`Inquiry: ${active.name}`)}`}

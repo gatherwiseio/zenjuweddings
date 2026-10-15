@@ -99,7 +99,7 @@ Full copy, package details, vendor list, and media links pulled from the current
 - Ran the stacked audit versions: V0 baseline → V1 Lighthouse + axe → V2 Vercel Web Interface Guidelines → V3 Impeccable polish + animate → V4 Anthropic design critique → V5 bold visual + motion.
 - **Chosen: V5** (all five passes). Lighthouse: mobile 98 / desktop 100 / accessibility 100 / best practices 100 / SEO 100.
 - What V5 adds to the design: sticky header with a primary Inquire; scroll reveals (CSS scroll-driven, off under reduced motion); slow zoom on the hero film and contact photo; editorial gallery with hover captions; portrait with an offset gold frame and her pull-quote; 68px section titles; full-bleed contact; gold line on package-card hover; gold fill sweep on primary buttons.
-- Still to do: move the remaining one-off values (about 78 `-[…]` sizes) into design tokens, per the token rule.
+- Design tokens: done. All 78 one-off sizes now come from tokens in `src/app/globals.css` (type scale `text-micro`…`text-display`, `leading-*`, `tracking-*`, container widths `max-w-content` etc., `aspect-portrait`, `ease-out-expo`, and layout sizes as CSS variables like `--hero-h`). Verified pixel-identical: 204/204 elements had the same computed sizes before and after.
 
 ## Assets needed
 - Downloaded from the current site (with OK, 2026-10-15) and resized for web: `public/images/current-site/` (hero video still, portrait, team photo, 4 package photos, 25 portfolio photos).
