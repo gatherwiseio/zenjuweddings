@@ -24,6 +24,9 @@ export function ContactCta() {
             <ButtonLink href={`mailto:${contact.email}?subject=Inquiry`} tone="dark">
               Email us
             </ButtonLink>
+            <ButtonLink href={`mailto:${contact.email}`} variant="link" tone="dark">
+              <span className="normal-case tracking-[0.04em]">{contact.email}</span>
+            </ButtonLink>
             <ButtonLink href={contact.phoneHref} variant="link" tone="dark">
               {contact.phone}
             </ButtonLink>

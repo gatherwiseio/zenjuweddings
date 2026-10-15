@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { buttonClass } from "@/components/Button";
 import { Logo } from "@/components/Logo";
-import { pages } from "@/content/site";
+import { contact, pages } from "@/content/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -21,19 +21,25 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="flex items-center justify-between gap-6 px-6 py-6 md:px-14 md:py-7">
+    // Pinned so Menu and the primary Inquire action stay reachable down the whole page.
+    <header className="sticky top-0 z-40 flex items-center justify-between gap-6 border-b border-fog/70 bg-white px-6 py-4 md:px-14 md:py-5">
       <Link href="/">
         <Logo />
       </Link>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        aria-expanded={open}
-        aria-controls="site-menu"
-        className={buttonClass("secondary")}
-      >
-        Menu
-      </button>
+      <div className="flex items-center gap-3">
+        <a href={`mailto:${contact.email}?subject=Inquiry`} className={`${buttonClass("primary")} hidden sm:inline-flex`}>
+          Inquire
+        </a>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-expanded={open}
+          aria-controls="site-menu"
+          className={buttonClass("secondary")}
+        >
+          Menu
+        </button>
+      </div>
 
       {open && (
         <div

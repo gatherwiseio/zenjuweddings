@@ -17,7 +17,7 @@ export default function Home() {
         Skip to content
       </a>
       <Header />
-      <main id="main">
+      <main id="main" className="scroll-mt-24">
         <Hero />
         <About />
         <Services />

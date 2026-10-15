@@ -45,7 +45,7 @@ export function PackageCards({ packages }: { packages: Package[] }) {
             <button
               type="button"
               onClick={() => open(pkg)}
-              className="group flex cursor-pointer items-center gap-3 self-start text-left text-gold-light hover:text-white"
+              className="group flex min-h-11 cursor-pointer items-center gap-3 self-start text-left text-gold-light hover:text-white"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-full border border-current">
                 <PlusIcon />
