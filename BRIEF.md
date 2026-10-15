@@ -3,7 +3,7 @@
 ## Status
 - [x] Phase 1: Repo, local folder, Vercel project
 - [x] Phase 2: Brief (scope, inspiration, brand)
-- [ ] Phase 3: Homepage direction chosen
+- [x] Phase 3: Homepage direction chosen
 - [ ] Phase 4: All scoped pages live
 
 ## Project
@@ -71,19 +71,32 @@ Full copy, package details, vendor list, and media links pulled from the current
 - **Reviews:** parked. Use marked placeholders. Source later: WeddingWire profile (link in `content/current-site.md`)
 
 ## Homepage directions
-- **Sections compared:** <3 sections>
-- **Claude Design canvas:** <link>
-- **Directions:** A: … / B: … / C: …
+- **Sections compared:** Hero (video) · About · Services preview
+- **Claude Design canvas:** https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (private to the owner until shared)
+- **Directions:**
+  - **A, Island Editorial** (Brooke Keegan): full-bleed video, thin wordmark and Menu pill; Jost 200 headings with a Pinyon Script accent word; fog #DCE0E4 / charcoal #27262A / cream #F5F2E9; packages on a charcoal panel.
+  - **B, Warm Aloha Romance** (Beth Helmstetter): slim top nav; framed tagline card over the video; Cormorant Garamond uppercase + italic, Karla body; ivory #FEFBF6 / blush #F3E9E4 / brown #5E351C; 3-up photo row; package cards with text links.
+  - **C, Golden Hour Modern** (bolder, inspired by Yanicke's fashion background): split hero (video left, headline right); Bodoni Moda display + Manrope; sand #EFE4D2 / terracotta #9C4630 / deep green #1F3A2E; package names as large type rows.
+- Photos are labeled placeholders. Real photos need downloading from the current site (ask first).
+- **Feedback round 1 (2026-10-15):** user likes **A**, but grey was too dominant. Revised A: page is mostly white #FFFFFF, light grey #EEF0F2 only as a band behind the story, charcoal #27262A kept for highlighted sections (packages panel).
+- **Feedback round 2:** hero made white too: menu on white, video in a large inset frame at the top, headline on white below. Real photos added (hero still, Yanicke's portrait).
 
 ## Chosen direction
-- **Direction:** <name, and any mix-ins>
-- **Colors:** <hex: role, …>
-- **Heading font:** <Google font, weights>
-- **Body font:** <Google font, weights>
-- **Type scale:** 
-- **Spacing feel:** 
-- **Buttons / links:** 
-- **Image treatment:** 
+- **Direction:** A, Island Editorial, revised (mostly white). Design: https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (artboard "A · Island Editorial")
+- **Colors:** white #FFFFFF (page) · light grey #EEF0F2 (occasional band) · fog #DCE0E4 (image backdrop) · charcoal #27262A (text, highlighted panels) · cream #F5F2E9 (text on charcoal) · muted cream #E6DFCF / #CFCBC2 (secondary text on charcoal) · rule grey #6B6A70 (lines on charcoal)
+- **Heading font:** Jost 200 (light), large and centered, 46–68px desktop
+- **Accent font:** Pinyon Script, one word per heading ("aloha", "beautifully", "our packages")
+- **Body font:** Jost 300, 17–19px, line-height 1.7
+- **Labels / nav:** Jost 400, 12–13px, uppercase, 2.4–3px tracking
+- **Type scale:** 68 / 58 / 46 / 40 / 19 / 17 / 13 / 12
+- **Spacing feel:** very airy, 112–128px section padding, 1040–1180px max content width
+- **Buttons / links:** outlined pill (1px, full radius, uppercase tracked) for Menu and Inquire; underlined uppercase text links elsewhere
+- **Image treatment:** full-width photo/video in a large inset frame (32px white margin); square corners; object-fit cover
+- **Hero:** white menu bar (wordmark left, Menu pill right) → video in inset frame (~640px) → headline + tagline on white → short rule
 
 ## Assets needed
-- ...
+- Downloaded from the current site (with OK, 2026-10-15) and resized for web: `public/images/current-site/` (hero video still, portrait, team photo, 4 package photos, 25 portfolio photos).
+- **Professional headshot of Yanicke.** The only portrait on the current site is a phone screenshot, cropped for now.
+- Hero video file itself (1080p MP4 link in `content/current-site.md`), to download in Phase 4.
+- Reviews (parked).
+- Logo (none exists, text wordmark for now).
