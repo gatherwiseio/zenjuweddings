@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-// Header lockup: Yanicke's green lotus beside her wordmark, traced to vector from her original
-// logo ("Zenju Weddings" over the script "and events of Hawaii, LLC"). The two lines are SVG
-// masks filled with color tokens, so the same files serve light and dark backgrounds.
+// Header lockup: Yanicke's green lotus beside her wordmark ("Zenju Weddings", traced to vector
+// from her original logo and used as an SVG mask filled with a color token), over a small tracked
+// "and events of Hawaii, LLC" line: white over the hero video, leaf green everywhere else.
 // The real text is kept for screen readers and search engines.
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
@@ -15,7 +15,7 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
         unoptimized
         className="h-10 w-10 md:h-12 md:w-12"
       />
-      <span className="flex flex-col gap-1.5 md:gap-2">
+      <span className="flex flex-col gap-0.5">
         <span className="sr-only">Zenju Weddings and events of Hawaii, LLC</span>
         <span
           aria-hidden="true"
@@ -23,7 +23,14 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
             tone === "dark" ? "bg-cream" : "bg-lagoon"
           }`}
         />
-        <span aria-hidden="true" className="mask-subline block aspect-(--aspect-subline) w-(--subline-w) bg-leaf md:w-(--subline-w-lg)" />
+        <span
+          aria-hidden="true"
+          className={`text-micro leading-none font-medium tracking-logo-sub whitespace-nowrap uppercase md:text-caption ${
+            tone === "dark" ? "text-white" : "text-leaf"
+          }`}
+        >
+          and events of Hawaii, LLC
+        </span>
       </span>
     </span>
   );

@@ -19,6 +19,8 @@
   --color-leaf: #84ab3a; /* logo script line "and events of Hawaii, LLC" */
 
   /* Type scale (font sizes) */
+  --text-micro: 0.5625rem; /* 9px  logo sub-line on phones */
+  --text-caption: 0.625rem; /* 10px logo sub-line */
   --text-tiny: 0.6875rem; /* 11px small labels, captions */
   --text-label: 0.8125rem; /* 13px tracked labels, links, buttons */
   --text-meta: 0.9375rem; /* 15px footer, card lists */
@@ -47,6 +49,7 @@
   --tracking-hero: 0.01em;
   --tracking-brand: 0.1em;
   --tracking-meta: 0.15em;
+  --tracking-logo-sub: 0.16em;
 
   /* Content widths */
   --container-portrait: 340px;
@@ -85,11 +88,9 @@
   --focus-lower: center 70%;
   /* Logo lockup: traced wordmark files (public/images/brand) and their display widths */
   --aspect-wordmark: 2040 / 306;
-  --aspect-subline: 2508 / 222;
+  --aspect-lotus: 386.1 / 291.3;
   --wordmark-w: 124px;
   --wordmark-w-lg: 150px;
-  --subline-w: 152px;
-  --subline-w-lg: 184px;
   --testimonial-w: 84%; /* phone swipe row: one card plus a peek of the next */
   --legal-cols: 240px 1fr; /* legal pages: contents list + text */
   --parallax-bleed: 8%; /* extra photo height above and below for scroll parallax */
@@ -162,8 +163,8 @@
 @utility mask-wordmark {
   mask: url("/images/brand/wordmark.svg") center / contain no-repeat;
 }
-@utility mask-subline {
-  mask: url("/images/brand/wordmark-subline.svg") center / contain no-repeat;
+@utility mask-lotus {
+  mask: url("/images/brand/lotus.svg") center / contain no-repeat;
 }
 
 /* Gold text links: a 1px underline that retracts and redraws on hover. */

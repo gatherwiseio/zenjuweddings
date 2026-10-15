@@ -10,7 +10,9 @@ export function About() {
   return (
     <>
       <section className="px-6 pt-8 pb-24 md:px-14 md:pt-12 md:pb-30">
-        <div className="mx-auto max-w-statement text-center">
+        <div className="mx-auto flex max-w-statement flex-col items-center gap-8 text-center md:gap-10">
+          {/* Her lotus on its own, in ink, as a small mark above the statement. */}
+          <span aria-hidden="true" className="mask-lotus reveal-scale block aspect-(--aspect-lotus) w-12 bg-ink md:w-16" />
           {/* Words fill in from faint to full as the statement scrolls through (see .word-fill). */}
           <p className="word-fill text-3xl leading-statement-sm font-extralight md:text-statement md:leading-statement">
             {statementWords.map((word, i) => (
