@@ -1,11 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Jost, Pinyon_Script } from "next/font/google";
+import { Barlow_Semi_Condensed, Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
 const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600"],
+});
+
+// Fallback for the logo's Avenir Next Condensed (an Apple system font, not on Google Fonts)
+// on Windows and Android.
+const barlowCondensed = Barlow_Semi_Condensed({
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+  weight: "600",
 });
 
 const pinyon = Pinyon_Script({
@@ -26,7 +34,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jost.variable} ${pinyon.variable}`}>
+    <html lang="en" className={`${jost.variable} ${barlowCondensed.variable} ${pinyon.variable}`}>
       <body>{children}</body>
     </html>
   );

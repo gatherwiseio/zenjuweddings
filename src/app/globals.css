@@ -15,6 +15,7 @@
   --color-gold: #82632a;
   --color-gold-deep: #6b5122;
   --color-gold-light: #d4b26a;
+  --color-logo: #416274; /* logo wordmark */
 
   /* Type scale (font sizes) */
   --text-micro: 0.5625rem; /* 9px  logo sub-line on phones */
@@ -70,6 +71,8 @@
 
   --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-script: var(--font-pinyon), cursive;
+  /* Logo wordmark: Avenir Next Condensed Demi Bold where installed (Apple devices), else Barlow Semi Condensed */
+  --font-logo: "Avenir Next Condensed", var(--font-barlow-condensed), sans-serif;
 }
 
 :root {
