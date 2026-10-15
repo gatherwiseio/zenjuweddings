@@ -6,8 +6,27 @@ import { buttonClass } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { contact, pages } from "@/content/site";
 
-export function Header() {
+// `overlay`: the header floats see-through over a full-screen hero (white text), then turns
+// solid white and stays pinned once the hero has scrolled away. Pages without a hero: solid from the start.
+export function Header({ overlay = false }: { overlay?: boolean }) {
   const [open, setOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    if (!overlay) return;
+    const hero = document.getElementById("hero")?.firstElementChild as HTMLElement | null;
+    const onScroll = () => setPastHero(window.scrollY > (hero?.offsetHeight ?? 600) - 96);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [overlay]);
+
+  const floating = overlay && !pastHero;
+  const tone = floating ? "dark" : "light";
 
   useEffect(() => {
     if (!open) return;
@@ -22,14 +41,18 @@ export function Header() {
 
   return (
     // Pinned so Menu and the primary Inquire action stay reachable down the whole page.
-    <header className="sticky top-0 z-40 flex items-center justify-between gap-6 border-b border-fog/70 bg-white px-6 py-4 md:px-14 md:py-5">
+    <header
+      className={`${overlay ? "fixed inset-x-0" : "sticky"} top-0 z-40 flex items-center justify-between gap-6 border-b px-6 py-4 transition-colors duration-300 md:px-14 md:py-5 ${
+        floating ? "border-transparent bg-transparent" : "border-fog/70 bg-white"
+      }`}
+    >
       <Link href="/">
-        <Logo />
+        <Logo tone={tone} />
       </Link>
       <div className="flex items-center gap-3">
         {/* Wrapper does the hiding: the button's own inline-flex would override `hidden`. */}
         <span className="hidden sm:block">
-          <a href={`mailto:${contact.email}?subject=Inquiry`} className={buttonClass("primary")}>
+          <a href={`mailto:${contact.email}?subject=Inquiry`} className={buttonClass("primary", tone)}>
             Inquire
           </a>
         </span>
@@ -38,7 +61,7 @@ export function Header() {
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-controls="site-menu"
-          className={buttonClass("secondary")}
+          className={buttonClass("secondary", tone)}
         >
           Menu
         </button>

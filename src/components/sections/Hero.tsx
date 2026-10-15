@@ -16,8 +16,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="pb-20 md:pb-28">
-      <div className="relative mx-4 h-(--hero-h) min-h-120 overflow-hidden bg-ink md:mx-8">
+    // Full screen, edge to edge; the header floats over it until you scroll past (see Header `overlay`).
+    <section id="hero" className="pb-20 md:pb-28">
+      <div className="relative h-(--hero-h) min-h-120 overflow-hidden bg-ink">
         {/* Focal motion: the still paints first, the film fades in over it once playing, and the
             headline settles in once. Reduced-motion visitors get the still and static text. */}
         {/* The optimized still paints first (it's the LCP element); the video plays over it once ready. */}
@@ -44,9 +45,11 @@ export function Hero() {
           <source src="/video/hero-720.mp4" type="video/mp4" media="(max-width: 767px)" />
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
+        {/* Soft fade at the top so the see-through header stays legible over bright florals. */}
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-ink/50 to-transparent" />
         {/* Soft fade along the bottom edge only, so the small white text stays legible over white linens. */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-ink/60 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 px-6 pb-8 text-center text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.55),0_2px_20px_rgb(0_0_0/0.45)] md:pb-12">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 px-6 pb-8 text-center text-white text-shadow-hero md:pb-16">
           <h1 className="hero-rise text-balance text-3xl leading-heading font-light tracking-hero md:text-hero">
             Celebrations rooted in <Script>aloha</Script>.
           </h1>
