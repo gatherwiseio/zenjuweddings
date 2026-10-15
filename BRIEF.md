@@ -68,7 +68,7 @@ Full copy, package details, vendor list, and media links pulled from the current
 - **Tagline:** "Exclusive Wedding Planner of Hawaii" (site title)
 - **Location / service area:** Honolulu, Oahu, Hawaii
 - **Inquiry / contact details:** info@zenjuweddingsnevents.com · (808) 840-7404 · 1050 Bishop Street, 450, Honolulu, HI 96813
-- **Reviews:** parked. Use marked placeholders. Source later: WeddingWire profile (link in `content/current-site.md`)
+- **Reviews:** the six most recent five-star WeddingWire reviews (no review dates shown; skipped one from a fellow planner). Reviewer photos in `public/images/reviews/`; initials where there's no photo.
 
 ## Homepage directions
 - **Sections compared:** Hero (video) · About · Services preview
@@ -105,5 +105,4 @@ Full copy, package details, vendor list, and media links pulled from the current
 - Downloaded from the current site (with OK, 2026-10-15) and resized for web: `public/images/current-site/` (hero video still, portrait, team photo, 4 package photos, 25 portfolio photos).
 - **Professional headshot of Yanicke.** The only portrait on the current site is a phone screenshot, cropped for now.
 - Hero video downloaded to `public/video/hero.mp4` (1080p, 11 MB).
-- Reviews (parked). The homepage shows three clearly marked `[Placeholder review]` cards; replace them in `src/content/site.ts`.
 - Logo: confirm the header lockup with Yanicke.
