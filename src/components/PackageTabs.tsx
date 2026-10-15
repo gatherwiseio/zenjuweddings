@@ -14,21 +14,32 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const current = packages[selected];
 
+  const select = (i: number) => {
+    setSelected(i);
+  };
+
   // Arrow keys move between tabs, per the WAI-ARIA tabs pattern.
   const onKeyDown = (e: React.KeyboardEvent) => {
     const step = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
     if (!step) return;
     e.preventDefault();
     const next = (selected + step + packages.length) % packages.length;
-    setSelected(next);
+    select(next);
     tabRefs.current[next]?.focus();
   };
 
   return (
-    <div className="flex w-full max-w-content flex-col gap-14 lg:flex-row lg:gap-20">
-      <div className="flex flex-col gap-10 lg:w-96 lg:shrink-0">
+    <div className="flex w-full max-w-content flex-col gap-8 xl:flex-row xl:gap-20">
+      <div className="flex flex-col gap-8 xl:w-96 xl:shrink-0 xl:gap-10">
         <SectionHeading title="Our Packages" label="Tailored to your budget" tone="dark" align="left" />
-        <div role="tablist" aria-label="Packages" aria-orientation="vertical" onKeyDown={onKeyDown} className="flex flex-col border-t border-rule">
+        {/* Underline tabs right above the package: two per row on phones (every name visible),
+            one row on tablets and small laptops. Wide screens (1280+): the stacked list with a gold dash. */}
+        <div
+          role="tablist"
+          aria-label="Packages"
+          onKeyDown={onKeyDown}
+          className="grid grid-cols-2 gap-x-6 sm:flex sm:gap-7 sm:border-b sm:border-rule xl:flex-col xl:gap-0 xl:border-t xl:border-b-0"
+        >
           {packages.map((pkg, i) => {
             const active = i === selected;
             return (
@@ -43,17 +54,22 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
                 aria-selected={active}
                 aria-controls="package-panel"
                 tabIndex={active ? 0 : -1}
-                onClick={() => setSelected(i)}
-                className={`reveal-up ${["", "stagger-1", "stagger-2", "stagger-3"][i]} group flex min-h-11 cursor-pointer items-center justify-between gap-4 border-b border-rule py-5 text-left transition-colors ${
+                onClick={() => select(i)}
+                className={`group relative flex min-h-11 shrink-0 cursor-pointer items-center justify-between gap-4 border-b border-rule py-3 text-left whitespace-nowrap transition-colors sm:border-b-0 xl:border-b xl:py-5 xl:whitespace-normal ${
                   active ? "text-gold-light" : "text-stone hover:text-cream"
                 }`}
               >
-                <span translate="no" className="text-3xl font-light">
+                <span translate="no" className="text-lg font-light xl:text-3xl">
                   {pkg.name}
                 </span>
+                {/* Underline below 1280px, dash on wide screens. */}
                 <span
                   aria-hidden="true"
-                  className={`h-px bg-gold-light transition-all duration-500 ease-out-expo ${active ? "w-8" : "w-0 group-hover:w-4"}`}
+                  className={`absolute inset-x-0 -bottom-px h-0.5 bg-gold-light transition-opacity xl:hidden ${active ? "opacity-100" : "opacity-0"}`}
+                />
+                <span
+                  aria-hidden="true"
+                  className={`hidden h-px bg-gold-light transition-all duration-500 ease-out-expo xl:block ${active ? "w-8" : "w-0 group-hover:w-4"}`}
                 />
               </button>
             );
@@ -68,7 +84,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
         aria-labelledby={`tab-${current.id}`}
         className="fade-in flex flex-1 flex-col gap-5"
       >
-        <div className="wipe-in relative h-(--package-img-h) overflow-hidden bg-rule">
+        <div className="wipe-in relative aspect-(--aspect-package) overflow-hidden bg-rule md:aspect-(--aspect-package-wide) xl:aspect-auto xl:h-(--package-img-h)">
           <Image
             src={current.image.src}
             alt={current.image.alt}
@@ -81,7 +97,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
           {current.type}
           {current.meaning ? ` · ${current.meaning}` : ""}
         </p>
-        <p className="text-lg leading-prose text-cream-muted">{current.summary}</p>
+        <p className="text-body leading-prose text-cream-muted md:text-lg">{current.summary}</p>
         <ul className="flex flex-col gap-2.5">
           {current.highlights.map((item) => (
             <li key={item} className="flex gap-3.5 text-base">
@@ -108,10 +124,10 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
         className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
       >
         <div className="flex flex-col">
-          <div className="sticky top-0 flex items-start justify-between gap-6 border-b border-fog bg-white px-8 pt-8 pb-6 md:px-10">
+          <div className="sticky top-0 flex items-start justify-between gap-4 border-b border-fog bg-white px-6 pt-6 pb-5 sm:gap-6 sm:px-8 sm:pt-8 sm:pb-6 md:px-10">
             <div className="flex flex-col gap-2">
               <p className="label text-xs font-medium text-gold">{current.type}</p>
-              <h3 id="package-dialog-title" translate="no" className="text-h3-lg leading-tight font-light">
+              <h3 id="package-dialog-title" translate="no" className="text-2xl leading-heading font-light sm:text-h3-lg">
                 {current.name}
               </h3>
             </div>
@@ -119,7 +135,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
               Close
             </button>
           </div>
-          <div className="flex flex-col gap-5 px-8 py-8 md:px-10">
+          <div className="flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-8 md:px-10">
             <h4 className="label text-xs font-semibold">
               What&rsquo;s included <span className="text-gold">({current.includes.length})</span>
             </h4>
@@ -132,12 +148,12 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col gap-5 border-t border-fog bg-mist px-8 py-7 md:px-10">
+          <div className="flex flex-col gap-5 border-t border-fog bg-mist px-6 py-6 sm:px-8 sm:py-7 md:px-10">
             <p className="text-meta leading-relaxed">{current.note}</p>
             <div>
               <a
                 href={`mailto:${contact.email}?subject=${encodeURIComponent(`Inquiry: ${current.name}`)}`}
-                className={buttonClass("primary")}
+                className={`${buttonClass("primary")} w-full text-center sm:w-auto`}
               >
                 Inquire about {current.name}
               </a>

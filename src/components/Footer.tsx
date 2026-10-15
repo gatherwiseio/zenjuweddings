@@ -12,14 +12,15 @@ export function Footer() {
           <Logo />
         </Link>
         <address className="flex flex-col gap-1 text-meta leading-relaxed not-italic md:items-end md:text-right">
-          <span>
-            <a href={`mailto:${contact.email}`} className="hover:underline">
+          {/* Email and phone share a line from tablets up; on phones each gets its own. */}
+          <span className="flex flex-col md:block">
+            <a href={`mailto:${contact.email}`} className="inline-block py-0.5 break-all hover:underline">
               {contact.email}
             </a>
-            <span aria-hidden="true" className="px-2 text-rule">
+            <span aria-hidden="true" className="hidden px-2 text-rule md:inline">
               ·
             </span>
-            <a href={contact.phoneHref} className="whitespace-nowrap hover:underline">
+            <a href={contact.phoneHref} className="inline-block py-0.5 whitespace-nowrap hover:underline">
               {contact.phone}
             </a>
           </span>

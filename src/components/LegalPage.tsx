@@ -25,7 +25,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
           </div>
         </section>
 
-        <div className="mx-auto grid max-w-story gap-12 px-6 py-16 md:grid-cols-(--legal-cols) md:gap-16 md:px-14 md:py-24">
+        <div className="mx-auto grid max-w-story grid-cols-1 gap-12 px-6 py-16 md:grid-cols-(--legal-cols) md:gap-16 md:px-14 md:py-24">
           <nav aria-label="On this page" className="md:sticky md:top-32 md:self-start">
             <p className="label mb-5 text-xs font-semibold">On this page</p>
             <ol className="flex flex-col border-l border-fog">
@@ -120,7 +120,7 @@ function Item({ item }: { item: LegalItem }) {
 
 // Turns email addresses, web addresses and "our Privacy Policy" in the legal text into links.
 const linkPattern = /(https?:\/\/[^\s]+[^\s.,)]|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|our Privacy Policy)/g;
-const linkClass = "text-gold underline decoration-1 underline-offset-4 hover:text-gold-deep break-words";
+const linkClass = "text-gold underline decoration-1 underline-offset-4 hover:text-gold-deep wrap-anywhere";
 
 function linkify(text: string): ReactNode {
   return text.split(linkPattern).map((part, i) => {
