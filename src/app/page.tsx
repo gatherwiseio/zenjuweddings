@@ -10,8 +10,14 @@ import { Services } from "@/components/sections/Services";
 export default function Home() {
   return (
     <>
+      <a
+        href="#main"
+        className="label sr-only z-50 bg-ink px-5 py-3 text-cream focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+      >
+        Skip to content
+      </a>
       <Header />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <Services />

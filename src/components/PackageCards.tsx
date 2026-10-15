@@ -33,7 +33,7 @@ export function PackageCards({ packages }: { packages: Package[] }) {
               <span className="text-[13px] font-medium tracking-[0.2em] text-gold-light">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-[32px] leading-tight font-light md:text-[34px]">{pkg.name}</h3>
+              <h3 translate="no" className="text-[32px] leading-tight font-light md:text-[34px]">{pkg.name}</h3>
             </div>
             <p className="label text-xs font-medium text-gold-light">{pkg.type}</p>
             <p className="text-[16px] leading-[1.7] text-cream/90">{pkg.summary}</p>
@@ -72,14 +72,14 @@ export function PackageCards({ packages }: { packages: Package[] }) {
         onClose={() => setActive(null)}
         onClick={(e) => e.target === dialogRef.current && close()}
         aria-labelledby="package-dialog-title"
-        className="m-auto max-h-[88vh] w-[min(560px,calc(100vw-32px))] overflow-y-auto bg-white p-0 text-ink backdrop:bg-ink/70"
+        className="m-auto max-h-[88vh] w-[min(560px,calc(100vw-32px))] overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
       >
         {active && (
           <div className="flex flex-col">
             <div className="sticky top-0 flex items-start justify-between gap-6 border-b border-fog bg-white px-8 pt-8 pb-6 md:px-10">
               <div className="flex flex-col gap-2">
                 <p className="label text-xs font-medium text-gold">{active.type}</p>
-                <h3 id="package-dialog-title" className="text-[34px] leading-tight font-light">
+                <h3 id="package-dialog-title" translate="no" className="text-[34px] leading-tight font-light">
                   {active.name}
                 </h3>
               </div>

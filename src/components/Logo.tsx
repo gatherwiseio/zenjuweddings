@@ -4,7 +4,7 @@ import Image from "next/image";
 // tracked uppercase wordmark, with a small gold location line. `tone="dark"` for charcoal panels.
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
-    <span className="flex items-center gap-3 md:gap-4">
+    <span translate="no" className="flex items-center gap-3 md:gap-4">
       <Image
         src="/images/brand/favicon-green.svg"
         alt=""

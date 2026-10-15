@@ -23,6 +23,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgb(39 38 42 / 0.08);
   }
 
   body {

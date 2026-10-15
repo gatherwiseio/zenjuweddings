@@ -41,7 +41,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-0 z-50 flex flex-col bg-ink px-6 py-6 text-cream md:px-14 md:py-7"
+          className="fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-ink px-6 py-6 text-cream md:px-14 md:py-7"
         >
           <div className="flex items-center justify-between gap-6">
             <Logo tone="dark" />

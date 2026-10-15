@@ -43,7 +43,7 @@ export function Hero() {
         {/* Soft fade along the bottom edge only, so the small white text stays legible over white linens. */}
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-ink/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 px-6 pb-8 text-center text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.55),0_2px_20px_rgb(0_0_0/0.45)] md:pb-12">
-          <h1 className="text-[30px] leading-[1.15] font-light tracking-[0.01em] md:text-[44px]">
+          <h1 className="text-balance text-[30px] leading-[1.15] font-light tracking-[0.01em] md:text-[44px]">
             Celebrations rooted in <Script>aloha</Script>.
           </h1>
           <p className="label text-[11px] font-medium md:text-xs">

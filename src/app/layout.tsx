@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "Zenju Weddings | Wedding Planner in Honolulu, Hawaii",
   description:
     "Zenju Weddings and Events of Hawaii plans unique, elegant and memorable weddings across Oahu, from full coordination to oceanfront elopements. Founded in 2010 by Yanicke Lim Sang.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
