@@ -27,6 +27,8 @@ export type Package = {
   meaning: string | null;
   summary: string;
   highlights: string[];
+  /** Photo from her own Packages page; `focus` picks which part of the photo stays in frame. */
+  image: { src: string; alt: string; focus: "center" | "top" };
   includes: string[];
   note: string;
 };
@@ -34,6 +36,7 @@ export type Package = {
 export const packages: Package[] = [
   {
     id: "kuulei",
+    image: { src: "/images/current-site/package-kuulei.jpg", alt: "Bride holding her bouquet by the water", focus: "center" },
     name: "Kuʻu Lei",
     type: "Full wedding coordination",
     meaning: "“Beloved” in Hawaiian",
@@ -68,6 +71,7 @@ export const packages: Package[] = [
   },
   {
     id: "hoopono",
+    image: { src: "/images/current-site/package-hoopono.jpg", alt: "Couple walking hand in hand on the beach", focus: "top" },
     name: "Hoʻopono",
     type: "Day-of coordination",
     meaning: "“Faithful” in Hawaiian",
@@ -91,6 +95,7 @@ export const packages: Package[] = [
   },
   {
     id: "barefoot-nuptials",
+    image: { src: "/images/current-site/package-skateboard.jpg", alt: "Barefoot bride and groom standing together on the grass", focus: "center" },
     name: "Barefoot Nuptials",
     type: "Elopement",
     meaning: null,
@@ -116,6 +121,7 @@ export const packages: Package[] = [
   },
   {
     id: "events",
+    image: { src: "/images/current-site/package-events.jpg", alt: "Styled table with white and blush flowers", focus: "center" },
     name: "Events",
     type: "Non-wedding full coordination",
     meaning: null,
