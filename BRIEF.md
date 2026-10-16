@@ -60,7 +60,7 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 
 ## Brand
 Full copy, package details, vendor list, and media links pulled from the current site: `content/current-site.md`.
-- **Logo:** supplied 2026-10-15 (green lotus circle + "Zenju Weddings / and events of Hawaii, LLC"), low-res (478×288). Keep the lotus mark and favicon; redo the wordmark. Files in `public/images/brand/`. Lotus redrawn as a vector (`public/images/brand/lotus.svg`). Favicons: original green `favicon-green.svg` (#8FB23F) is live as `src/app/icon.svg` + `apple-icon.png`; dark `favicon-dark.svg` kept as an alternative. **Header logo** (`src/components/Logo.tsx`): green lotus + her wordmark redrawn as clean vector strokes matched to her original logo, which is set in ITC Kabel (letter positions, crossed W, slanted e, Kabel g with ear and open lower loop): "Zenju Weddings" (`public/images/brand/zenju-wordmark-v2.svg`, #416274 `lagoon`, cream on dark panels) used as a CSS mask filled with a color token, over a small tracked uppercase "and events of Hawaii, LLC" line (Jost): white over the hero video, #84AB3A `leaf` everywhere else. Used in header, menu and footer. Her dark lotus (no circle) sits above the founding statement as a small mark. Options canvas: https://claude.ai/artifact/AbwRWni7GAUkaJVYFoFLjQ (exploration; header logo chosen above)
+- **Logo:** supplied 2026-10-15 (green lotus circle + "Zenju Weddings / and events of Hawaii, LLC"), low-res (478×288). Keep the lotus mark and favicon; redo the wordmark. Files in `public/images/brand/`. Lotus redrawn as a vector (`public/images/brand/lotus.svg`). Favicons: original green `favicon-green.svg` (#8FB23F) is live as `src/app/icon.svg` + `apple-icon.png`; dark `favicon-dark.svg` kept as an alternative. **Header logo** (`src/components/Logo.tsx`): green lotus + her wordmark redrawn as clean vector strokes matched to her original logo, which is set in ITC Kabel (letter positions, crossed W, slanted e, Kabel g with ear and open lower loop): "Zenju Weddings" (`public/images/brand/zenju-wordmark-v2.svg`, #416274 `lagoon`, cream on dark panels) used as a CSS mask filled with a color token, over a small tracked uppercase "and events of Hawaii, LLC" line (Jost): white over the hero video, #84AB3A `leaf` everywhere else. Used in header, menu and footer. Her dark lotus (no circle) sits above the founding statement as a small mark. Options canvas: https://claude.ai/artifact/AbwRWni7GAUkaJVYFoFLjQ (deleted 2026-10-15 after the decision) (exploration; header logo chosen above)
 - **Colors:** none defined (current Wix site uses default blue #3A54B4; not a brand color)
 - **Fonts:** none defined (current site uses Helvetica Light)
 - **Photos:** 25 portfolio photos + hero video on the current site (links in `content/current-site.md`)
@@ -77,7 +77,7 @@ Full copy, package details, vendor list, and media links pulled from the current
 
 ## Homepage directions
 - **Sections compared:** Hero (video) · About · Services preview
-- **Claude Design canvas:** https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (private to the owner until shared)
+- **Claude Design canvas:** https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (deleted 2026-10-15 after the decision) (private to the owner until shared)
 - **Directions:**
   - **A, Island Editorial** (Brooke Keegan): full-bleed video, thin wordmark and Menu pill; Jost 200 headings with a Pinyon Script accent word; fog #DCE0E4 / charcoal #27262A / cream #F5F2E9; packages on a charcoal panel.
   - **B, Warm Aloha Romance** (Beth Helmstetter): slim top nav; framed tagline card over the video; Cormorant Garamond uppercase + italic, Karla body; ivory #FEFBF6 / blush #F3E9E4 / brown #5E351C; 3-up photo row; package cards with text links.
@@ -87,7 +87,7 @@ Full copy, package details, vendor list, and media links pulled from the current
 - **Feedback round 2:** hero made white too: menu on white, video in a large inset frame at the top, headline on white below. Real photos added (hero still, Yanicke's portrait).
 
 ## Chosen direction
-- **Direction:** A, Island Editorial, revised (mostly white). Design: https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (artboard "A · Island Editorial")
+- **Direction:** A, Island Editorial, revised (mostly white). Design: https://claude.ai/artifact/RPLk4vL1abuPxCX3wY6FnP (deleted 2026-10-15 after the decision) (artboard "A · Island Editorial")
 - **Colors:** gold #82632A / gold-light #D4B26A (links, section labels, card numbers, bullets) · white #FFFFFF (page) · light grey #EEF0F2 (occasional band) · fog #DCE0E4 (image backdrop) · charcoal #27262A (text, highlighted panels) · cream #F5F2E9 (text on charcoal) · muted cream #E6DFCF / #CFCBC2 (secondary text on charcoal) · rule grey #6B6A70 (lines on charcoal)
 - **Heading font:** Jost 200 (light), large and centered, 46–68px desktop
 - **Accent font:** Pinyon Script, hero headline only ("aloha"). Not used for labels or section titles (user feedback: hard to read).
