@@ -165,7 +165,7 @@
 
 /* Logo lines, used as masks so they take any color token as their fill. */
 @utility mask-wordmark {
-  mask: url("/images/brand/zenju-wordmark.svg") center / contain no-repeat;
+  mask: url("/images/brand/zenju-wordmark-v2.svg") center / contain no-repeat;
 }
 @utility mask-lotus {
   mask: url("/images/brand/lotus.svg") center / contain no-repeat;
