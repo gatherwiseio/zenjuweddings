@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-// Header lockup: Yanicke's green lotus beside her wordmark ("Zenju Weddings", traced to vector
+// Header lockup: Yanicke's green lotus beside her wordmark ("Zenju Weddings", redrawn as clean vector strokes
 // from her original logo and used as an SVG mask filled with a color token), over a small tracked
 // "and events of Hawaii, LLC" line: white over the hero video, leaf green everywhere else.
 // The real text is kept for screen readers and search engines.
