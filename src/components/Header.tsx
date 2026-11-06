@@ -72,16 +72,16 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="site-menu"
-            className={`${buttonClass("secondary", tone)} max-xs:h-11 max-xs:w-11 max-xs:px-0`}
+            className={`${buttonClass("secondary", tone)} max-xs:h-11 max-xs:w-11 max-xs:border-transparent max-xs:px-0 max-xs:hover:bg-transparent max-xs:hover:text-current`}
           >
-            {/* Under 380px the word gives way to an icon so the full logo still fits. */}
+            {/* Under 380px the word gives way to a plain three-line icon (no outline) so the full logo still fits. */}
             <span className="max-xs:sr-only">Menu</span>
             <svg
               aria-hidden="true"
-              viewBox="0 0 20 20"
-              className="hidden h-5 w-5 stroke-current max-xs:block"
+              viewBox="0 0 24 24"
+              className="hidden h-6 w-6 stroke-current max-xs:block"
             >
-              <path d="M3 6.5h14M3 13.5h14" strokeWidth="1.25" />
+              <path d="M3 6h18M3 12h18M3 18h18" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
