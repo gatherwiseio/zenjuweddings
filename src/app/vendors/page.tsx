@@ -28,7 +28,7 @@ export default function VendorsPage() {
         <PageHero title={hero.title} label={hero.label} image={hero.image} shade="light" />
 
         <section className="px-6 pb-24 md:px-14 md:pb-32">
-          <div className="mx-auto mb-12 flex max-w-content flex-col items-center gap-6 text-center md:mb-16">
+          <div className="mx-auto flex max-w-content flex-col items-center gap-6 text-center">
             <SectionHeading title="Preferred Vendors" label="Who we work with" />
             <p className="max-w-copy-legal text-lg leading-prose text-pretty text-ink/75">{intro}</p>
           </div>

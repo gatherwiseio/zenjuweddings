@@ -30,7 +30,6 @@ export default function ServicesPage() {
           title={servicesPage.hero.title}
           label={servicesPage.hero.label}
           image={servicesPage.hero.image}
-          shade="light"
         />
 
         <section className="px-6 pb-20 md:px-14 md:pb-28">

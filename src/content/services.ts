@@ -41,7 +41,7 @@ export const servicesPage = {
   hero: {
     label: "Services & packages",
     title: "Plan your day, your way",
-    image: "/images/current-site/portfolio-20.jpg",
+    image: "/images/current-site/portfolio-09.jpg",
   },
   intro: "From an intimate barefoot beach ceremony to our all-inclusive Platinum package. Open any package to see everything it includes.",
 };

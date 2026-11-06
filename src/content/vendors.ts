@@ -3,8 +3,9 @@
 // One-line descriptions for the page-1 vendors are condensed from each vendor's own website; the
 // DJ / emcee descriptions, phones and emails are condensed from her page 2. Photos come from each
 // vendor's own site (public/images/vendors/); vendors without a usable photo show a name tile.
-// Open with Yanicke (see BRIEF.md): Cherbu's link is dead, Spinning Web's domain is now an unrelated
-// site, and she linked IMF Visions to islemedia.com (we link imfvisions.com).
+// Websites checked 2026-11-06: all load. Cherbu's old site is gone, so we link her Instagram
+// (@cherbumakeup, Cheryl Hazelgrove). Open with Yanicke (see BRIEF.md): Spinning Web's domain is now
+// an unrelated site, and she linked IMF Visions to islemedia.com (we link imfvisions.com).
 
 export type Vendor = {
   name: string;
@@ -13,11 +14,13 @@ export type Vendor = {
   url?: string;
   phone?: string;
   email?: string;
-  image?: string;
+  image?: string; // a photo from their site (being replaced by logos, section by section)
+  logo?: string; // their logo, shown small and contained
 };
 export type VendorCategory = { id: string; label: string; tab?: string; vendors: Vendor[] };
 
 const photo = (file: string) => `/images/vendors/${file}.jpg`;
+const logo = (file: string) => `/images/vendors/logos/${file}.png`;
 
 export const vendorsPage = {
   hero: {
@@ -26,7 +29,7 @@ export const vendorsPage = {
     image: "/images/current-site/portfolio-12.jpg",
   },
   intro:
-    "The artists, photographers, florists and crews we trust with our couples. Search by name or jump to a category.",
+    "The artists, photographers, florists and crews we trust with our couples.",
 };
 
 export const vendorCategories: VendorCategory[] = [
@@ -34,9 +37,9 @@ export const vendorCategories: VendorCategory[] = [
     id: "hair-makeup",
     label: "Hair & makeup",
     vendors: [
-      { name: "Faith & Beauty", text: "On-site hair styling and airbrush makeup for brides, across all of Hawaii.", url: "http://www.faithandbeauty.com", image: photo("faith-and-beauty") },
-      { name: "Delish Makeup Artistry", text: "Bridal makeup artistry on Oʻahu.", url: "https://www.delishmakeup.com", image: photo("delish") },
-      { name: "Cherbu", text: "Bridal makeup and hair." },
+      { name: "Faith & Beauty", text: "On-site hair styling and airbrush makeup for brides, across all of Hawaii.", url: "http://www.faithandbeauty.com", logo: logo("faith-and-beauty") },
+      { name: "Delish Makeup Artistry", text: "Bridal makeup artistry on Oʻahu.", url: "https://www.delishmakeup.com", logo: logo("delish") },
+      { name: "Cherbu Makeup & Hair", with: "Cheryl Hazelgrove", text: "Award-winning makeup artist, with on-site makeup and hair styling.", url: "https://www.instagram.com/cherbumakeup/" },
     ],
   },
   {
