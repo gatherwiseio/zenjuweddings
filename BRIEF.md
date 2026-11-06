@@ -31,6 +31,7 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 
 ### About Us / The Team
 - Move her content over from her [Our story](https://www.zenjuweddingsnevents.com/about-5) page.
+- **Built 2026-11-05** (`/about`, content in `src/content/about.ts`): page banner (portfolio florals, "The story behind the vision"), lotus statement (founded 2010, named after Zen and Jude), Meet Yanicke (portrait + her story in three streamlined paragraphs), Our Vision (team photo from her page, two paragraphs, three short points drawn from her vision text, a strip of four of her detail photos with gentle drift, her closing words), then the shared call to action. No facts added.
 
 ### Services & Packages
 - Move her content over from her [Wedding packages](https://www.zenjuweddingsnevents.com/packages) page, structured to be easy to read and search-friendly.

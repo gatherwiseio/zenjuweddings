@@ -1,0 +1,35 @@
+import Image from "next/image";
+
+// Banner at the top of inner pages: a full-width photo (shorter than the homepage film) with the
+// page title low and centered, same type and fades as the homepage hero. The header floats over
+// it until you scroll past (`id="hero"` is what the header measures).
+export function PageHero({
+  title,
+  label,
+  image,
+  alt = "",
+}: {
+  title: string;
+  label: string;
+  image: string;
+  alt?: string;
+}) {
+  return (
+    <section id="hero" className="pb-20 md:pb-28">
+      <div className="relative h-(--page-hero-h) min-h-(--page-hero-min) overflow-hidden bg-ink">
+        <div className="hero-sink absolute inset-0">
+          <Image src={image} alt={alt} fill preload sizes="100vw" className="slow-zoom object-cover" />
+        </div>
+        {/* Top fade keeps the see-through header legible; bottom fade carries the title. */}
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-ink/50 to-transparent" />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-ink/65 to-transparent" />
+        <div className="hero-drift absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 px-6 pb-10 text-center text-white text-shadow-hero md:pb-14">
+          <p className="hero-rise label text-xs font-medium md:text-label">{label}</p>
+          <h1 className="hero-rise hero-rise-delay text-balance text-4xl leading-display font-extralight tracking-display xs:text-hero md:text-display">
+            {title}
+          </h1>
+        </div>
+      </div>
+    </section>
+  );
+}

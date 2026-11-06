@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { buttonClass } from "@/components/Button";
 import { Logo } from "@/components/Logo";
@@ -10,6 +11,7 @@ import { contact, pages } from "@/content/site";
 // `overlay`: the header floats see-through over a full-screen hero (white text), then turns
 // solid white and stays pinned once the hero has scrolled away. Pages without a hero: solid from the start.
 export function Header({ overlay = false }: { overlay?: boolean }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
 
@@ -119,8 +121,10 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
                   key={page.href}
                   href={page.href}
                   onClick={() => setOpen(false)}
-                  aria-current="page"
-                  className="text-3xl leading-heading font-extralight xs:text-4xl md:text-5xl"
+                  aria-current={pathname === page.href ? "page" : undefined}
+                  className={`text-3xl leading-heading font-extralight transition-colors xs:text-4xl md:text-5xl ${
+                    pathname === page.href ? "text-gold-light" : "hover:text-gold-light"
+                  }`}
                 >
                   {page.label}
                 </Link>

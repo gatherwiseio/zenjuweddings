@@ -10,10 +10,10 @@ export const contact = {
   instagram: "https://www.instagram.com/zenjuweddings_yanicke/", // given by the client
 };
 
-// Only Home is live for now; the rest show in the menu but aren't clickable yet.
+// Pages marked live are clickable in the menu and links; the rest show but aren't clickable yet.
 export const pages = [
   { label: "Home", href: "/", live: true },
-  { label: "About Us / The Team", href: "/about", live: false },
+  { label: "About Us / The Team", href: "/about", live: true },
   { label: "Services & Packages", href: "/services", live: false },
   { label: "Preferred Vendors", href: "/vendors", live: false },
   { label: "Gallery", href: "/gallery", live: false },
