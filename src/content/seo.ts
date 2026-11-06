@@ -3,7 +3,7 @@ import { businessName } from "@/content/site";
 
 // Every page's tab title (≤60 characters), search description (≤155) and share description
 // (≤110, for link previews), as approved on the SEO canvas
-// (https://claude.ai/artifact/QTVRj4DvoXxdE4KWrGM6a8). Titles and share text always say
+// (since deleted; this file is now the record). Titles and share text always say
 // "Zenju Weddings and Events". Search text says "Oahu" (how people type it); page text keeps "Oʻahu".
 // The share image (option A on the canvas, 1200 × 630) is public/images/share.png, on every page.
 
