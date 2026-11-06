@@ -108,7 +108,7 @@ export const vendorCategories: VendorCategory[] = [
       { name: "Frobaby Productions", text: "Live-mixed DJ sets from start to finish, no pre-made playlists. Most of their couples are celebrating in Hawaii from away.", url: "https://frobabyproductions.com", phone: "808-427-8080", logo: logo("frobaby") },
       { name: "DJ D-Lyte", text: "25+ years behind the decks, plus emceeing, photo booth, uplighting and a custom monogram spotlight.", url: "https://djdlyte.com", phone: "808-384-6909", logo: logo("dj-dlyte") },
       { name: "Defining Moments DJs", text: "Locally owned DJ and emcee team with 11+ years on island and custom playlists.", phone: "808-351-3276", email: "DefiningMomentsHawaii@gmail.com" },
-      { name: "Emcee Ron", with: "Ron’s Productions", text: "Upscale local wedding emcee since 1998, with mobile sound and DJs.", phone: "808-277-8986", email: "Ronproductions808@yahoo.com" },
+      { name: "Emcee Ron", text: "Upscale local wedding emcee since 1998, with mobile sound and DJs.", phone: "808-277-8986", email: "Ronproductions808@yahoo.com" },
     ],
   },
 ];

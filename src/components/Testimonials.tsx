@@ -78,15 +78,14 @@ export function Testimonials({ reviews, layout = "grid" }: { reviews: Review[]; 
     </dialog>
   );
 
-  // One card's contents, shared by the grid and the marquee. `copy` marks the marquee's repeats,
-  // which don't measure the clamp and aren't reachable by keyboard.
-  const cardBody = (review: Review, i: number, copy = false) => (
+  // One card's contents, shared by the grid and the ribbon.
+  const cardBody = (review: Review, i: number) => (
     <>
       <Stars />
       <h3 className="text-xl leading-heading font-light md:line-clamp-2">{review.title}</h3>
       <blockquote
         ref={(el) => {
-          if (!copy) textRefs.current[i] = el;
+          textRefs.current[i] = el;
         }}
         className="line-clamp-5 text-meta leading-prose text-ink/80"
       >
@@ -110,18 +109,11 @@ export function Testimonials({ reviews, layout = "grid" }: { reviews: Review[]; 
     return (
       <>
         <Marquee>
-          {[0, 1, 2].flatMap((set) =>
-            reviews.map((review, i) => (
-              <li
-                key={`${set}-${review.name}`}
-                aria-hidden={set !== 1 ? "true" : undefined}
-                inert={set !== 1}
-                className="flex w-(--review-card-w) shrink-0 flex-col gap-5 bg-white p-6 sm:p-8"
-              >
-                {cardBody(review, i, set !== 1)}
-              </li>
-            )),
-          )}
+          {reviews.map((review, i) => (
+            <li key={review.name} className="flex w-(--review-card-w) shrink-0 snap-start flex-col gap-5 bg-white p-6 sm:p-8">
+              {cardBody(review, i)}
+            </li>
+          ))}
         </Marquee>
         {dialog}
       </>
@@ -197,58 +189,16 @@ function Avatar({ review }: { review: Review }) {
   );
 }
 
-// Testimonials as an endless ribbon (Contact page): three copies of the cards side by side, edge to
-// edge, drifting slowly left. It pauses while hovered or focused; you can drag, swipe or scroll it
-// either way, or step with the arrows, and it wraps seamlessly. Still for reduced-motion visitors.
+// Testimonials as a ribbon (Contact page): the cards in one row running edge to edge, scrolled by
+// hand: drag with the mouse, swipe, trackpad, or the arrows (one card per step). Cards snap into place.
 function Marquee({ children }: { children: ReactNode }) {
   const trackRef = useRef<HTMLUListElement>(null);
-  const paused = useRef(false);
   const drag = useRef<{ x: number; left: number } | null>(null);
-  const glide = useRef<{ from: number; to: number; start: number } | null>(null); // arrow steps
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const setWidth = () => track.scrollWidth / 3;
-    // Keep the middle copy in view: jump by one copy's width when you drift into either end.
-    const wrap = () => {
-      const w = setWidth();
-      const shift = track.scrollLeft >= w * 2 ? -w : track.scrollLeft <= 0 ? w : 0;
-      if (!shift) return;
-      track.scrollLeft += shift;
-      if (glide.current) {
-        glide.current.from += shift;
-        glide.current.to += shift;
-      }
-    };
-    track.scrollLeft = setWidth();
-    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let frame = 0;
-    let last = performance.now();
-    const tick = (now: number) => {
-      const dt = Math.min(now - last, 64);
-      last = now;
-      const g = glide.current;
-      if (g) {
-        const t = Math.min((now - g.start) / 600, 1);
-        track.scrollLeft = g.from + (g.to - g.from) * (1 - (1 - t) ** 3);
-        if (t === 1) glide.current = null;
-      } else if (!still && !paused.current && !drag.current) {
-        track.scrollLeft += dt * 0.03;
-      }
-      wrap();
-      frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, []);
 
   const step = (dir: number) => {
     const track = trackRef.current;
     const card = track?.firstElementChild as HTMLElement | null;
-    if (!track || !card) return;
-    const from = glide.current?.to ?? track.scrollLeft;
-    glide.current = { from: track.scrollLeft, to: from + dir * (card.offsetWidth + 16), start: performance.now() };
+    if (track && card) track.scrollBy({ left: dir * (card.offsetWidth + 16), behavior: "smooth" });
   };
 
   return (
@@ -257,22 +207,23 @@ function Marquee({ children }: { children: ReactNode }) {
         ref={trackRef}
         aria-label="Testimonials"
         data-lenis-prevent-wheel
-        onMouseEnter={() => (paused.current = true)}
-        onMouseLeave={() => (paused.current = false)}
-        onFocus={() => (paused.current = true)}
-        onBlur={() => (paused.current = false)}
-        onTouchStart={() => (paused.current = true)}
-        onTouchEnd={() => (paused.current = false)}
         onPointerDown={(e) => {
           if (e.pointerType !== "mouse" || !trackRef.current) return;
           drag.current = { x: e.clientX, left: trackRef.current.scrollLeft };
+          trackRef.current.style.scrollSnapType = "none";
         }}
         onPointerMove={(e) => {
           if (drag.current && trackRef.current) trackRef.current.scrollLeft = drag.current.left - (e.clientX - drag.current.x);
         }}
-        onPointerUp={() => (drag.current = null)}
-        onPointerLeave={() => (drag.current = null)}
-        className="scrollbar-none flex w-screen max-w-none shrink-0 cursor-grab items-stretch gap-4 overflow-x-auto px-6 select-none active:cursor-grabbing md:px-14"
+        onPointerUp={() => {
+          drag.current = null;
+          if (trackRef.current) trackRef.current.style.scrollSnapType = "";
+        }}
+        onPointerLeave={() => {
+          drag.current = null;
+          if (trackRef.current) trackRef.current.style.scrollSnapType = "";
+        }}
+        className="scrollbar-none flex w-screen max-w-none shrink-0 cursor-grab snap-x snap-mandatory scroll-px-6 items-stretch gap-4 overflow-x-auto px-6 select-none active:cursor-grabbing md:scroll-px-14 md:px-14"
       >
         {children}
       </ul>

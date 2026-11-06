@@ -43,9 +43,10 @@ export default function ContactPage() {
               <p className="label text-xs font-medium text-gold md:text-label">{heading.label}</p>
               <h2 className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">{heading.title}</h2>
               <p className="max-w-copy text-lg leading-prose text-pretty text-ink/75">{intro}</p>
-              <ul className="mt-2 grid gap-x-8 gap-y-6 border-t border-fog pt-8 sm:grid-cols-2">
+              {/* The four reasons as a 2×2 table: hairline cells on the fog border colour. */}
+              <ul className="mt-2 grid gap-px border border-fog bg-fog sm:grid-cols-2">
                 {perks.map((perk) => (
-                  <li key={perk.title} className="flex flex-col gap-1">
+                  <li key={perk.title} className="flex flex-col gap-1 bg-white px-5 py-5">
                     <span className="text-lg font-normal">{perk.title}</span>
                     <span className="text-meta leading-prose text-pretty text-ink/75">{perk.text}</span>
                   </li>
@@ -80,7 +81,7 @@ export default function ContactPage() {
                     </span>
                   </>
                 );
-                const cell = "flex h-full items-start gap-4 bg-white px-6 py-6";
+                const cell = "flex h-full items-center gap-4 bg-white px-6 py-5";
                 return (
                   <li key={label} className="bg-white">
                     {href ? (

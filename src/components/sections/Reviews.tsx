@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Testimonials } from "@/components/Testimonials";
 import { reviews, zolaBadge } from "@/content/site";
 
-// `layout="marquee"`: the Contact page's endless ribbon instead of the grid.
+// `layout="marquee"`: the Contact page's hand-scrolled ribbon instead of the grid.
 export function Reviews({ layout = "grid" }: { layout?: "grid" | "marquee" }) {
   return (
     <section className="overflow-x-clip bg-mist section-band">
