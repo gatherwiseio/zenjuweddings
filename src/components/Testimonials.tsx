@@ -280,6 +280,19 @@ function Marquee({ children }: { children: ReactNode }) {
       });
   };
 
+  // Only a clearly sideways swipe scrolls the ribbon (kept from the page's smooth scroll, which
+  // listens on window). Anything mostly up or down, including a slightly diagonal trackpad swipe,
+  // scrolls the page.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) * 2) e.stopPropagation();
+    };
+    track.addEventListener("wheel", onWheel, { passive: true });
+    return () => track.removeEventListener("wheel", onWheel);
+  }, []);
+
   const step = (dir: number) => {
     const track = trackRef.current;
     const card = track?.firstElementChild as HTMLElement | null;
@@ -299,8 +312,6 @@ function Marquee({ children }: { children: ReactNode }) {
           onScroll={onScroll}
           aria-label="Testimonials"
           tabIndex={0}
-          // Sideways gestures scroll the ribbon; up and down stay with the page's smooth scroll.
-          data-lenis-prevent-horizontal
           onPointerDown={(e) => {
             if (e.pointerType !== "mouse" || !trackRef.current) return;
             drag.current = { x: e.clientX, left: trackRef.current.scrollLeft };
@@ -319,7 +330,7 @@ function Marquee({ children }: { children: ReactNode }) {
             drag.current = null;
             if (trackRef.current) trackRef.current.style.scrollSnapType = "";
           }}
-          className="scrollbar-none flex w-full cursor-grab snap-x snap-mandatory scroll-px-6 items-stretch gap-4 overflow-x-auto px-6 select-none active:cursor-grabbing md:scroll-px-14 md:px-14"
+          className="scrollbar-none flex w-full cursor-grab snap-x snap-mandatory scroll-px-6 items-stretch gap-4 overflow-x-auto overflow-y-hidden px-6 select-none active:cursor-grabbing md:scroll-px-14 md:px-14"
         >
           {children}
         </ul>
