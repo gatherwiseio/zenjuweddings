@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Parallax } from "@/components/motion/Parallax";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { albums, galleryPage } from "@/content/gallery";
 
@@ -37,46 +38,51 @@ export default function GalleryPage() {
               <SectionHeading title="Our Albums" label="Real weddings" />
               <p className="max-w-copy-legal text-lg leading-prose text-pretty text-ink/75">{intro}</p>
             </div>
-            <ul className="flex flex-col gap-16 lg:gap-0">
-              {albums.map((album, i) => {
-                const flip = i % 2 === 1;
-                return (
-                  <li
-                    key={album.slug}
-                    className={`grid items-center gap-6 md:grid-cols-12 md:gap-10 ${i > 0 ? "lg:-mt-16" : ""}`}
-                  >
-                    <Link
-                      href={`/gallery/${album.slug}`}
-                      tabIndex={-1}
-                      aria-hidden="true"
-                      className={`group relative block aspect-square overflow-hidden md:aspect-(--aspect-album) bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
+            {/* Each cover drifts inside its frame as you scroll (off for reduced motion). */}
+            <Parallax>
+              <ul className="flex flex-col gap-16 lg:gap-0">
+                {albums.map((album, i) => {
+                  const flip = i % 2 === 1;
+                  return (
+                    <li
+                      key={album.slug}
+                      className={`grid items-center gap-6 md:grid-cols-12 md:gap-10 ${i > 0 ? "lg:-mt-16" : ""}`}
                     >
-                      <Image
-                        src={album.photos[0].src}
-                        alt=""
-                        fill
-                        sizes="(min-width: 768px) 40vw, 100vw"
-                        priority={i < 2}
-                        className="object-cover transition-transform duration-(--duration-slow) ease-out-expo group-hover:scale-105"
-                      />
-                    </Link>
-                    <div
-                      className={`flex flex-col gap-3 md:col-span-5 ${flip ? "md:order-1 md:col-start-2 md:items-end md:text-right" : "md:col-start-7"}`}
-                    >
-                      <p className="label text-xs font-medium text-gold">{album.place}</p>
-                      <h2 translate="no" className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">
-                        {album.title}
-                      </h2>
-                      <p className="text-meta text-ink/70">{album.photos.length} photos</p>
-                      <Link href={`/gallery/${album.slug}`} className={`${buttonClass("secondary")} mt-3 w-fit`}>
-                        View album
-                        <span className="sr-only">: {album.title}</span>
+                      <Link
+                        href={`/gallery/${album.slug}`}
+                        tabIndex={-1}
+                        aria-hidden="true"
+                        className={`group relative block aspect-square overflow-hidden md:aspect-(--aspect-album) bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
+                      >
+                        <div data-parallax="8" className="absolute inset-0">
+                          <Image
+                            src={album.photos[0].src}
+                            alt=""
+                            fill
+                            sizes="(min-width: 768px) 40vw, 100vw"
+                            priority={i < 2}
+                            className="object-cover transition-transform duration-(--duration-slow) ease-out-expo group-hover:scale-105"
+                          />
+                        </div>
                       </Link>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+                      <div
+                        className={`flex flex-col gap-3 md:col-span-5 ${flip ? "md:order-1 md:col-start-2 md:items-end md:text-right" : "md:col-start-7"}`}
+                      >
+                        <p className="label text-xs font-medium text-gold">{album.place}</p>
+                        <h2 translate="no" className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-6xl">
+                          {album.title}
+                        </h2>
+                        <p className="text-meta text-ink/70">{album.photos.length} photos</p>
+                        <Link href={`/gallery/${album.slug}`} className={`${buttonClass("secondary")} mt-3 w-fit`}>
+                          View album
+                          <span className="sr-only">: {album.title}</span>
+                        </Link>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </Parallax>
           </div>
         </section>
 

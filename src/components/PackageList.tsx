@@ -128,7 +128,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
             key={pkg.id}
             id={pkg.id}
             name="packages"
-            className="package group scroll-mt-(--header-h) border-b border-fog md:scroll-mt-(--header-h-md)"
+            className="package group relative scroll-mt-(--header-h) border-b border-fog after:absolute after:inset-x-0 after:-bottom-px after:h-px after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-700 after:ease-out-expo has-[summary:hover]:after:scale-x-100 md:scroll-mt-(--header-h-md)"
           >
             <summary className="flex cursor-pointer items-start gap-4 py-7 md:items-center md:gap-8 md:py-8">
               <span className="flex min-w-0 flex-1 flex-col gap-2">
