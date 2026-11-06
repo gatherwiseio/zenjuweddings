@@ -1,13 +1,13 @@
 "use client";
 
-import { ArrowUpRightIcon, EnvelopeSimpleIcon, PhoneIcon } from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon, GlobeIcon, InstagramLogoIcon, PhoneIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { scrollToElement } from "@/components/motion/SmoothScroll";
 import type { Vendor, VendorCategory } from "@/content/vendors";
 
 // Preferred Vendors directory: every vendor on one page, a section per category, as compact rows
-// in two columns (logo or face, name, one line, links). Centered underline tabs, pinned under the
+// as cards in two columns (logo or face, name, one line, icon links). Centered underline tabs, pinned under the
 // header, jump to each section and underline the one you're reading.
 export function VendorDirectory({ categories }: { categories: VendorCategory[] }) {
   const [active, setActive] = useState(categories[0].id);
@@ -59,8 +59,8 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
                   data-tab={c.id}
                   onClick={() => jump(c.id)}
                   aria-current={isActive ? "true" : undefined}
-                  className={`label -mb-px flex h-12 shrink-0 cursor-pointer items-center border-b-2 text-xs font-medium whitespace-nowrap transition-colors ${
-                    isActive ? "border-ink text-ink" : "border-transparent text-ink/55 hover:text-ink"
+                  className={`label -mb-px flex h-12 shrink-0 cursor-pointer items-center border-y-2 border-t-transparent text-xs font-medium whitespace-nowrap transition-colors ${
+                    isActive ? "border-b-ink text-ink" : "border-b-transparent text-ink/55 hover:text-ink"
                   }`}
                 >
                   {c.tab ?? c.label}
@@ -82,8 +82,7 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
             <h2 id={`${c.id}-title`} className="border-b border-fog pb-4 text-3xl leading-heading font-extralight">
               {c.label}
             </h2>
-            {/* Two columns with no gutter, so each row's rule runs unbroken across both. */}
-            <ul className="grid lg:grid-cols-2">
+            <ul className="mt-6 grid gap-3 lg:grid-cols-2 lg:gap-4">
               {c.vendors.map((v) => (
                 <VendorCard key={`${c.id}-${v.name}`} vendor={v} />
               ))}
@@ -96,20 +95,27 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
 }
 
 function VendorCard({ vendor }: { vendor: Vendor }) {
-  const site = vendor.url?.includes("instagram.com") ? "Instagram" : "Website";
+  const instagram = vendor.url?.includes("instagram.com");
+  const initials = vendor.name
+    .replace(/[^A-Za-z ]/g, "")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("");
+  const icon =
+    "flex size-9 items-center justify-center rounded-full border border-gold/40 text-gold-deep transition-colors hover:border-gold-deep hover:bg-gold-deep hover:text-white";
   return (
-    <li className="flex items-center gap-5 border-b border-fog py-6 lg:odd:pr-10 lg:even:pl-10">
-      <div className="relative aspect-(--aspect-vendor-logo) w-(--vendor-logo) shrink-0 overflow-hidden border border-fog bg-white md:w-(--vendor-logo-md)">
+    <li className="flex items-center gap-5 border border-fog bg-white p-4 md:gap-6 md:p-5">
+      {/* Logos sit on beige; portraits fill the box; with neither, gold initials on beige. */}
+      <div className="relative aspect-(--aspect-vendor-logo) w-(--vendor-logo) shrink-0 overflow-hidden bg-cream md:w-(--vendor-logo-md)">
         {vendor.logo ? (
-          <Image src={vendor.logo} alt={`${vendor.name} logo`} fill sizes="128px" className="object-contain p-3" />
+          <Image src={vendor.logo} alt={`${vendor.name} logo`} fill sizes="128px" className="object-contain p-3 mix-blend-multiply" />
         ) : vendor.face ? (
           <Image src={vendor.face} alt="" fill sizes="128px" className="object-cover" />
-        ) : vendor.image ? (
-          <Image src={vendor.image} alt="" fill sizes="128px" className="object-cover" />
         ) : (
-          // No logo or portrait: the name, set small, as a quiet stand-in.
-          <span aria-hidden="true" className="label flex h-full items-center justify-center p-2 text-center text-tiny leading-snug font-medium text-balance text-ink/55">
-            {vendor.name}
+          <span aria-hidden="true" className="flex h-full items-center justify-center text-3xl font-extralight tracking-display text-gold">
+            {initials}
           </span>
         )}
       </div>
@@ -117,24 +123,20 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
         <h3 className="text-lg leading-heading font-normal">{vendor.name}</h3>
         {vendor.with && <p className="label text-tiny font-medium text-gold-deep">{vendor.with}</p>}
         <p className="text-meta leading-prose text-pretty text-ink/75">{vendor.text}</p>
-        <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-meta">
+        <div className="mt-2 flex gap-2">
           {vendor.url && (
-            <a href={vendor.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center gap-1 font-medium text-ink hover:text-gold-deep">
-              {site}
-              <ArrowUpRightIcon aria-hidden="true" size={14} />
-              <span className="sr-only">for {vendor.name} (opens in a new tab)</span>
+            <a href={vendor.url} target="_blank" rel="noopener noreferrer" aria-label={`${vendor.name} ${instagram ? "on Instagram" : "website"}`} className={icon}>
+              {instagram ? <InstagramLogoIcon aria-hidden="true" size={17} /> : <GlobeIcon aria-hidden="true" size={17} />}
             </a>
           )}
           {vendor.phone && (
-            <a href={`tel:+1${vendor.phone.replace(/\D/g, "")}`} className="inline-flex min-h-6 items-center gap-1.5 text-ink/75 hover:text-ink">
-              <PhoneIcon aria-hidden="true" size={14} />
-              {vendor.phone}
+            <a href={`tel:+1${vendor.phone.replace(/\D/g, "")}`} aria-label={`Call ${vendor.name}, ${vendor.phone}`} title={vendor.phone} className={icon}>
+              <PhoneIcon aria-hidden="true" size={17} />
             </a>
           )}
           {vendor.email && (
-            <a href={`mailto:${vendor.email}`} className="inline-flex min-h-6 items-center gap-1.5 text-ink/75 hover:text-ink">
-              <EnvelopeSimpleIcon aria-hidden="true" size={14} />
-              Email
+            <a href={`mailto:${vendor.email}`} aria-label={`Email ${vendor.name}`} title={vendor.email} className={icon}>
+              <EnvelopeSimpleIcon aria-hidden="true" size={17} />
             </a>
           )}
         </div>
