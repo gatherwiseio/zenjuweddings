@@ -14,8 +14,8 @@ export const aboutPage = {
   founder: {
     title: "Meet Yanicke",
     label: "Founder",
-    portrait: "/images/current-site/yanicke-headshot.jpg",
-    portraitAlt: "Yanicke Lim Sang, founder of Zenju Weddings",
+    portrait: "/images/current-site/yanicke-portrait-glasses.jpg", // different photo from the homepage
+    portraitAlt: "Yanicke Lim Sang, founder of Zenju Weddings, smiling in black glasses and a polka-dot blouse",
     // Written for couples deciding whether to hire her: each paragraph ties her background to
     // what it means for their day. Facts are only those on her "Our story" page.
     paragraphs: [
