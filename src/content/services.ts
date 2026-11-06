@@ -360,15 +360,29 @@ export const marriageLicense = {
   title: "Marriage license",
   label: "Getting married in Hawaii",
   intro: "A Hawaii marriage license is quick to get. Here’s what to know before you apply.",
-  points: [
-    "Both partners apply together and appear in person before a marriage license agent.",
-    "The license is issued as soon as the application is accepted, and it’s valid anywhere in the state.",
-    "It expires 30 days after it’s issued, counting the day of issue.",
-    "Bring a photo ID or driver’s license as proof of age.",
-    "If either of you was divorced or widowed within the last 30 days, bring the original divorce decree or death certificate. Fax copies aren’t accepted.",
-    "No blood test is required. Partners can be no more closely related than first cousins.",
+  steps: [
+    {
+      title: "Apply online",
+      text: "Fill in the application on the State of Hawaii site and pay the fees by card.",
+    },
+    {
+      title: "Meet the agent together",
+      text: "Both partners appear in person before a marriage license agent.",
+    },
+    {
+      title: "Get your license",
+      text: "It’s issued as soon as the application is accepted, and it’s valid anywhere in the state.",
+    },
   ],
-  fees: "$60 license fee plus a $5 processing fee, paid online by card when you complete the application.",
+  facts: [
+    { value: "$65", label: "Fees", text: "$60 license fee plus a $5 processing fee, paid online by card." },
+    { value: "30 days", label: "Valid for", text: "From the day it’s issued, counting the day of issue." },
+  ],
+  bring: [
+    "A photo ID or driver’s license as proof of age.",
+    "Divorced or widowed within the last 30 days? The original divorce decree or death certificate. Fax copies aren’t accepted.",
+  ],
+  goodToKnow: ["No blood test is required.", "Partners can be no more closely related than first cousins."],
   applyUrl: "https://emrs.ehawaii.gov/emrs/public/home.html",
   note: "Requirements are set by the State of Hawaii and can change, so check the official site before you apply.",
 };
