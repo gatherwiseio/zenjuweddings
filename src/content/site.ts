@@ -165,6 +165,13 @@ export const galleryPreview = [
   { src: "/images/current-site/portfolio-12.jpg", caption: "Bridal bouquet", alt: "Close-up of a white rose and tropical leaf bouquet" },
 ];
 
+// "Find us on Zola" badge, from the embed code Zola gives vendors (supplied by the client).
+export const zolaBadge = {
+  href: "https://www.zola.com/wedding-vendors/wedding-planners/zenju-weddings-and-events-of-hawaii-llc?utm_source=vendor&utm_medium=various&utm_content=badge",
+  image: "https://d1tntvpcrzvon2.cloudfront.net/static-assets/images/badges/featured_on_zola_v3.png",
+  script: "https://d1tntvpcrzvon2.cloudfront.net/static-assets/js/marketplace/zolaVendorBadge.js",
+};
+
 // The six most recent five-star reviews from her WeddingWire profile, newest first. Review
 // text is as written there (sign-off lines dropped); review dates are left out on purpose.
 // June's review was skipped: it's from a fellow planner, not a couple. The site doesn't name
