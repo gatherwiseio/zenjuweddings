@@ -3,7 +3,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,6 +44,22 @@ export function lockScroll(locked: boolean) {
  * reduced motion, who keep the browser's own scrolling.
  */
 export function SmoothScroll() {
+  const pathname = usePathname();
+  const firstPath = useRef(true);
+
+  // Moving to another page (e.g. one gallery album to the next) always starts at the top. Lenis
+  // keeps its own scroll position across client-side navigations, so reset it as well as the
+  // window. Links to a section (/services#kuulei) are left to land on that section.
+  useEffect(() => {
+    if (firstPath.current) {
+      firstPath.current = false;
+      return;
+    }
+    if (window.location.hash) return;
+    if (instance) instance.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
