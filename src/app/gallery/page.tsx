@@ -67,7 +67,7 @@ export default function GalleryPage() {
                       <h2 className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">
                         {album.title}
                       </h2>
-                      <p className="text-meta text-ink/60">{album.photos.length} photos</p>
+                      <p className="text-meta text-ink/70">{album.photos.length} photos</p>
                       <Link href={`/gallery/${album.slug}`} className={`${buttonClass("secondary")} mt-3 w-fit`}>
                         View album
                         <span className="sr-only">: {album.title}</span>

@@ -154,7 +154,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               className="mask-lotus block aspect-(--aspect-lotus) w-10 bg-ink lg:order-2 lg:w-12 lg:justify-self-center"
             />
             <div className="flex flex-col items-center gap-1 lg:order-1 lg:items-start lg:text-left">
-              <p className="text-ink/60">Contact</p>
+              <p className="text-ink/70">Contact</p>
               <a
                 href={`mailto:${contact.email}`}
                 className="py-1 transition-opacity hover:opacity-60"
@@ -163,7 +163,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
               </a>
             </div>
             <div className="flex flex-col items-center gap-1 lg:order-3 lg:items-end lg:text-right">
-              <p className="text-ink/60">Social</p>
+              <p className="text-ink/70">Social</p>
               <p className="flex gap-2">
                 <a
                   href={contact.facebook}

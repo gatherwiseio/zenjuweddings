@@ -35,14 +35,16 @@ export default function AlbumPage({ params }: PageProps<"/gallery/[slug]">) {
         Skip to content
       </a>
       <Header />
-      <main id="main" className="scroll-mt-24 px-6 pt-10 pb-24 md:px-14 md:pt-14 md:pb-32">
-        <div className="mx-auto flex max-w-content flex-col gap-8">
-          <Suspense fallback={<div className="min-h-(--page-hero-min)" />}>
-            <Album params={params} />
-          </Suspense>
+      <main id="main" className="scroll-mt-24">
+        <div className="px-6 pt-10 pb-24 md:px-14 md:pt-14 md:pb-32">
+          <div className="mx-auto flex max-w-content flex-col gap-8">
+            <Suspense fallback={<div className="min-h-(--page-hero-min)" />}>
+              <Album params={params} />
+            </Suspense>
+          </div>
         </div>
+        <ContactCta />
       </main>
-      <ContactCta />
       <Footer />
     </>
   );
@@ -60,7 +62,7 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
     <div className="flex flex-col gap-10 md:gap-14">
       <div className="flex flex-col gap-6">
         <nav aria-label="Breadcrumb">
-          <ol className="label flex flex-wrap items-center gap-2 text-xs font-medium text-ink/55">
+          <ol className="label flex flex-wrap items-center gap-2 text-xs font-medium text-ink/70">
             <li>
               <Link href="/gallery" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">
                 Gallery
@@ -79,7 +81,7 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-lg leading-prose text-pretty text-ink/75">{album.story}</p>
-            <p className="text-meta text-ink/60">
+            <p className="text-meta text-ink/70">
               {[album.credit && `Photos by ${album.credit}`, `${album.photos.length} photos`].filter(Boolean).join(" · ")}
             </p>
           </div>
@@ -90,11 +92,11 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
 
       <nav aria-label="More albums" className="flex items-center justify-between gap-6 border-t border-fog pt-8">
         <Link href={`/gallery/${prev.slug}`} className="group flex flex-col gap-1">
-          <span className="label text-xs font-medium text-ink/55">Previous album</span>
+          <span className="label text-xs font-medium text-ink/70">Previous album</span>
           <span className="text-lg font-light group-hover:text-gold-deep">{prev.title}</span>
         </Link>
         <Link href={`/gallery/${next.slug}`} className="group flex flex-col items-end gap-1 text-right">
-          <span className="label text-xs font-medium text-ink/55">Next album</span>
+          <span className="label text-xs font-medium text-ink/70">Next album</span>
           <span className="text-lg font-light group-hover:text-gold-deep">{next.title}</span>
         </Link>
       </nav>

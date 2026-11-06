@@ -145,7 +145,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
                 </span>
                 <span translate="no" className="text-h3 leading-heading font-extralight md:text-h3-lg">
                   {pkg.name}
-                  {pkg.meaning && <span className="ml-3 text-lg font-normal text-ink/60">{pkg.meaning}</span>}
+                  {pkg.meaning && <span className="ml-3 text-lg font-normal text-ink/70">{pkg.meaning}</span>}
                 </span>
                 <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{pkg.summary}</span>
                 <Price price={pkg.price} className="md:hidden" />
@@ -250,7 +250,7 @@ function Price({ price, className = "" }: { price: number; className?: string })
   return (
     <span className={`flex flex-col gap-0.5 text-ink ${className}`}>
       <span className="text-lg font-normal tabular-nums md:text-2xl md:font-light">{usd.format(price)}</span>
-      <span className="text-xs font-normal text-ink/60">+ {TAX_RATE_LABEL}</span>
+      <span className="text-xs font-normal text-ink/70">+ {TAX_RATE_LABEL}</span>
     </span>
   );
 }
@@ -263,7 +263,7 @@ function IconList({ items }: { items: Inclusion[] }) {
         const Icon = icons[item.icon];
         return (
           <li key={item.title} className="flex gap-5">
-            <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mist text-ink/55">
+            <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mist text-ink/70">
               <Icon size={22} weight="light" />
             </span>
             <span className="flex flex-col gap-1 pt-1">

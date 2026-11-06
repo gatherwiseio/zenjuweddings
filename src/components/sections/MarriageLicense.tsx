@@ -65,7 +65,7 @@ export function MarriageLicense() {
           <a href={applyUrl} target="_blank" rel="noopener noreferrer" className={`${buttonClass("secondary")} w-full sm:w-fit`}>
             Apply online
           </a>
-          <p className="max-w-copy text-tiny tracking-meta text-pretty text-ink/60 uppercase">{note}</p>
+          <p className="max-w-copy text-tiny tracking-meta text-pretty text-ink/70 uppercase">{note}</p>
         </div>
       </div>
     </section>

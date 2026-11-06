@@ -22,7 +22,7 @@ export function PageHero({
     <section id="hero" className="pb-20 md:pb-28">
       <div className="relative h-(--page-hero-h) min-h-(--page-hero-min) overflow-hidden bg-ink">
         <div className="hero-sink absolute inset-0">
-          <Image src={image} alt={alt} fill preload sizes="100vw" className="slow-zoom object-cover" />
+          <Image src={image} alt={alt} fill preload fetchPriority="high" sizes="100vw" className="slow-zoom object-cover" />
         </div>
         {/* Top fade keeps the see-through header legible; bottom fade carries the title. */}
         <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-40 bg-linear-to-b to-transparent ${light ? "from-ink/30" : "from-ink/50"}`} />

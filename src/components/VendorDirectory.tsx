@@ -60,7 +60,7 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
                   onClick={() => jump(c.id)}
                   aria-current={isActive ? "true" : undefined}
                   className={`label -mb-px flex h-12 shrink-0 cursor-pointer items-center border-y-2 border-t-transparent text-xs font-medium whitespace-nowrap transition-colors ${
-                    isActive ? "border-b-ink text-ink" : "border-b-transparent text-ink/55 hover:text-ink"
+                    isActive ? "border-b-ink text-ink" : "border-b-transparent text-ink/70 hover:text-ink"
                   }`}
                 >
                   {c.tab ?? c.label}

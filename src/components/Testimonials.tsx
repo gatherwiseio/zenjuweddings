@@ -298,6 +298,7 @@ function Marquee({ children }: { children: ReactNode }) {
           ref={trackRef}
           onScroll={onScroll}
           aria-label="Testimonials"
+          tabIndex={0}
           data-lenis-prevent-wheel
           onPointerDown={(e) => {
             if (e.pointerType !== "mouse" || !trackRef.current) return;
