@@ -328,9 +328,9 @@ export const servicePackages: ServicePackage[] = [
     summary: "Full coordination with DJ, emcee, cold sparks, uplighting, photobooth and photography.",
     price: 15000,
     photos: [
+      img("package-hoopono-cake-kiss.jpg", "Newlyweds sharing a kiss as they cut their cake at an evening reception under the palms"),
       img("package-platinum-dancing.jpg", "A hula dancer performing under string lights as guests watch an evening reception"),
-      img("package-platinum-couple.jpg", "Newlyweds in traditional Indian wedding attire walking through the garden"),
-      img("package-platinum-mandap.jpg", "A floral ceremony canopy draped in white with roses and tropical greenery"),
+      img("package-platinum-display.jpg", "A welcome table of framed couple photos and a guest sign under string lights"),
     ],
     overview:
       "Our Zenju All-Inclusive Platinum Package brings together full coordination, entertainment, lighting, an officiant, a photobooth and 6 hours of photography.",
