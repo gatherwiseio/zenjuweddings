@@ -7,6 +7,19 @@ import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+let instance: Lenis | null = null;
+
+/** Scroll so the element's top sits at its CSS scroll-margin (e.g. just under the pinned header). */
+export function scrollToElement(el: HTMLElement, { immediate = false } = {}) {
+  if (instance) {
+    instance.scrollTo(el, { immediate }); // Lenis applies the element's scroll-margin itself
+  } else {
+    const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - margin;
+    window.scrollTo({ top, behavior: immediate ? "instant" : "smooth" });
+  }
+}
+
 /** Pause or resume page scrolling, e.g. while a pop-up or the menu is open. */
 export function lockScroll(locked: boolean) {
   document.documentElement.style.overflow = locked ? "hidden" : "";
@@ -24,6 +37,7 @@ export function SmoothScroll() {
 
     // Anchor links land just below the pinned header.
     const lenis = new Lenis({ duration: 1.15, anchors: { offset: -96 } });
+    instance = lenis;
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
@@ -36,6 +50,7 @@ export function SmoothScroll() {
       window.removeEventListener("scroll-lock", onLock);
       gsap.ticker.remove(tick);
       lenis.destroy();
+      instance = null;
     };
   }, []);
 

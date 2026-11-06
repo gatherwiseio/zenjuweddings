@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { buttonClass } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { OpenFromHash } from "@/components/OpenFromHash";
 import { PackageList } from "@/components/PackageList";
+import { PackageScroll } from "@/components/PackageScroll";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ContactCta } from "@/components/sections/ContactCta";
@@ -36,11 +36,11 @@ export default function ServicesPage() {
           <div className="mx-auto flex max-w-content flex-col gap-14 md:gap-16">
             <div className="flex flex-col items-center gap-6 text-center">
               <SectionHeading title="Our Packages" label="Six ways to celebrate" />
-              <p className="max-w-copy text-lg leading-prose text-ink/80">{servicesPage.intro}</p>
+              <p className="max-w-copy-legal text-lg leading-prose text-pretty text-ink/75">{servicesPage.intro}</p>
             </div>
             <PackageList packages={servicePackages} />
           </div>
-          <OpenFromHash />
+          <PackageScroll />
         </section>
 
         {/* Marriage license: the essentials from her current page, with the state's own link. */}

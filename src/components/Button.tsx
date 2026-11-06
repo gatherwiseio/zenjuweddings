@@ -35,14 +35,16 @@ export function ButtonLink({
   href,
   variant = "primary",
   tone = "light",
+  className: extra = "",
   children,
 }: {
   href: string;
   variant?: Variant;
   tone?: Tone;
+  className?: string;
   children: React.ReactNode;
 }) {
-  const className = buttonClass(variant, tone);
+  const className = `${buttonClass(variant, tone)} ${extra}`.trim();
   const isInternal = href.startsWith("/");
   const page = pages.find((p) => p.href === href.split("#")[0]);
 

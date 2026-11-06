@@ -1,15 +1,20 @@
-// Services & Packages page. Package copy is Yanicke's updated package text (sent 2026-11-05),
-// lightly tidied for reading (spelling, consistent capitals, shorter lines); nothing added.
+// Services & Packages page. Package copy is Yanicke's own updated package text (sent 2026-11-05),
+// kept word for word apart from capitals and small typos; one item per line with an icon.
 // Order is hers. Prices are the base price; every package adds 4.712% Hawaii GE tax, calculated
 // here to the cent (three of her own totals were off; see BRIEF.md).
 // Marriage license section: streamlined from https://www.zenjuweddingsnevents.com/marriage-license.
 
 export type IconKey =
-  | "coordination" | "permit" | "officiant" | "beauty" | "bouquet" | "crown" | "lei"
-  | "photo" | "video" | "music" | "champagne";
-export type Inclusion = { title: string; text?: string; icon?: IconKey };
-export type Photo = { src: string; alt: string };
+  | "coordination" | "permit" | "officiant" | "beauty" | "bouquet" | "crown" | "lei" | "photo" | "video"
+  | "music" | "champagne" | "venue" | "arch" | "chairs" | "timeline" | "script" | "visit" | "emcee"
+  | "checklist" | "rehearsal" | "staff" | "setup" | "oversee" | "registration" | "ushering" | "cleanup"
+  | "gift" | "sitecheck" | "insurance" | "sound" | "consultation" | "questionnaire" | "storyboard"
+  | "budget" | "quotes" | "vendorlist" | "negotiate" | "contracts" | "meetings" | "communication"
+  | "facetoface" | "mailing" | "discount" | "vendors" | "tips" | "assistant" | "familyphoto" | "dj"
+  | "sparks" | "lighting" | "photobooth";
+export type Inclusion = { title: string; text?: string; icon: IconKey };
 export type InclusionGroup = { title?: string; items: Inclusion[] };
+export type Photo = { src: string; alt: string };
 export type ServicePackage = {
   id: string; // anchor: /services#<id>
   name: string;
@@ -18,8 +23,8 @@ export type ServicePackage = {
   summary: string; // one line shown on the closed row
   price: number;
   popular?: boolean;
+  photos: Photo[]; // shown when the package is opened
   overview: string;
-  photos: Photo[]; // first is the row's cover photo
   groups: InclusionGroup[];
   details: { title: string; text: string }[];
   closing?: string;
@@ -30,31 +35,31 @@ export const TAX_RATE_LABEL = "4.712% GE tax";
 /** Hawaii general excise tax on a package price, to the cent. */
 export const taxFor = (price: number) => Math.round(price * TAX_RATE * 100) / 100;
 
+const img = (file: string, alt: string): Photo => ({ src: `/images/current-site/${file}`, alt });
+
 export const servicesPage = {
   hero: {
     label: "Services & packages",
     title: "Plan your day, your way",
     image: "/images/current-site/portfolio-20.jpg",
   },
-  intro:
-    "Six ways to celebrate with Zenju, from an intimate barefoot beach ceremony to our all-inclusive platinum package. Open any package to see everything it includes.",
+  intro: "From an intimate barefoot beach ceremony to our all-inclusive Platinum package. Open any package to see everything it includes.",
 };
 
 export const servicePackages: ServicePackage[] = [
   {
     id: "barefoot",
     name: "Barefoot Nuptials",
-    type: "Elopement · Ceremony only",
-    summary: "Perfect for couples looking to say \u201cI do\u201d in a serene beach setting.",
+    type: "Elopement\u00a0· Ceremony only",
+    summary: "Perfect for couples looking to say “I do” in a serene beach setting.",
     price: 5500,
     photos: [
-      { src: "/images/current-site/package-barefoot-beach.jpg", alt: "Newlyweds sharing a kiss at the water\u2019s edge on a quiet beach" },
-      { src: "/images/current-site/package-barefoot-closeup.jpg", alt: "A bride and groom embracing during their beach elopement" },
-      { src: "/images/current-site/package-barefoot-lei.jpg", alt: "Green maile leaf lei laid out on a white table" },
+      img("package-barefoot-beach.jpg", "Newlyweds sharing a kiss at the water’s edge on a quiet beach"),
+      img("package-barefoot-closeup.jpg", "A bride and groom embracing during their beach elopement"),
+      img("package-barefoot-lei.jpg", "Green maile leaf lei laid out on a white table"),
     ],
-    // Her exact package copy (sent 2026-11-05), one item per line with an icon.
     overview:
-      "Experience the simplicity and beauty of love with our Zenju Basic Barefoot Nuptials Elopement Package. Perfect for couples looking to say \u201cI do\u201d in a serene beach setting!",
+      "Experience the simplicity and beauty of love with our Zenju Basic Barefoot Nuptials Elopement Package. Perfect for couples looking to say “I do” in a serene beach setting!",
     groups: [
       {
         items: [
@@ -62,8 +67,8 @@ export const servicePackages: ServicePackage[] = [
           { icon: "permit", title: "Beach permit for surrounding beaches", text: "Necessary beach permit to host your ceremony at your chosen beach location, ensuring compliance with local regulations." },
           { icon: "officiant", title: "Officiant", text: "A professional officiant to conduct your bespoke ceremony, providing a personal touch to your vows." },
           { icon: "beauty", title: "Bridal hair and makeup", text: "Professional hair and makeup services for the bride to achieve the perfect look for her special day." },
-          { icon: "bouquet", title: "1 tropical bridal bouquet", text: "A vibrant tropical bouquet tailored with fresh, colorful flowers to complement the bride\u2019s style." },
-          { icon: "crown", title: "1 tropical bridal crown (haku)", text: "A beautiful floral crown crafted from tropical flowers, adding a unique and elegant touch to the bride\u2019s look." },
+          { icon: "bouquet", title: "1 tropical bridal bouquet", text: "A vibrant tropical bouquet tailored with fresh, colorful flowers to complement the bride’s style." },
+          { icon: "crown", title: "1 tropical bridal crown (haku)", text: "A beautiful floral crown crafted from tropical flowers, adding a unique and elegant touch to the bride’s look." },
           { icon: "lei", title: "1 groom maile lei", text: "A traditional Hawaiian maile lei for the groom, symbolizing love and honor during the ceremony." },
           { icon: "photo", title: "2 hours of photography", text: "Professional photography service to capture meaningful moments during your elopement, providing beautiful and lasting memories." },
           { icon: "video", title: "2 hours of videography (including drone footage)", text: "Comprehensive videography to document your special day, featuring aerial drone footage for stunning perspectives." },
@@ -74,42 +79,46 @@ export const servicePackages: ServicePackage[] = [
     ],
     details: [
       { title: "Duration", text: "The package includes all services to cover an intimate elopement ceremony." },
-      { title: "Personalization", text: "While the elements of the package are fixed, we\u2019ll work closely with you to ensure your ceremony reflects your vision." },
+      { title: "Personalization", text: "While the elements of the package are fixed, we’ll work closely with you to ensure your ceremony reflects your vision." },
       { title: "Booking", text: "A deposit will be required to secure your date, with the remaining balance due prior to the event." },
     ],
   },
   {
     id: "elopement",
     name: "All Inclusive Elopement",
-    type: "Elopement · Ceremony and 2-hour photoshoot",
-    summary: "An oceanfront ceremony for up to 20 guests, with everything included.",
+    type: "Elopement\u00a0· Ceremony\u00a0+ 2-hour photoshoot",
+    summary: "An intimate and unforgettable oceanfront ceremony, with everything included.",
     price: 8750,
-    photos: [{ src: "/images/current-site/package-elopement-turtle-bay.jpg", alt: "A bride in her gown on an oceanfront lanai at Turtle Bay Resort" }],
+    photos: [
+      img("package-elopement-turtle-bay.jpg", "A bride in her gown on an oceanfront lanai at Turtle Bay Resort"),
+      img("package-elopement-arch.jpg", "A ceremony arch draped with fabric and tropical florals on a lawn"),
+      img("package-elopement-couple.jpg", "A bride and groom sharing a kiss, with her white bouquet"),
+    ],
     overview:
-      "Celebrate your love with our All Inclusive Elopement Package, designed for couples who want an intimate and unforgettable ceremony.",
+      "Celebrate your love with our Zenju Elopement Package, designed for those who want an intimate and unforgettable ceremony!",
     groups: [
       {
         items: [
-          { title: "Coordination", text: "Professional help planning and running your elopement ceremony, for a smooth, stress-free experience." },
-          { title: "2-hour oceanfront venue", text: "Exclusive use of a beautiful oceanfront location, with breathtaking views and a romantic setting." },
-          { title: "Bridal hair and makeup", text: "Professional hair and makeup so the bride looks and feels her best." },
-          { title: "Bridal tropical bouquet", text: "A stunning bouquet of fresh tropical flowers, personalized to your style." },
-          { title: "Bridal tropical floral crown (haku)", text: "A floral crown of tropical flowers, a unique and elegant accessory for the bride." },
-          { title: "Groom’s maile lei", text: "A traditional Hawaiian maile lei, symbolizing love and respect." },
-          { title: "2 hours of photography", text: "The intimate moments of your elopement, in candid and posed shots." },
-          { title: "2 hours of videography, with drone", text: "Your day in motion, including aerial drone footage." },
-          { title: "Hawaiian kumu (officiant)", text: "A licensed Hawaiian kumu for a personalized and culturally meaningful ceremony." },
-          { title: "Ceremony arch", text: "A beautifully designed arch as a picturesque backdrop for your vows." },
-          { title: "Tropical floral arch", text: "An arch adorned with vibrant tropical flowers as the focal point of your ceremony." },
-          { title: "20 white resin chairs", text: "Seating for you and your guests during the ceremony (20 guests maximum)." },
-          { title: "1 hour ukulele singer", text: "A talented ukulele musician to serenade you and your guests." },
-          { title: "A bottle of champagne", text: "With two glasses, to toast your new beginning." },
+          { icon: "coordination", title: "Coordination", text: "Professional coordination to assist with the planning and execution of your elopement ceremony, ensuring a smooth and stress-free experience." },
+          { icon: "venue", title: "2-hour oceanfront venue", text: "Exclusive access to a beautiful oceanfront location for your ceremony, allowing for breathtaking views and a romantic setting." },
+          { icon: "beauty", title: "Bridal hair and makeup", text: "Professional hair and makeup services for the bride to ensure she looks and feels her best on her special day." },
+          { icon: "bouquet", title: "Bridal tropical bouquet", text: "A stunning tropical bouquet designed with fresh tropical flowers, personalized to suit your style." },
+          { icon: "crown", title: "Bridal tropical floral crown (haku)", text: "A beautiful floral crown made from tropical flowers, providing a unique and elegant accessory for the bride." },
+          { icon: "lei", title: "Groom maile lei", text: "A traditional Hawaiian maile lei for the groom, symbolizing love and respect." },
+          { icon: "photo", title: "2 hours of photography", text: "Professional photography capturing the intimate moments of your elopement, with both candid and posed shots." },
+          { icon: "video", title: "2 hours of videography + drone", text: "Comprehensive videography service to beautifully document your special day, creating lasting memories in motion, featuring aerial drone footage for stunning perspectives." },
+          { icon: "officiant", title: "Hawaiian kumu (officiant)", text: "A licensed Hawaiian kumu to conduct your ceremony, offering a personalized and culturally significant experience." },
+          { icon: "arch", title: "1 arch", text: "A beautifully designed arch to enhance your ceremony setting, creating a picturesque backdrop for your vows." },
+          { icon: "bouquet", title: "Tropical floral arch", text: "An arch adorned with vibrant tropical flowers, adding a stunning focal point to your ceremony." },
+          { icon: "chairs", title: "20 white resin chairs", text: "Comfortable seating for you and your guests during the ceremony, ensuring everyone can enjoy the moment: 20 persons maximum." },
+          { icon: "music", title: "1 hour ukulele singer", text: "A talented ukulele musician to serenade you and your guests during the ceremony, creating a lovely atmosphere." },
+          { icon: "champagne", title: "A bottle of champagne", text: "A complimentary bottle of champagne with 2 wine glasses to toast to your new beginning." },
         ],
       },
     ],
     details: [
-      { title: "Personalization", text: "The components of the package are fixed, and our planning sessions make sure your elopement reflects your vision and style." },
-      { title: "Booking", text: "A deposit secures your date, with the balance due before the event." },
+      { title: "Personalization", text: "While the components of this package are fixed, we provide planning sessions to ensure your elopement reflects your unique vision and style." },
+      { title: "Booking", text: "A deposit will be required to secure your date, with the balance due before the event." },
     ],
   },
   {
@@ -117,212 +126,234 @@ export const servicePackages: ServicePackage[] = [
     name: "Hoʻopono",
     meaning: "Faithful",
     type: "Day-of coordination",
-    summary: "For couples who have planned it themselves and want the day taken care of.",
+    summary: "Day-of management for your wedding, with no planning leading up.",
     price: 2900,
-    photos: [{ src: "/images/current-site/package-hoopono-cake-kiss.jpg", alt: "Newlyweds sharing a kiss as they cut their cake at an evening reception under the palms" }],
+    photos: [
+      img("package-hoopono-cake-kiss.jpg", "Newlyweds sharing a kiss as they cut their cake at an evening reception under the palms"),
+      img("package-hoopono-aisle.jpg", "White ceremony chairs lining an aisle scattered with white flowers"),
+      img("package-hoopono-reception.jpg", "Reception tables set with white linens, chairs and florals on a lawn"),
+    ],
     overview:
-      "Hoʻopono means “faithful” in Hawaiian. This package is for couples who want day-of coordination only: it covers the day itself, with no planning leading up to the event and no wholesale vendor discounts.",
+      "Hoʻopono means faithful in Hawaiian. This exclusive package is for the couple who wants the day of coordination only. It covers just the day-of coordination, with no planning leading up to the event and no wholesale vendor discounts.",
     groups: [
       {
-        title: "Before the day",
         items: [
-          { title: "Timeline creation", text: "A detailed schedule so your event runs smoothly." },
-          { title: "Script for the emcee", text: "A personalized script to guide the flow of your event and highlight key moments." },
-          { title: "1 site visit", text: "A walkthrough so our team knows the venue layout." },
-          { title: "30-day checklist", text: "Keeps you organized and on track in the final month." },
-          { title: "Rehearsal", text: "So everyone knows their roles and the schedule." },
+          { icon: "timeline", title: "Timeline creation", text: "A detailed schedule to ensure your event runs smoothly." },
+          { icon: "script", title: "Script for the emcee", text: "A personalized script to guide your event’s flow and highlight key moments." },
+          { icon: "visit", title: "1 site visit", text: "A walkthrough of the event location to familiarize our team with the venue layout." },
+          { icon: "emcee", title: "Cue the emcee", text: "Coordination of all announcements and speeches on the day of the event." },
+          { icon: "checklist", title: "30-day checklist", text: "A comprehensive checklist to help you stay organized and on track leading up to your event." },
+          { icon: "rehearsal", title: "Rehearsal", text: "A rehearsal session to ensure everyone knows their roles and schedules." },
+          { icon: "staff", title: "Full Zenju staff on event day", text: "A dedicated team, including the Lead Coordinator, to manage every aspect of your event." },
+          { icon: "setup", title: "Set up", text: "Coordination and oversight of event setup to achieve your vision." },
+          { icon: "script", title: "Script review with the emcee", text: "Final review of the script with the emcee to ensure smooth transitions and engagement." },
+          { icon: "oversee", title: "Vendor oversight", text: "Management of all vendors on the day of the event to ensure they fulfill their roles correctly." },
+          { icon: "registration", title: "Registration assistance", text: "Support for guest registration to ensure a seamless check-in process." },
+          { icon: "ushering", title: "Guest ushering", text: "Guiding guests to their seats or designated areas for a smooth experience." },
+          { icon: "cleanup", title: "Clean up", text: "Full clean-up service post-event to leave the venue in pristine condition." },
+          { icon: "gift", title: "Decor and gift table pack-up", text: "Management of gift table decor and packing up items after the event concludes." },
+          { icon: "sitecheck", title: "Site check", text: "Final site inspection to ensure all aspects meet expectations before departure." },
+          { icon: "insurance", title: "$2,500,000.00 insurance liability", text: "Comprehensive liability coverage for peace of mind." },
+          { icon: "sound", title: "Sound check with DJ/musician", text: "Coordination and sound checks with your DJ or musician to ensure optimal audio quality." },
         ],
       },
-      {
-        title: "On the day",
-        items: [
-          { title: "A full Zenju staff", text: "A dedicated team, including the Lead Coordinator, managing every aspect of your event." },
-          { title: "Set up", text: "Coordination and oversight of the setup to achieve your vision." },
-          { title: "Script review with the emcee", text: "A final run-through for smooth transitions." },
-          { title: "Cueing the emcee", text: "Coordination of all announcements and speeches." },
-          { title: "Vendor oversight", text: "Managing every vendor so each fulfills their role correctly." },
-          { title: "Sound check with your DJ or musician", text: "So the audio is right before you begin." },
-          { title: "Guest registration and ushering", text: "A seamless check-in, and guests guided to their seats." },
-        ],
-      },
-      {
-        title: "After",
-        items: [
-          { title: "Clean up", text: "Leaving the venue in pristine condition." },
-          { title: "Gift table and decor pack-up", text: "Everything packed up after the event." },
-          { title: "Site check", text: "A final inspection before we leave." },
-        ],
-      },
-      { title: "Coverage", items: [{ title: "$2,500,000 liability insurance", text: "For peace of mind." }] },
     ],
-    details: [{ title: "Booking", text: "Reach out to book Hoʻopono day-of coordination or for more details." }],
+    details: [
+      { title: "Planning", text: "Day-of management only: no planning leading up to the event and no wholesale vendor discounts." },
+      { title: "Booking", text: "Ready to make your event a success? Reach out to us for more details or to book the Hoʻopono Day of Coordination Package." },
+    ],
   },
   {
     id: "i-ke-aloha",
     name: "I Ke Aloha",
     meaning: "In love",
     type: "Partial coordination",
-    summary: "You plan, and we step in once your venue and three vendors are booked.",
+    summary: "You plan hands-on, and our team steps in once your venue and three vendors are set.",
     price: 4800,
-    photos: [{ src: "/images/current-site/package-hoopono-paradise-cove.jpg", alt: "Newlyweds walking out to cheering guests at Paradise Cove" }],
+    photos: [
+      img("package-hoopono-paradise-cove.jpg", "Newlyweds walking out to cheering guests at Paradise Cove"),
+      img("package-ikealoha-seating-chart.jpg", "A wedding seating chart on a stand beside white ceremony chairs"),
+      img("package-ikealoha-ceremony.jpg", "A couple exchanging rings at the altar with their officiant and bridal party"),
+    ],
     overview:
-      "I Ke Aloha, meaning “in love” in Hawaiian, is for couples who prefer a hands-on approach to planning but want professional support as the big day approaches. Our team steps in once your venue is secured with a deposit and three more vendors are confirmed, so you enjoy the planning while every essential detail is expertly managed.",
+      "The I Ke Aloha Package, meaning “In Love” in Hawaiian, is crafted for couples who prefer a hands-on approach to their wedding planning but desire professional support as the big day approaches. Our Zenju team steps in once the venue is secured with a deposit and three additional vendors are confirmed. This package allows you to enjoy the planning process while ensuring all essential details are expertly managed.",
     groups: [
       {
         title: "Initial consultation",
         items: [
-          { title: "1 hour consultation", text: "Discuss your vision and requirements in detail." },
-          { title: "Questionnaire", text: "Captures your preferences, style and key details." },
+          { icon: "consultation", title: "1 hour consultation", text: "Discuss your vision and requirements in detail." },
+          { icon: "questionnaire", title: "Questionnaire", text: "Capture your preferences, style, and key details for your wedding." },
         ],
       },
       {
-        title: "Planning and coordination",
+        title: "Planning & coordination",
         items: [
-          { title: "Storyboard design advice", text: "Advisory only; no design included." },
-          { title: "Budget analysis advice", text: "A review of your budget, with insights." },
-          { title: "Vendor quotes", text: "Help getting and comparing quotes." },
-          { title: "Preferred vendor list", text: "Curated recommendations to help you choose." },
+          { icon: "storyboard", title: "Storyboard design", text: "Advisory service only; no actual design included." },
+          { icon: "budget", title: "Budget analysis advice", text: "Review and provide insights on your budget needs." },
+          { icon: "quotes", title: "Vendor quotes", text: "Help in obtaining and evaluating quotes from potential vendors." },
+          { icon: "vendorlist", title: "Preferred vendor list", text: "A curated list of recommended vendors to assist in making informed choices." },
         ],
       },
       {
         title: "Vendor coordination",
         items: [
-          { title: "Vendor negotiation", text: "We negotiate for the best deals and make sure all your needs are met." },
-          { title: "Contracts and payments", text: "Contract management and payment scheduling with your vendors." },
-          { title: "All vendor meetings", text: "Scheduled and attended by us, keeping everyone aligned." },
+          { icon: "negotiate", title: "Negotiate with vendors", text: "We’ll handle negotiations to get the best deals and ensure all needs are met." },
+          { icon: "contracts", title: "Coordinate contracts and payments", text: "Take care of contract management and payment scheduling with your selected vendors." },
+          { icon: "meetings", title: "Schedule and attend all vendor meetings", text: "Manage communication and coordination to keep all parties aligned." },
         ],
       },
       {
         title: "Communication",
         items: [
-          { title: "Unlimited emails, calls and Zoom meetings", text: "Open communication up to the wedding." },
-          { title: "Unlimited face-to-face meetings", text: "With two weeks’ notice." },
+          { icon: "communication", title: "Unlimited emails, calls & Zoom meetings", text: "Maintain open communication leading up to the wedding." },
+          { icon: "facetoface", title: "Unlimited face-to-face meetings", text: "Available with a 2-week advance notice to ensure smooth planning." },
         ],
       },
       {
-        title: "Before the day",
+        title: "Day-of coordination",
         items: [
-          { title: "30-day checklist", text: "Keeps final preparations on track." },
-          { title: "1 site visit", text: "To assess layout and logistics." },
-          { title: "Rehearsal", text: "Led by us, so you and your bridal party feel confident and prepared." },
-          { title: "Mailing options", text: "Send packages to your coordinator instead of traveling with them." },
+          { icon: "staff", title: "A full Zenju staff on the day of the wedding", text: "Including the Lead Coordinator to ensure seamless execution." },
+          { icon: "setup", title: "Set up", text: "Manage the arrangement of all decor and vendor elements." },
+          { icon: "oversee", title: "Vendor coordination on wedding day", text: "Oversee all vendors to adhere to timelines and ensure everything runs smoothly." },
+          { icon: "sound", title: "Sound check", text: "Ensure coordination with the DJ/musician prior to the event." },
+          { icon: "script", title: "Timeline & script for the emcee", text: "Facilitate a smooth flow of announcements and activities." },
+          { icon: "ushering", title: "Registration & ushering of guests", text: "Professionally manage guest arrival and seating." },
         ],
       },
       {
-        title: "On the day",
+        title: "Rehearsal coordination",
         items: [
-          { title: "A full Zenju staff", text: "Including the Lead Coordinator, for seamless execution." },
-          { title: "Set up", text: "All decor and vendor elements arranged." },
-          { title: "Vendor coordination", text: "Every vendor kept to the timeline." },
-          { title: "Sound check", text: "With your DJ or musician before the event." },
-          { title: "Timeline and emcee script", text: "A smooth flow of announcements and activities." },
-          { title: "Guest registration and ushering", text: "Guest arrival and seating, professionally managed." },
+          { icon: "rehearsal", title: "Rehearsal leadership", text: "Organize and lead the rehearsal to ensure that the couple and the bridal party are confident and prepared for the ceremony." },
         ],
       },
       {
-        title: "After",
+        title: "Pre-event preparations",
         items: [
-          { title: "Clean up", text: "Breakdown and packing of all decor and items, including the gift table." },
-          { title: "Site check", text: "We’re the last to leave, with the venue in pristine condition." },
+          { icon: "checklist", title: "30-day checklist", text: "A comprehensive list to keep final preparations on track." },
+          { icon: "visit", title: "Site visit", text: "One on-site visit to assess layout and logistics." },
+          { icon: "mailing", title: "Mailing options", text: "Convenient package sending to your coordinator, eliminating the need for travel with items." },
         ],
       },
-      { title: "Coverage", items: [{ title: "$2,500,000 liability insurance", text: "For peace of mind on your day." }] },
+      {
+        title: "Post-event services",
+        items: [
+          { icon: "cleanup", title: "Clean up", text: "Manage the breakdown and packing up of all decor and items, including the gift table." },
+          { icon: "sitecheck", title: "Site check", text: "Ensure the venue is left in pristine condition as the last ones to leave." },
+        ],
+      },
+      {
+        title: "Insurance coverage",
+        items: [{ icon: "insurance", title: "$2,500,000.00 insurance liability coverage", text: "Provides peace of mind for your special day." }],
+      },
     ],
     details: [
-      { title: "Payment", text: "Flexible payment plans are available." },
-      { title: "Booking", text: "A deposit on confirmation secures your wedding date." },
+      { title: "Payment options", text: "Flexible payment plans available for your convenience." },
+      { title: "Booking process", text: "A deposit is required upon confirmation to secure your wedding date." },
     ],
+    closing:
+      "Let the I Ke Aloha Partial Coordination Package give you the best of both worlds: your personal touch with the reassurance of professional support.",
   },
   {
     id: "kuulei",
     name: "Kuʻu Lei",
     meaning: "Beloved",
     type: "Full coordination",
-    summary: "Full planning from the day your date is set, with our team every step of the way.",
+    summary: "All the logistics from the moment your date is set, with our team every step of the way.",
     price: 7500,
     popular: true,
-    photos: [{ src: "/images/current-site/package-kuulei-loulu-tent.jpg", alt: "Sailcloth tent reception lit at dusk at Loulu Palms Estate" }],
+    photos: [
+      img("package-kuulei-loulu-tent.jpg", "Sailcloth tent reception lit at dusk at Loulu Palms Estate"),
+      img("package-kuulei-cake-florals.jpg", "A white tiered wedding cake surrounded by lush white and green florals"),
+      img("package-kuulei-sweetheart-table.jpg", "A sweetheart table dressed in white florals on the lawn at Loulu Palms Estate"),
+    ],
     overview:
-      "Kuʻu Lei, meaning “beloved” in Hawaiian, is our most popular package, for couples who want to enjoy planning without the stress. It covers every logistic from the moment your date is set, with the Zenju team beside you every step of the way.",
+      "The Kuʻu Lei package, meaning “Beloved” in Hawaiian, is our most popular option for couples looking for comprehensive wedding planning support. This full coordination service is designed for couples who want to enjoy the planning process without the stress, allowing them to focus on the excitement of their upcoming day. This package covers all logistics from the moment the wedding date is set, with the Zenju team working alongside you every step of the way.",
     groups: [
       {
         title: "Initial consultation",
         items: [
-          { title: "1 hour complimentary consultation", text: "Talk through your vision, preferences and expectations." },
-          { title: "Questionnaire", text: "Captures your unique style and preferences." },
+          { icon: "consultation", title: "1 hour complimentary consultation", text: "An opportunity to discuss your vision, preferences, and expectations." },
+          { icon: "questionnaire", title: "Questionnaire", text: "Helps us capture your unique style and preferences for your special day." },
         ],
       },
       {
-        title: "Planning and coordination",
+        title: "Planning & coordination",
         items: [
-          { title: "Storyboard design", text: "A visual layout of your theme and logistics." },
-          { title: "Unlimited emails, calls and Zoom meetings", text: "Ongoing communication about plans, updates and any concerns." },
-          { title: "Unlimited face-to-face meetings", text: "Scheduled in advance." },
-          { title: "Quotes and budget planning", text: "A comprehensive budget plan with detailed analysis and guidance." },
-          { title: "Wholesale vendor discounts", text: "Exclusive discounts through our preferred vendors." },
-          { title: "Preferred vendor list", text: "Handpicked, reliable recommendations." },
-          { title: "Vendor coordination", text: "We’re the main contact for every vendor, keeping communication clear and timelines on track." },
-          { title: "All vendor meetings", text: "Scheduled and attended by us." },
-          { title: "Mailing options", text: "Send packages to your coordinator instead of traveling with them." },
+          { icon: "storyboard", title: "Storyboard design", text: "Visual layout of the wedding theme and logistics." },
+          { icon: "communication", title: "Unlimited emails, calls & Zoom meetings", text: "Ongoing communication to discuss plans, updates, and any concerns." },
+          { icon: "facetoface", title: "Unlimited face-to-face meetings", text: "Scheduled in advance for personalized consultations." },
+          { icon: "budget", title: "Quotes & budget planning", text: "Create a comprehensive budget plan with detailed analysis and guidance." },
+          { icon: "discount", title: "Wholesale vendor discounts", text: "Access to exclusive discounts through our preferred vendors." },
+          { icon: "vendorlist", title: "Preferred vendor list", text: "Handpicked recommendations for reliable vendors." },
+          { icon: "vendors", title: "Vendor coordination", text: "We act as the main contact for all vendors, ensuring clear communication and adherence to timelines." },
+          { icon: "meetings", title: "Schedule and attend all vendor meetings", text: "Participate in all necessary meetings to keep everything on track." },
+          { icon: "mailing", title: "Mailing options for packages", text: "Convenient sending to your coordinator to avoid travel with items." },
         ],
       },
       {
-        title: "On the day",
+        title: "Day-of coordination",
         items: [
-          { title: "Timeline", text: "A detailed schedule so everything runs smoothly." },
-          { title: "Vendor tip sheet", text: "Guidance on gratuities for your vendors." },
-          { title: "Emcee script and cues", text: "A customized script, and every announcement cued." },
-          { title: "A full Zenju staff", text: "A Lead Coordinator and additional team members." },
-          { title: "Personal assistant while getting ready", text: "Support for the bride and bridal party." },
-          { title: "Layout design and set up", text: "Decor set up in line with your storyboard." },
-          { title: "Vendor oversight", text: "Every vendor kept to the agreed schedule and plan." },
-          { title: "Sound check with your DJ or musician", text: "Audio confirmed before the ceremony." },
-          { title: "Guest registration and ushering", text: "A smooth arrival and seating." },
-          { title: "Family photo coordination", text: "Everyone in place on time." },
-          { title: "Music cues for the DJ", text: "Transitions managed through each part of the event." },
+          { icon: "timeline", title: "Timeline development", text: "A detailed schedule to ensure everything proceeds smoothly on the wedding day." },
+          { icon: "tips", title: "Vendor tip sheet", text: "Guidance on gratuities and appreciation for vendors." },
+          { icon: "script", title: "Script for the emcee", text: "Customized script with cues for all announcements." },
+          { icon: "emcee", title: "Cue the emcee for announcements", text: "Ensure all messages are delivered smoothly during the event." },
+          { icon: "staff", title: "A full Zenju staff on the day of the wedding", text: "Including a Lead Coordinator and additional team members for seamless execution." },
+          { icon: "assistant", title: "Personal assistant during getting ready", text: "Support for the bride and bridal party while preparing for the ceremony." },
+          { icon: "setup", title: "Layout design & set up", text: "Manage the setup of decor in line with the storyboard." },
+          { icon: "oversee", title: "Oversee all vendors on the day", text: "Ensure each vendor adheres to the agreed schedule and execution plan." },
+          { icon: "sound", title: "Sound check with the DJ/musician", text: "Confirm audio elements are functioning and coordinated prior to the ceremony." },
+          { icon: "ushering", title: "Registration & ushering guests", text: "Smooth guest arrival and seating process." },
+          { icon: "familyphoto", title: "Family photo coordination", text: "Organize family photos to ensure timely participation." },
+          { icon: "music", title: "Cue the DJ on music", text: "Manage music transitions during various segments of the event." },
         ],
       },
       {
-        title: "After",
+        title: "Post-event services",
         items: [
-          { title: "Breakdown and clean up", text: "Decor dismantled and the gift table packed up." },
-          { title: "Site check", text: "We’re the last to leave, with the venue in pristine condition." },
-          { title: "$2,500,000 liability insurance", text: "For peace of mind on your day." },
+          { icon: "cleanup", title: "Breakdown & clean up", text: "Handle the dismantling of decor and packing up the gift table." },
+          { icon: "sitecheck", title: "Site check / last ones to leave", text: "Ensure the venue is left in pristine condition." },
+          { icon: "insurance", title: "$2,500,000.00 insurance liability coverage", text: "To provide peace of mind on your special day." },
         ],
       },
     ],
     details: [
-      { title: "Payment", text: "Flexible payment plans are available." },
-      { title: "Booking", text: "A deposit on signing the service agreement secures your wedding date." },
+      { title: "Payment options", text: "Flexible payment plans are available for your convenience." },
+      { title: "Booking process", text: "A deposit is required upon signing the service agreement to secure your wedding date." },
     ],
+    closing:
+      "Let the Kuʻu Lei Full Coordination Package turn your wedding dreams into reality, allowing you to sit back and enjoy every moment.",
   },
   {
     id: "platinum",
     name: "Zenju Platinum",
-    type: "All-inclusive · Full coordination",
-    summary: "Full coordination with DJ, emcee, lighting, photobooth and 6 hours of photography.",
+    type: "All-inclusive\u00a0· Full coordination",
+    summary: "Full coordination with DJ, emcee, cold sparks, uplighting, photobooth and photography.",
     price: 15000,
-    photos: [{ src: "/images/current-site/package-platinum-cafe-julia.jpg", alt: "Reception tables set beneath the arches at Cafe Julia" }],
+    photos: [
+      img("package-platinum-dancing.jpg", "A hula dancer performing under string lights as guests watch an evening reception"),
+      img("package-platinum-cafe-julia.jpg", "Reception tables set beneath the arches at Cafe Julia"),
+      img("package-platinum-display.jpg", "A decorated guest table with framed photos and a welcome sign under string lights"),
+    ],
     overview:
-      "Our all-inclusive platinum package brings full coordination together with entertainment, lighting and photography, with 6 hours of coverage on the day.",
+      "Our Zenju All-Inclusive Platinum Package brings together full coordination, entertainment, lighting, an officiant, a photobooth and 6 hours of photography.",
     groups: [
       {
         items: [
-          { title: "Full coordination", text: "Complete planning, management and design from start to finish, for a seamless experience." },
-          { title: "DJ services", text: "An experienced DJ with music tailored to your taste, across genres and personalized playlists." },
-          { title: "Emcee services", text: "A professional emcee to host your event, with smooth transitions and engaging entertainment." },
-          { title: "Cold sparks", text: "Cold spark fountains, a captivating and safe way to mark moments like your grand entrance or first dance." },
-          { title: "Uplighting", text: "Ambient uplighting in colors to match your theme and enhance the venue’s decor." },
-          { title: "Officiant services", text: "A licensed officiant for your ceremony, with personalized vows." },
-          { title: "Photobooth", text: "Props, backdrops and instant prints for guests to take home as keepsakes." },
-          { title: "6 hours of photography", text: "Candid shots and posed portraits throughout your event." },
+          { icon: "coordination", title: "Full coordination", text: "Complete event planning: overall management and design from start to finish to ensure a seamless experience." },
+          { icon: "dj", title: "DJ services", text: "Experienced DJ to provide music tailored to your taste, including a variety of genres and personalized playlists." },
+          { icon: "emcee", title: "Emcee services", text: "Professional emcee to host your event, ensuring smooth transitions and engaging entertainment." },
+          { icon: "sparks", title: "Cold sparks", text: "Stunning cold spark fountains for a captivating and safe way to enhance your special moments, such as the grand entrance or first dance." },
+          { icon: "lighting", title: "Uplighting", text: "Ambient uplighting to set the mood, with customizable colors to match your theme and enhance the venue’s décor." },
+          { icon: "officiant", title: "Officiant services", text: "Licensed officiant to conduct your ceremony, providing personalized vows and a special touch to your nuptials." },
+          { icon: "photobooth", title: "Photobooth", text: "Fun photobooth experience with props, backdrops, and instant printouts for guests to take home as memorable keepsakes." },
+          { icon: "photo", title: "6 hours of photography", text: "Professional photography service capturing beautiful moments throughout your event, including candid shots and posed portraits." },
         ],
       },
     ],
     details: [
-      { title: "Duration", text: "6 hours of coverage in total, with additional hours available on request." },
-      { title: "Customization", text: "The elements are fixed, and our planning sessions and consultations tailor the experience to your vision." },
-      { title: "Booking", text: "A deposit secures your date, with the balance due before the event." },
+      { title: "Duration", text: "This package includes services for a total of 6 hours of coverage, with additional hours available upon request." },
+      { title: "Customization", text: "While the elements of this package are fixed, we ensure your experience is tailored to your unique vision through planning sessions and consultations." },
+      { title: "Booking", text: "A deposit will be required to secure your date, with the balance due prior to the event." },
     ],
   },
 ];
