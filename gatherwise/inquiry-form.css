@@ -17,6 +17,11 @@ html:has([id="gw-form"]), body:has([id="gw-form"]), .main-page:has([id="gw-form"
   background-color:#F5F2E9 !important; margin:0 !important; padding:28px !important;
   width:100% !important; max-width:100% !important; box-sizing:border-box !important;
 }
+/* the form's own page on Gatherwise (logo above the form): at most 720px wide, centred, with room
+   below. The website embed has no logo, so there the box still fills the Contact page's column. */
+.bubble-element.Group:has(img) ~ [id="gw-form"]{
+  max-width:720px !important; margin-left:auto !important; margin-right:auto !important; margin-bottom:48px !important;
+}
 [id="gw-form"] .bubble-element.Group:not([id="gw-field"]),
 [id="gw-form"] .bubble-element.RepeatingGroup:not([id="gw-field"]),
 [id="gw-form"] .group-item:not([id="gw-field"]){ background-color:transparent !important; }
