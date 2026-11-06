@@ -41,7 +41,9 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
 
   const jump = (id: string) => {
     const el = document.getElementById(id);
-    if (el) scrollToElement(el);
+    if (!el) return;
+    history.replaceState(null, "", `#${id}`); // shareable link to the section
+    scrollToElement(el);
   };
 
   return (
@@ -119,7 +121,7 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
         )}
       </div>
       <div className="flex min-w-0 flex-col gap-1">
-        <h3 className="text-lg leading-heading font-normal">{vendor.name}</h3>
+        <h3 translate="no" className="text-lg leading-heading font-normal">{vendor.name}</h3>
         {vendor.with && <p className="label text-tiny font-medium text-gold-deep">{vendor.with}</p>}
         <p className="text-meta leading-prose text-pretty text-ink/75">{vendor.text}</p>
         <div className="mt-2 flex flex-col gap-1 text-meta">

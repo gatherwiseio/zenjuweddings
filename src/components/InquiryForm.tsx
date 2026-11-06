@@ -50,7 +50,7 @@ export function InquiryForm() {
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor={`${id}-email`} className={labelClass}>Email</label>
-        <input id={`${id}-email`} name="email" type="email" required maxLength={200} autoComplete="email" className={field} />
+        <input id={`${id}-email`} name="email" type="email" required maxLength={200} autoComplete="email" spellCheck={false} className={field} />
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor={`${id}-message`} className={labelClass}>Message</label>
@@ -60,7 +60,7 @@ export function InquiryForm() {
           required
           maxLength={5000}
           rows={3}
-          placeholder="Your date, venue or island, guest count, and anything you’re dreaming of."
+          placeholder="Your date, venue or island, guest count, and anything you’re dreaming of…"
           className={`${field} resize-y`}
         />
       </div>

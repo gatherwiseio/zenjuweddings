@@ -30,8 +30,14 @@ export function PackageScroll() {
     const onClick = (event: MouseEvent) => {
       const summary = (event.target as Element).closest("details.package > summary");
       const el = summary?.parentElement;
-      if (!(el instanceof HTMLDetailsElement) || el.open) return; // closing: leave it to the browser
+      if (!(el instanceof HTMLDetailsElement)) return;
+      // The address keeps the open package (/services#kuulei), so it can be shared or bookmarked.
+      if (el.open) {
+        history.replaceState(null, "", window.location.pathname); // closing: leave it to the browser
+        return;
+      }
       event.preventDefault();
+      history.replaceState(null, "", `#${el.id}`);
       open(el);
     };
 

@@ -77,7 +77,7 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-16">
           <div className="flex flex-col gap-3">
             <p className="label text-xs font-medium text-gold">{album.place}</p>
-            <h1 className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-6xl">{album.title}</h1>
+            <h1 translate="no" className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-6xl">{album.title}</h1>
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-lg leading-prose text-pretty text-ink/75">{album.story}</p>

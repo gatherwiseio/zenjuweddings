@@ -60,7 +60,7 @@ export function AlbumPhotos({ photos }: { photos: GalleryPhoto[] }) {
           if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
           touchX.current = null;
         }}
-        className="m-0 h-dvh max-h-none w-screen max-w-none bg-ink/95 p-0 text-white backdrop:bg-ink/95"
+        className="m-0 h-dvh max-h-none w-screen max-w-none overscroll-contain bg-ink/95 p-0 text-white backdrop:bg-ink/95"
       >
         {current && (
           <div className="flex h-full flex-col">

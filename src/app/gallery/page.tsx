@@ -64,7 +64,7 @@ export default function GalleryPage() {
                       className={`flex flex-col gap-3 md:col-span-5 ${flip ? "md:order-1 md:col-start-2 md:items-end md:text-right" : "md:col-start-7"}`}
                     >
                       <p className="label text-xs font-medium text-gold">{album.place}</p>
-                      <h2 className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">
+                      <h2 translate="no" className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">
                         {album.title}
                       </h2>
                       <p className="text-meta text-ink/70">{album.photos.length} photos</p>
