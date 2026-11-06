@@ -1,9 +1,15 @@
-import Image, { type StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
+import { preload } from "react-dom";
+import { heroSrc, heroSrcSet, heroWidths, photoName } from "@/content/heroes";
 
 // Banner at the top of inner pages: a full-width photo (shorter than the homepage film) with the
 // page title low and centered, same type and fades as the homepage hero. The header floats over
-// it until you scroll past (`id="hero"` is what the header measures). The photo is a static
-// import, so a tiny blurred copy is inlined in the page and shows at once while the full photo loads.
+// it until you scroll past (`id="hero"` is what the header measures).
+//
+// Built for an immediate photo: it comes from ready-made WebP files (scripts/hero-images.mjs), so
+// the CDN serves it straight away instead of resizing it on the first visit; the page asks for it
+// first thing (preload, high priority); and the imported photo's tiny blurred copy, inlined in the
+// page, sits underneath until it arrives.
 export function PageHero({
   title,
   label,
@@ -19,11 +25,29 @@ export function PageHero({
   shade?: "default" | "light";
 }) {
   const light = shade === "light";
+  const name = photoName(image.src);
+  const srcSet = heroSrcSet(name);
+  preload(heroSrc(name, heroWidths.at(-1)!), { as: "image", imageSrcSet: srcSet, imageSizes: "100vw", fetchPriority: "high" });
   return (
     <section id="hero" className="pb-20 md:pb-28">
       <div className="relative h-(--page-hero-h) min-h-(--page-hero-min) overflow-hidden bg-ink">
         <div className="hero-sink absolute inset-0">
-          <Image src={image} alt={alt} fill preload fetchPriority="high" placeholder="blur" sizes="100vw" className="slow-zoom object-cover" />
+          {/* Blurred stand-in, scaled up a touch so the blur has no soft edge. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl"
+            style={{ backgroundImage: `url(${image.blurDataURL})` }}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element -- ready-made files, see above */}
+          <img
+            src={heroSrc(name, heroWidths.at(-1)!)}
+            srcSet={srcSet}
+            sizes="100vw"
+            alt={alt}
+            fetchPriority="high"
+            decoding="async"
+            className="slow-zoom absolute inset-0 h-full w-full object-cover"
+          />
         </div>
         {/* Top fade keeps the see-through header legible; bottom fade carries the title. */}
         <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-40 bg-linear-to-b to-transparent ${light ? "from-ink/30" : "from-ink/50"}`} />

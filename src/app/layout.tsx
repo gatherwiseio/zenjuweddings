@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Jost, Pinyon_Script } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
+import { HeroPrefetch } from "@/components/HeroPrefetch";
 import { InquiryDialog } from "@/components/InquiryDialog";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { seo } from "@/content/seo";
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScroll />
         {children}
         <InquiryDialog />
+        <HeroPrefetch />
       </body>
     </html>
   );
