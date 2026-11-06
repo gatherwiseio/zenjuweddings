@@ -33,6 +33,9 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 - Move her content over from her [Our story](https://www.zenjuweddingsnevents.com/about-5) page.
 - **Built 2026-11-05** (`/about`, content in `src/content/about.ts`): page banner (portfolio florals, "The story behind the vision"), lotus statement (founded 2010, named after Zen and Jude), Meet Yanicke (portrait + her story in three paragraphs, paraphrased so it differs from the homepage version), Our Vision (team photo from her page, two paragraphs, three short points drawn from her vision text, a strip of four of her detail photos with gentle drift, her closing words), then the shared call to action. No facts added.
 
+### Menu
+- **Revised 2026-11-06** after brookekeegan.com: light gray (mist) full-screen panel that fades in; the Zenju wordmark centered in black over a fine rule, with Close exactly where the Menu button sits (no jump); page links in charcoal, growing slightly on hover, current page not highlighted; bottom row with Contact + email (left), the black lotus mark (center) and Social: Facebook / Instagram (right), stacked and centered below 1024px.
+
 ### Services & Packages
 - Move her content over from her [Wedding packages](https://www.zenjuweddingsnevents.com/packages) page, structured to be easy to read and search-friendly.
 - [Marriage license](https://www.zenjuweddingsnevents.com/marriage-license) content as a separate section at the bottom.

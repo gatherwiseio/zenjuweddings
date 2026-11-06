@@ -128,6 +128,8 @@
   --aspect-lotus: 386.1 / 291.3;
   --wordmark-w: 124px;
   --wordmark-w-lg: 150px;
+  --menu-wordmark-w: 9rem; /* centered wordmark at the top of the open menu */
+  --menu-wordmark-w-lg: 15rem;
   --legal-cols: 240px 1fr; /* legal pages: contents list + text */
 }
 
