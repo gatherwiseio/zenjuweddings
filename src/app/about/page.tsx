@@ -81,9 +81,6 @@ export default function AboutPage() {
                   key={pillar.title}
                   className={`reveal-up ${["", "stagger-1", "stagger-2"][i]} flex flex-col gap-3 border-t border-fog pt-6`}
                 >
-                  <span className="label text-xs font-medium text-gold tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <h3 className="text-xl leading-heading font-light">{pillar.title}</h3>
                   <p className="text-meta leading-prose text-ink/80">{pillar.text}</p>
                 </li>

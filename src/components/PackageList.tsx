@@ -121,7 +121,7 @@ const icons: Record<IconKey, typeof CameraIcon> = {
 export function PackageList({ packages }: { packages: ServicePackage[] }) {
   return (
     <div className="border-t border-fog">
-      {packages.map((pkg, i) => {
+      {packages.map((pkg) => {
         const tax = taxFor(pkg.price);
         return (
           <details
@@ -131,9 +131,6 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
             className="package group scroll-mt-(--header-h) border-b border-fog md:scroll-mt-(--header-h-md)"
           >
             <summary className="flex cursor-pointer items-start gap-4 py-7 md:items-center md:gap-8 md:py-8">
-              <span className="label w-8 shrink-0 pt-1.5 text-xs font-medium text-gold tabular-nums md:w-10 md:pt-0">
-                {String(i + 1).padStart(2, "0")}
-              </span>
               <span className="flex min-w-0 flex-1 flex-col gap-2">
                 <span className="label flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-gold">
                   {pkg.type}
