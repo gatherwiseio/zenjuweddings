@@ -16,11 +16,12 @@ export const aboutPage = {
     label: "Founder",
     portrait: "/images/current-site/yanicke-headshot.jpg",
     portraitAlt: "Yanicke Lim Sang, founder of Zenju Weddings",
-    // Paraphrased so it reads differently from the homepage's short version; same facts.
+    // Written for couples deciding whether to hire her: each paragraph ties her background to
+    // what it means for their day. Facts are only those on her "Our story" page.
     paragraphs: [
-      "Yanicke comes from Jamaica, an island celebrated for its cultural diversity. Her own family is a blend of Chinese, African and East Indian heritage, and growing up in it gave her a lifelong appreciation for diversity. Hawaii has been her home for 17 years and counting.",
-      "Design came first. A love of detail and vibrant colour led her to study Fashion Illustration and Design at Miami International Art University, and she worked in the fashion industry for several years before stepping back to focus on motherhood.",
-      "Her path into events began with five years apprenticing for event planners, alongside coordinating concerts for emerging artists at a record label in Miami Beach. In 2010 she brought that coordination and design experience together to found Zenju Weddings and Events of Hawaii, which she still oversees closely today.",
+      "Yanicke grew up in Jamaica, in a family of Chinese, African and East Indian heritage, and that multicultural upbringing gave her a deep appreciation for every culture and tradition a couple brings to their day. She has called Hawaii home for 17 years and counting.",
+      "Her eye for design came first. She studied Fashion Illustration and Design at Miami International Art University and spent several years in the fashion industry, where her love of fine detail and vibrant colour took shape. It's the same eye she brings to designing your celebration.",
+      "Before founding Zenju in 2010, she spent five years learning the craft alongside event planners and coordinated concerts for emerging artists at a record label in Miami Beach. Today she still manages Zenju closely herself, with the same care and commitment she brings to every couple.",
     ],
   },
 
