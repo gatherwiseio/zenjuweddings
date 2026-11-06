@@ -37,6 +37,8 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 - Move her content over from her [Wedding packages](https://www.zenjuweddingsnevents.com/packages) page, structured to be easy to read and search-friendly.
 - [Marriage license](https://www.zenjuweddingsnevents.com/marriage-license) content as a separate section at the bottom.
 - Each package keeps an anchor (`/services#<id>`) for the homepage "Learn more" links.
+- **Built 2026-11-05** (`/services`, content in `src/content/services.ts`) from Yanicke's updated package copy, in her order: Barefoot Nuptials ($5,500), All Inclusive Elopement ($8,750), Hoʻopono day-of ($2,900), I Ke Aloha partial ($4,800), Kuʻu Lei full ($7,500, most popular), Zenju Platinum ($15,000); all + 4.712% GE tax. Clean white rows (type, name, one-line summary, price); opening one shows everything included plus a price card, and closes the others (her "drop down per package" ask). Anchors: barefoot, elopement, hoopono, i-ke-aloha, kuulei, platinum. Marriage license section at the bottom (essentials + State of Hawaii link).
+- **Open with Yanicke:** her tax/total figures for three packages don't match 4.712% (shown base price + tax only for now); the Events package isn't in her new list; the homepage packages section still shows the old four; minors' marriage-age rules left out of the license section (laws change; she can confirm).
 
 ### Preferred Vendors
 - Move her content over from her two preferred vendor pages ([part 1](https://www.zenjuweddingsnevents.com/news-all), [part 2](https://www.zenjuweddingsnevents.com/team-1)).

@@ -108,6 +108,7 @@
   --page-hero-h: 72svh;
   --page-hero-min: 28rem;
   --aspect-team: 4 / 3; /* About: team photo */
+  --package-detail-cols: minmax(0, 2fr) minmax(0, 1fr); /* Services: inclusions | price card */
   /* Standard section band padding (phones / from 768px) */
   --section-x: 1.5rem;
   --section-x-lg: 3.5rem;
@@ -182,6 +183,37 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-wrap: balance; /* no orphaned words in labels */
+}
+
+/* Expandable rows (<details>): no default triangle, and a smooth open/close where the browser
+   can animate to "auto" height. Older browsers just open instantly. */
+@layer base {
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+@supports (interpolate-size: allow-keywords) {
+  details.package {
+    interpolate-size: allow-keywords;
+  }
+  details.package::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      content-visibility 500ms allow-discrete;
+  }
+  details.package[open]::details-content {
+    block-size: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  details.package::details-content {
+    transition: none;
+  }
 }
 
 /* Standard section band: the side and top/bottom padding every full-width section uses. */
