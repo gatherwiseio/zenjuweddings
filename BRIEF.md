@@ -19,7 +19,7 @@
 ## Scope
 Pages, in nav order: Home · About Us / The Team · Services & Packages · Preferred Vendors · Gallery · Contact Us
 
-**This build: homepage only.** The other five pages appear in the navigation but are **not clickable** until the homepage is approved.
+**Homepage approved; now building the other five pages**, one at a time in nav order. Pages not built yet stay non-clickable in the menu.
 
 ### Home
 1. Hero: live video background, using the existing video from the current website
@@ -29,14 +29,28 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 5. Reviews
 6. Call to action to contact Yanicke
 
-### About Us / The Team: later
-### Services & Packages: later
-### Preferred Vendors: later
-### Gallery: later
-### Contact Us: later
+### About Us / The Team
+- Move her content over from her [Our story](https://www.zenjuweddingsnevents.com/about-5) page.
+
+### Services & Packages
+- Move her content over from her [Wedding packages](https://www.zenjuweddingsnevents.com/packages) page, structured to be easy to read and search-friendly.
+- [Marriage license](https://www.zenjuweddingsnevents.com/marriage-license) content as a separate section at the bottom.
+- Each package keeps an anchor (`/services#<id>`) for the homepage "Learn more" links.
+
+### Preferred Vendors
+- Move her content over from her two preferred vendor pages ([part 1](https://www.zenjuweddingsnevents.com/news-all), [part 2](https://www.zenjuweddingsnevents.com/team-1)).
+- An easily browsable directory: vendor imagery, categories, and filtering.
+
+### Gallery
+- 6 albums to start, each with a cover image and the couple's names.
+- Clicking an album opens all its photos, with a back arrow to return to the albums.
+- No database for now (can be added later on a separate quote).
+
+### Contact Us
+- No details specified yet.
 
 **Out of scope / later:**
-- Every page except Home (built after the homepage is approved)
+- Gallery database (separate quote)
 
 ## Inspiration
 <!-- One entry per site: what the user wants taken, then what Claude observed. -->
