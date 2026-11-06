@@ -4,6 +4,8 @@ import { oldSiteRedirects } from "./src/redirects";
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
+  // No Next.js badge in the corner while previewing locally (it never shows on the live site).
+  devIndicators: false,
   partialPrefetching: true,
   // AVIF first (smaller), WebP for browsers without it.
   images: { formats: ["image/avif", "image/webp"] },

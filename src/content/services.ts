@@ -3,6 +3,7 @@
 // Order is hers. Prices are the base price; every package adds 4.712% Hawaii GE tax, calculated
 // here to the cent (three of her own totals were off; see BRIEF.md).
 // Marriage license section: streamlined from https://www.zenjuweddingsnevents.com/marriage-license.
+import servicesHero from "../../public/images/current-site/portfolio-09.jpg"; // imported, so the banner gets a blurred preview while it loads
 
 export type IconKey =
   | "coordination" | "permit" | "officiant" | "beauty" | "bouquet" | "crown" | "lei" | "photo" | "video"
@@ -41,7 +42,7 @@ export const servicesPage = {
   hero: {
     label: "Services & packages",
     title: "Plan your day, your way",
-    image: "/images/current-site/portfolio-09.jpg",
+    image: servicesHero,
   },
   intro: "From an intimate barefoot beach ceremony to our all-inclusive Platinum package. Open any package to see everything it includes.",
 };
@@ -382,7 +383,12 @@ export const marriageLicense = {
     "A photo ID or driver’s license as proof of age.",
     "Divorced or widowed within the last 30 days? The original divorce decree or death certificate. Fax copies aren’t accepted.",
   ],
-  goodToKnow: ["No blood test is required.", "Partners can be no more closely related than first cousins."],
+  goodToKnow: [
+    "No blood test is required.",
+    "Partners can be no more closely related than first cousins.",
+    // Hawaii Department of Health marriage license page, checked 2026-11-06.
+    "The legal age to marry is 18. Under 18, a parent’s or guardian’s consent is required, with their photo ID and proof of the relationship; contact the Department of Health first.",
+  ],
   applyUrl: "https://emrs.ehawaii.gov/emrs/public/home.html",
   note: "Requirements are set by the State of Hawaii and can change, so check the official site before you apply.",
 };

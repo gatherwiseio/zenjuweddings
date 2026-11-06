@@ -1,6 +1,7 @@
 // Gallery: albums by couple, from the portfolio on her current site (zenjuweddingsnevents.com/about-3-1).
 // Names, venues and photo credits are from her gallery's own captions; the photos that
 // carry no caption are grouped with their wedding by venue and look. Photos: public/images/gallery/<album>/.
+import galleryHero from "../../public/images/current-site/portfolio-10.jpg"; // imported, so the banner gets a blurred preview while it loads
 
 export type GalleryPhoto = { src: string; width: number; height: number; alt: string };
 export type Album = {
@@ -13,7 +14,7 @@ export type Album = {
 };
 
 export const galleryPage = {
-  hero: { label: "Gallery", title: "Celebrations we’ve planned", image: "/images/current-site/portfolio-10.jpg" },
+  hero: { label: "Gallery", title: "Celebrations we’ve planned", image: galleryHero },
   intro: "A look inside some of the weddings we planned across Oʻahu.",
 };
 

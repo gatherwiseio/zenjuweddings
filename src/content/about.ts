@@ -1,12 +1,13 @@
 // About Us / The Team page. Streamlined from her "Our story" page
 // (https://www.zenjuweddingsnevents.com/about-5): the same facts in shorter, easier paragraphs;
 // nothing added that isn't on her site. Her spelling ("colour") is kept.
+import aboutHero from "../../public/images/current-site/portfolio-05.jpg"; // imported, so the banner gets a blurred preview while it loads
 
 export const aboutPage = {
   hero: {
     label: "About us",
     title: "The story behind the vision",
-    image: "/images/current-site/portfolio-05.jpg",
+    image: aboutHero,
   },
 
   statement: "Zenju Weddings and Events of Hawaii was founded in 2010 by Yanicke Lim Sang, and named after her two sons, Zen and Jude.",

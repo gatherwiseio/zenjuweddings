@@ -8,6 +8,7 @@
 // (@cherbumakeup). Spinning Web moved to spinningwebfloristhi.com. Ryan Souza's portrait is from
 // I Do Hawaiian Weddings' team page (daichidinh.com/our-team). Open with Yanicke (see BRIEF.md): she
 // linked IMF Visions to islemedia.com (we link imfvisions.com).
+import vendorsHero from "../../public/images/current-site/portfolio-12.jpg"; // imported, so the banner gets a blurred preview while it loads
 
 export type Vendor = {
   name: string;
@@ -28,7 +29,7 @@ export const vendorsPage = {
   hero: {
     label: "Preferred vendors",
     title: "The team behind the day",
-    image: "/images/current-site/portfolio-12.jpg",
+    image: vendorsHero,
   },
   intro:
     "The artists, photographers, florists and crews we trust with our couples.",

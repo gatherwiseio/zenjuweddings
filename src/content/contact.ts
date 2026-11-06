@@ -1,10 +1,11 @@
 // Contact page. Facts only from her current site and package copy (see content/current-site.md).
+import contactHero from "../../public/images/current-site/portfolio-13.jpg"; // imported, so the banner gets a blurred preview while it loads
 
 export const contactPage = {
   hero: {
     label: "Contact us",
     title: "Let’s start planning",
-    image: "/images/current-site/portfolio-13.jpg",
+    image: contactHero,
   },
   heading: { title: "Tell us about your day", label: "Inquire" },
   intro:

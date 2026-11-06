@@ -1,5 +1,6 @@
 "use client";
 
+import { XIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { buttonClass, ButtonLink } from "@/components/Button";
@@ -161,10 +162,11 @@ export function PackageTabs({ packages }: { packages: ServicePackage[] }) {
             <button
               type="button"
               onClick={() => dialogRef.current?.close()}
-              className={buttonClass("secondary")}
+              aria-label="Close"
               autoFocus
+              className="-mt-2 -mr-2 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-mist hover:text-ink sm:-mt-3 sm:-mr-3"
             >
-              Close
+              <XIcon aria-hidden="true" size={22} weight="light" />
             </button>
           </div>
           <div className="flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-8 md:px-10">
