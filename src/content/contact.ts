@@ -7,7 +7,8 @@ export const contactPage = {
     image: "/images/current-site/portfolio-13.jpg",
   },
   heading: { title: "Tell us about your day", label: "Inquire" },
-  intro: "Share your date, your vision and your island, and Yanicke will be in touch personally.",
+  intro:
+    "Share your date, your vision and your island, and Yanicke will be in touch personally. From a barefoot beach ceremony to a full celebration, we’ll help you find the package that fits your day.",
   perks: [
     { title: "On Oʻahu since 2010", text: "Fifteen-plus years of weddings across the island." },
     { title: "Founder-led", text: "Yanicke still manages Zenju closely herself." },
