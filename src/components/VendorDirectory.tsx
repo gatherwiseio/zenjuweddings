@@ -7,7 +7,7 @@ import { scrollToElement } from "@/components/motion/SmoothScroll";
 import type { Vendor, VendorCategory } from "@/content/vendors";
 
 // Preferred Vendors directory: every vendor on one page, a section per category, as compact rows
-// as cards in two columns (logo or face, name, one line, then website / phone / email with icons). Centered underline tabs, pinned under the
+// as cards in two columns from 1024px (logo or face, name, one line, then website / phone / email with icons; on phones the picture sits on top). Centered underline tabs, pinned under the
 // header, jump to each section and underline the one you're reading.
 export function VendorDirectory({ categories }: { categories: VendorCategory[] }) {
   const [active, setActive] = useState(categories[0].id);
@@ -109,13 +109,14 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
   const link =
     "inline-flex min-h-6 w-fit items-center gap-2 text-ink/80 underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold-light";
   return (
-    <li className="flex items-center gap-5 border border-fog bg-white p-4 md:gap-6 md:p-5">
-      {/* Logos sit on beige; portraits fill the box; with neither, gold initials on beige. */}
-      <div className="relative aspect-(--aspect-vendor-logo) w-(--vendor-logo) shrink-0 overflow-hidden bg-cream md:w-(--vendor-logo-md)">
+    <li className="flex flex-col gap-4 border border-fog bg-white p-4 sm:flex-row sm:items-center sm:gap-5 md:gap-6 md:p-5">
+      {/* Logos sit on beige; portraits fill the box; with neither, gold initials on beige.
+          On phones the box spans the card above the text; from 640px it sits beside it. */}
+      <div className="relative aspect-(--aspect-vendor-logo-sm) w-full shrink-0 overflow-hidden bg-cream sm:aspect-(--aspect-vendor-logo) sm:w-(--vendor-logo) md:w-(--vendor-logo-md)">
         {vendor.logo ? (
-          <Image src={vendor.logo} alt={`${vendor.name} logo`} fill sizes="128px" className="object-contain p-3 mix-blend-multiply" />
+          <Image src={vendor.logo} alt={`${vendor.name} logo`} fill sizes="(min-width: 640px) 128px, 100vw" className="object-contain p-6 mix-blend-multiply sm:p-3" />
         ) : vendor.face ? (
-          <Image src={vendor.face} alt="" fill sizes="128px" className="object-cover" />
+          <Image src={vendor.face} alt="" fill sizes="(min-width: 640px) 128px, 100vw" className="object-cover object-top" />
         ) : (
           <span aria-hidden="true" className="flex h-full items-center justify-center text-3xl font-extralight tracking-display text-gold">
             {initials}

@@ -113,6 +113,7 @@
   --vendor-logo: 6.5rem; /* Vendors: logo / portrait box on each listing (4:3) */
   --vendor-logo-md: 8rem;
   --aspect-vendor-logo: 4 / 3;
+  --aspect-vendor-logo-sm: 3 / 2; /* phones: the box spans the card, above the text */
   /* Vendors: sections land below the header and the sticky tabs bar */
   --vendor-scroll-mt: calc(var(--header-h) + 4.5rem);
   --vendor-scroll-mt-md: calc(var(--header-h-md) + 4.5rem);
