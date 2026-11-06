@@ -14,13 +14,15 @@ export type Vendor = {
   url?: string;
   phone?: string;
   email?: string;
-  image?: string; // a photo from their site (being replaced by logos, section by section)
-  logo?: string; // their logo, shown small and contained
+  image?: string; // a photo from their site (being replaced section by section)
+  logo?: string; // their logo, shown contained
+  face?: string; // or, with no usable logo, the person's portrait from their own site
 };
 export type VendorCategory = { id: string; label: string; tab?: string; vendors: Vendor[] };
 
 const photo = (file: string) => `/images/vendors/${file}.jpg`;
 const logo = (file: string) => `/images/vendors/logos/${file}.png`;
+const face = (file: string) => `/images/vendors/faces/${file}.jpg`;
 
 export const vendorsPage = {
   hero: {
@@ -46,10 +48,10 @@ export const vendorCategories: VendorCategory[] = [
     id: "officiants",
     label: "Officiants",
     vendors: [
-      { name: "Blake La Benz", with: "I Do Hawaiian Weddings", text: "Oʻahu officiant for beach and garden ceremonies.", url: "https://idohawaiianweddings.com", image: photo("i-do-hawaiian") },
-      { name: "June Dillinger", with: "I Do Hawaiian Weddings", text: "Oʻahu officiant for beach and garden ceremonies.", url: "https://idohawaiianweddings.com", image: photo("i-do-hawaiian") },
-      { name: "Ryan Souza", with: "I Do Hawaiian Weddings", text: "Oʻahu officiant for beach and garden ceremonies.", url: "https://idohawaiianweddings.com", image: photo("i-do-hawaiian") },
-      { name: "Kalehua Featheran", text: "Officiant and ceremony planning on Oʻahu, on the beach and at tropical venues.", url: "https://kalehua.net" },
+      { name: "Blake La Benz", with: "I Do Hawaiian Weddings", text: "Oʻahu officiant for beach and garden ceremonies.", url: "https://idohawaiianweddings.com" },
+      { name: "June Dillinger", with: "I Do Hawaiian Weddings", text: "Owner of I Do Hawaiian Weddings, officiating beach and garden ceremonies on Oʻahu.", url: "https://idohawaiianweddings.com", face: face("june-dillinger") },
+      { name: "Ryan Souza", with: "I Do Hawaiian Weddings", text: "Oʻahu officiant for beach and garden ceremonies.", url: "https://idohawaiianweddings.com" },
+      { name: "Kalehua Featheran", text: "Officiant and ceremony planning on Oʻahu, on the beach and at tropical venues.", url: "https://kalehua.net", face: face("kalehua-featheran") },
     ],
   },
   {
@@ -57,11 +59,11 @@ export const vendorCategories: VendorCategory[] = [
     label: "Photographers",
     tab: "Photography",
     vendors: [
-      { name: "Keoni Michael", text: "Fine art wedding photography across Oʻahu, Maui, Kauaʻi and the Big Island.", url: "https://keonimichael.com", image: photo("keoni-michael") },
-      { name: "Stephen Ludwig", text: "Modern Hawaii wedding photography on every island.", url: "http://www.ludwighawaii.com", image: photo("stephen-ludwig") },
-      { name: "Mersadi Olson", text: "Elopement and wedding photographer and videographer.", url: "https://mersadiolson.com", image: photo("mersadi-olson") },
-      { name: "Dave Miyamoto", text: "Multi-award-winning photographer of emotion and fleeting moments.", url: "https://www.davemiyamoto.com/dave-miyamoto", image: photo("dave-miyamoto") },
-      { name: "Rachel Robertson", text: "Wedding and portrait photography in Hawaii.", url: "http://www.rachelrobertson.com", image: photo("rachel-robertson") },
+      { name: "Keoni Michael", text: "Fine art wedding photography across Oʻahu, Maui, Kauaʻi and the Big Island.", url: "https://keonimichael.com", logo: logo("keoni-michael") },
+      { name: "Stephen Ludwig", text: "Modern Hawaii wedding photography on every island.", url: "http://www.ludwighawaii.com", logo: logo("stephen-ludwig") },
+      { name: "Mersadi Olson", text: "Elopement and wedding photographer and videographer.", url: "https://mersadiolson.com" },
+      { name: "Dave Miyamoto", text: "Multi-award-winning photographer of emotion and fleeting moments.", url: "https://www.davemiyamoto.com/dave-miyamoto", face: face("dave-miyamoto") },
+      { name: "Rachel Robertson", text: "Wedding and portrait photography in Hawaii.", url: "http://www.rachelrobertson.com", logo: logo("rachel-robertson") },
     ],
   },
   {
@@ -69,12 +71,12 @@ export const vendorCategories: VendorCategory[] = [
     label: "Videographers",
     tab: "Videography",
     vendors: [
-      { name: "Bishop Media", text: "Cinematic wedding films since 2018: ceremony, highlight, reception and social cuts.", url: "https://bishopmediaproductions.com", image: photo("bishop-media") },
-      { name: "Red Ring Studio", text: "Oʻahu wedding videography and photography, on every island.", url: "https://www.redringstudio.com", image: photo("red-ring") },
-      { name: "Aria Studios", text: "Wedding films and photography.", url: "https://www.ariastudios.com", image: photo("aria-studios") },
-      { name: "Mersadi Olson", text: "Elopement and wedding videographer and photographer.", url: "https://mersadiolson.com", image: photo("mersadi-olson") },
-      { name: "Isle Media", text: "All-in-one wedding media production.", url: "https://islemedia.com" },
-      { name: "IMF Visions", text: "Event production and cinematic films.", url: "https://www.imfvisions.com" },
+      { name: "Bishop Media", with: "Tom Bishop", text: "Cinematic wedding films since 2018: ceremony, highlight, reception and social cuts.", url: "https://bishopmediaproductions.com", face: face("tom-bishop") },
+      { name: "Red Ring Studio", text: "Oʻahu wedding videography and photography, on every island.", url: "https://www.redringstudio.com" },
+      { name: "Aria Studios", text: "Wedding films and photography.", url: "https://www.ariastudios.com", logo: logo("aria-studios") },
+      { name: "Mersadi Olson", text: "Elopement and wedding videographer and photographer.", url: "https://mersadiolson.com" },
+      { name: "Isle Media", text: "All-in-one wedding media production.", url: "https://islemedia.com", logo: logo("isle-media") },
+      { name: "IMF Visions", text: "Event production and cinematic films.", url: "https://www.imfvisions.com", logo: logo("imf-visions") },
     ],
   },
   {
