@@ -9,10 +9,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 let instance: Lenis | null = null;
 
+/** Jump the page by `dy` pixels with no animation (e.g. to cancel a layout shift). */
+export function jumpBy(dy: number) {
+  if (instance) {
+    instance.resize();
+    instance.scrollTo(window.scrollY + dy, { immediate: true, force: true });
+  } else {
+    window.scrollTo({ top: window.scrollY + dy, behavior: "instant" });
+  }
+}
+
 /** Scroll so the element's top sits at its CSS scroll-margin (e.g. just under the pinned header). */
 export function scrollToElement(el: HTMLElement, { immediate = false } = {}) {
   if (instance) {
-    instance.scrollTo(el, { immediate }); // Lenis applies the element's scroll-margin itself
+    instance.resize(); // the page may have just changed height (a row opened or closed)
+    instance.scrollTo(el, { immediate, force: true }); // Lenis applies the element's scroll-margin itself
   } else {
     const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
     const top = el.getBoundingClientRect().top + window.scrollY - margin;

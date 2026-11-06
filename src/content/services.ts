@@ -56,7 +56,7 @@ export const servicePackages: ServicePackage[] = [
     photos: [
       img("package-barefoot-beach.jpg", "Newlyweds sharing a kiss at the water\u2019s edge on a quiet North Shore beach"),
       img("package-barefoot-closeup.jpg", "The bride and groom embracing on the rocks during their beach elopement"),
-      img("package-barefoot-shore.jpg", "The couple facing each other under the palms by the shore"),
+      img("package-barefoot-lei.jpg", "Green maile leaf lei laid out on a white table"),
     ],
     overview:
       "Experience the simplicity and beauty of love with our Zenju Basic Barefoot Nuptials Elopement Package. Perfect for couples looking to say “I do” in a serene beach setting!",
@@ -129,8 +129,9 @@ export const servicePackages: ServicePackage[] = [
     summary: "Day-of management for your wedding, with no planning leading up.",
     price: 2900,
     photos: [
-      img("package-hoopono-turtle-bay-bride.jpg", "A bride in her gown by the window of her Turtle Bay Resort suite, the ocean behind her"),
-      img("package-hoopono-turtle-bay-lounge.jpg", "An oceanfront lounge set up on the lawn at Turtle Bay Resort"),
+      img("package-hoopono-chapel-ceremony.jpg", "A bride and groom exchanging vows at the altar with their bridal party"),
+      img("package-hoopono-chapel-tower.jpg", "The couple sharing a kiss on the lawn beneath a white chapel tower"),
+      img("package-hoopono-banyan-couple.jpg", "The newlyweds standing together in a banyan grove"),
     ],
     overview:
       "Hoʻopono means faithful in Hawaiian. This exclusive package is for the couple who wants the day of coordination only. It covers just the day-of coordination, with no planning leading up to the event and no wholesale vendor discounts.",
@@ -260,9 +261,9 @@ export const servicePackages: ServicePackage[] = [
     price: 7500,
     popular: true,
     photos: [
-      img("package-kuulei-loulu-tent.jpg", "Sailcloth tent reception lit at dusk at Loulu Palms Estate"),
-      img("package-kuulei-sweetheart-table.jpg", "A sweetheart table dressed in white florals on the lawn at Loulu Palms Estate"),
-      img("package-kuulei-loulu-cake.jpg", "The couple cutting their cake at the Loulu Palms Estate reception"),
+      img("package-kuulei-garden-ceremony.jpg", "A garden ceremony set with a draped white canopy, white chairs and tropical plantings"),
+      img("package-kuulei-centerpiece.jpg", "A reception centerpiece of white orchids and monstera leaves on a set table"),
+      img("package-kuulei-cake-florals.jpg", "A white tiered wedding cake surrounded by lush white and green florals"),
     ],
     overview:
       "The Kuʻu Lei package, meaning “Beloved” in Hawaiian, is our most popular option for couples looking for comprehensive wedding planning support. This full coordination service is designed for couples who want to enjoy the planning process without the stress, allowing them to focus on the excitement of their upcoming day. This package covers all logistics from the moment the wedding date is set, with the Zenju team working alongside you every step of the way.",
@@ -329,8 +330,8 @@ export const servicePackages: ServicePackage[] = [
     price: 15000,
     photos: [
       img("package-platinum-dancing.jpg", "A hula dancer performing under string lights as guests watch an evening reception"),
-      img("package-platinum-mandap.jpg", "A floral ceremony canopy draped in white with roses and tropical greenery"),
       img("package-platinum-couple.jpg", "Newlyweds in traditional Indian wedding attire walking through the garden"),
+      img("package-platinum-mandap.jpg", "A floral ceremony canopy draped in white with roses and tropical greenery"),
     ],
     overview:
       "Our Zenju All-Inclusive Platinum Package brings together full coordination, entertainment, lighting, an officiant, a photobooth and 6 hours of photography.",
