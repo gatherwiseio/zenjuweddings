@@ -199,38 +199,42 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
                   )}
                 </div>
 
-                <aside className="flex flex-col gap-6 self-start bg-cream p-7 md:p-9 lg:sticky lg:top-(--package-card-top)">
-                  <div className="flex flex-col divide-y divide-cream-muted">
-                    <div className="flex flex-col gap-1 pb-5">
-                      <p className="label text-xs font-medium text-gold-deep">Investment</p>
-                      <p translate="no" className="text-2xl leading-heading font-light text-balance">{pkg.name}</p>
-                    </div>
-                    <dl className="flex flex-col gap-2 py-5 text-meta font-normal text-ink/80">
-                      <div className="flex justify-between gap-4">
-                        <dt>Package price</dt>
-                        <dd className="tabular-nums">{usdCents.format(pkg.price)}</dd>
-                      </div>
-                      <div className="flex justify-between gap-4">
-                        <dt>Tax (4.712%)</dt>
-                        <dd className="tabular-nums">{usdCents.format(tax)}</dd>
-                      </div>
-                    </dl>
-                    <dl className="flex items-baseline justify-between gap-4 py-5">
-                      <dt className="label text-xs font-semibold">Grand total</dt>
-                      <dd className="text-2xl font-light tabular-nums">{usdCents.format(pkg.price + tax)}</dd>
-                    </dl>
-                    <dl className="flex flex-col gap-4 pt-5">
-                      {pkg.details.map((d) => (
-                        <div key={d.title} className="flex flex-col gap-1">
-                          <dt className="label text-xs font-semibold">{d.title}</dt>
-                          <dd className="text-meta leading-prose font-normal text-pretty text-ink/75">{d.text}</dd>
-                        </div>
-                      ))}
-                    </dl>
+                {/* Pinned just under the header on wide screens; if a short screen can't fit it all,
+                    it scrolls inside itself rather than losing its bottom. The button sits right under
+                    the total so it never drops out of view. */}
+                <aside
+                  data-lenis-prevent
+                  className="flex flex-col self-start bg-cream p-7 md:p-9 lg:sticky lg:top-(--package-card-top) lg:max-h-(--package-card-max-h) lg:overflow-y-auto lg:overscroll-contain lg:p-8"
+                >
+                  <div className="flex flex-col gap-1 pb-4">
+                    <p className="label text-xs font-medium text-gold-deep">Investment</p>
+                    <p translate="no" className="text-2xl leading-heading font-light text-balance">{pkg.name}</p>
                   </div>
-                  <ButtonLink href="/contact" className="w-full">
+                  <dl className="flex flex-col gap-2 border-t border-cream-muted py-4 text-meta font-normal text-ink/80">
+                    <div className="flex justify-between gap-4">
+                      <dt>Package price</dt>
+                      <dd className="tabular-nums">{usdCents.format(pkg.price)}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt>Tax (4.712%)</dt>
+                      <dd className="tabular-nums">{usdCents.format(tax)}</dd>
+                    </div>
+                  </dl>
+                  <dl className="flex items-baseline justify-between gap-4 border-y border-cream-muted py-4">
+                    <dt className="label text-xs font-semibold">Grand total</dt>
+                    <dd className="text-2xl font-light tabular-nums">{usdCents.format(pkg.price + tax)}</dd>
+                  </dl>
+                  <ButtonLink href="/contact" className="mt-5 w-full">
                     Contact us
                   </ButtonLink>
+                  <dl className="mt-6 flex flex-col gap-3">
+                    {pkg.details.map((d) => (
+                      <div key={d.title} className="flex flex-col gap-1">
+                        <dt className="label text-xs font-semibold">{d.title}</dt>
+                        <dd className="text-meta leading-prose font-normal text-pretty text-ink/75">{d.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </aside>
               </div>
             </div>

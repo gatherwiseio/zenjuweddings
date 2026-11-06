@@ -59,9 +59,9 @@ export default function ServicesPage() {
                   href={marriageLicense.applyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${buttonClass("secondary")} w-fit`}
+                  className={`${buttonClass("secondary")} w-full sm:w-fit`}
                 >
-                  Apply on the State of Hawaii site
+                  Apply online
                 </a>
                 <p className="text-tiny tracking-meta text-ink/60 uppercase">{marriageLicense.note}</p>
               </div>
