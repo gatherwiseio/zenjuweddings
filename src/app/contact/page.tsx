@@ -59,8 +59,9 @@ export default function ContactPage() {
         {/* Why reach out, beside the form. */}
         <section className="px-6 pb-24 md:px-14 md:pb-32">
           <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* On desktop this column stretches to the form's height: heading at the top, table at the bottom. */}
-            <div className="flex flex-col gap-6 lg:justify-between lg:gap-8">
+            {/* Heading, intro and the four reasons kept together; on desktop the group sits vertically
+                centred beside the form. */}
+            <div className="flex flex-col gap-6 lg:gap-8 lg:self-center">
               <div className="flex flex-col gap-6">
                 <p className="label text-xs font-medium text-gold md:text-label">
                   {heading.label}
