@@ -2,10 +2,9 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/Button";
 import { Parallax } from "@/components/motion/Parallax";
 import { SectionHeading } from "@/components/SectionHeading";
-import { contact } from "@/content/site";
 
-// Compact full-bleed closing band right under Testimonials (no gap): one primary action (Email us)
-// over the garden ceremony photo.
+// Compact full-bleed closing band right under Testimonials (no gap): one primary action (Contact us)
+// over the garden ceremony photo. Shared by every page.
 export function ContactCta() {
   return (
     <section className="relative overflow-hidden bg-ink text-cream">
@@ -29,9 +28,11 @@ export function ContactCta() {
         <p className="reveal-up max-w-copy text-lg leading-prose">
           We&rsquo;d love to hear from you. Share your date, your vision and your island, and Yanicke will be in touch.
         </p>
-        <div className="reveal-up stagger-1 pt-1">
-          <ButtonLink href={`mailto:${contact.email}?subject=Inquiry`} tone="dark">
-            Email us
+        {/* No text shadow on the button. "Contact us" goes to the Contact page (it will open the
+            inquiry form once that's built); until then it shows but isn't clickable. */}
+        <div className="reveal-up stagger-1 pt-1 text-shadow-none">
+          <ButtonLink href="/contact" tone="dark">
+            Contact us
           </ButtonLink>
         </div>
       </div>

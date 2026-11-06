@@ -22,6 +22,23 @@
   --color-leaf: #84ab3a; /* logo script line "and events of Hawaii, LLC" */
 
   /* Type scale (font sizes) */
+  /* General type scale, declared here so every size lives in one place (Tailwind's default values) */
+  --text-xs: 0.75rem; /* 12px small labels */
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-base: 1rem; /* 16px list items */
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem; /* 18px lead paragraphs */
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem; /* 20px card titles */
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem; /* 24px quotes and dialog titles (phones) */
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem; /* 30px statement, hero title, package tabs (phones) */
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem; /* 36px menu items */
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem; /* 48px menu items (desktop) */
+  --text-5xl--line-height: 1;
   --text-micro: 0.5625rem; /* 9px  logo sub-line on phones */
   --text-caption: 0.625rem; /* 10px logo sub-line */
   --text-tiny: 0.6875rem; /* 11px small labels, captions */
@@ -87,6 +104,11 @@
   --bullet-offset: 0.6em;
   --bullet-offset-sm: 0.55em;
   --duration-slow: 1200ms;
+  /* Standard section band padding (phones / from 768px) */
+  --section-x: 1.5rem;
+  --section-x-lg: 3.5rem;
+  --section-y: 5rem;
+  --section-y-lg: 7rem;
   --package-img-h: 360px;
   --aspect-package: 4 / 3; /* package photo on phones */
   --aspect-package-wide: 16 / 9; /* package photo on tablets and small laptops */
@@ -156,6 +178,14 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-wrap: balance; /* no orphaned words in labels */
+}
+
+/* Standard section band: the side and top/bottom padding every full-width section uses. */
+@utility section-band {
+  padding: var(--section-y) var(--section-x);
+  @media (width >= 48rem) {
+    padding: var(--section-y-lg) var(--section-x-lg);
+  }
 }
 
 /* Swipe rows on phones: the peeking next card is the hint, so no scrollbar line. */

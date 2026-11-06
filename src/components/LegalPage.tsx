@@ -17,7 +17,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
       </a>
       <Header />
       <main id="main" className="scroll-mt-24">
-        <section className="bg-mist px-6 py-20 text-center md:px-14 md:py-28">
+        <section className="bg-mist section-band text-center">
           <div className="mx-auto flex max-w-statement flex-col items-center gap-5">
             <p className="reveal-track label text-xs font-medium text-gold md:text-label">Legal</p>
             <h1 className="reveal-rise text-hero leading-display font-extralight tracking-display md:text-display">{doc.title}</h1>

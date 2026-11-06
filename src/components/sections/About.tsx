@@ -25,7 +25,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-mist px-6 py-20 md:px-14 md:py-28">
+      <section className="overflow-hidden bg-mist section-band">
         <SectionHeading title="Meet Yanicke" label="The story behind the vision" className="mb-14 md:mb-20" />
         <div className="mx-auto flex max-w-story flex-col gap-14 md:flex-row md:items-center md:gap-20">
           {/* Same frame ratio and center crop as her current About page, with an offset gold frame behind it. */}
