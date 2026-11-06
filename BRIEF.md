@@ -17,7 +17,7 @@
 - **Current website:** https://www.zenjuweddingsnevents.com/ (source for copy, hero video, photos)
 
 ## Scope
-Pages, in nav order: Home · About Us / The Team · Services & Packages · Preferred Vendors · Gallery · Contact Us
+Pages, in nav order: Home · About Us / The Team · Services & Packages · Gallery · Preferred Vendors · Contact Us (Gallery moved above Vendors in the menu, 2026-11-06)
 
 **Homepage approved; now building the other five pages**, one at a time in nav order. Pages not built yet stay non-clickable in the menu.
 
