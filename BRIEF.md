@@ -57,7 +57,8 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 - 6 albums to start, each with a cover image and the couple's names.
 - Clicking an album opens all its photos, with a back arrow to return to the albums.
 - No database for now (can be added later on a separate quote).
-
+- **Built 2026-11-06** (`/gallery` and `/gallery/<album>`, content in `src/content/gallery.ts`, photos in `public/images/gallery/`): six albums from the 67-photo portfolio on her current site, grouped by wedding or venue: North Shore (9), Kualoa Ranch (6), Loulu Palms Estate (4), Indian & Polish Wedding (18), Garden Reception (17), Around Oʻahu (10: Turtle Bay, Paradise Cove, Royal Hawaiian Golf Club, Cafe Julia, Paliku Gardens). Album pages: back arrow to all albums, masonry photo grid, previous / next album. Team photos left out.
+- **Open with Yanicke:** her site doesn't name the couples, so albums are titled by venue; add each couple's names (`couple` in gallery.ts) and confirm the groupings (the Garden Reception and the Indian & Polish wedding share an estate and may be one couple).
 ### Contact Us
 - No details specified yet.
 
