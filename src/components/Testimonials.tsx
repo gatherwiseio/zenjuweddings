@@ -299,7 +299,8 @@ function Marquee({ children }: { children: ReactNode }) {
           onScroll={onScroll}
           aria-label="Testimonials"
           tabIndex={0}
-          data-lenis-prevent-wheel
+          // Sideways gestures scroll the ribbon; up and down stay with the page's smooth scroll.
+          data-lenis-prevent-horizontal
           onPointerDown={(e) => {
             if (e.pointerType !== "mouse" || !trackRef.current) return;
             drag.current = { x: e.clientX, left: trackRef.current.scrollLeft };
