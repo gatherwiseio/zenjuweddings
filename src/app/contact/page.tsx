@@ -72,14 +72,15 @@ export default function ContactPage() {
                   {intro}
                 </p>
               </div>
-              {/* The four reasons as a 2×2 table: hairline cells on the fog border colour. */}
-              <ul className="grid gap-px border border-fog bg-fog sm:grid-cols-2">
+              {/* The four reasons as a 2×2 table at every width (so the form comes sooner on phones):
+                  hairline cells on the fog border colour. */}
+              <ul className="grid grid-cols-2 gap-px border border-fog bg-fog">
                 {perks.map((perk) => (
                   <li
                     key={perk.title}
-                    className="flex flex-col gap-1 bg-white px-5 py-5"
+                    className="flex flex-col gap-1 bg-white p-4 sm:p-5"
                   >
-                    <span className="text-lg font-normal">{perk.title}</span>
+                    <span className="text-base leading-heading font-normal sm:text-lg">{perk.title}</span>
                     <span className="text-meta leading-prose text-pretty text-ink/75">
                       {perk.text}
                     </span>

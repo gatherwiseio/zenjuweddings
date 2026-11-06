@@ -7,6 +7,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { albums } from "@/content/gallery";
+import { vendorCategories } from "@/content/vendors";
+
+const photographers = vendorCategories.find((c) => c.id === "photographers")?.vendors ?? [];
 
 export function generateStaticParams() {
   return albums.map((album) => ({ slug: album.slug }));
@@ -82,7 +85,21 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
           <div className="flex flex-col gap-3">
             <p className="text-lg leading-prose text-pretty text-ink/75">{album.story}</p>
             <p className="text-meta text-ink/70">
-              {[album.credit && `Photos by ${album.credit}`, `${album.photos.length} photos`].filter(Boolean).join(" · ")}
+              {album.credit && (
+                <>
+                  Photos by{" "}
+                  {/* A photographer from her preferred vendors links to their card there. */}
+                  {photographers.some((v) => v.name === album.credit) ? (
+                    <Link href="/vendors#photographers" className="link-draw font-medium text-gold-deep">
+                      {album.credit}
+                    </Link>
+                  ) : (
+                    album.credit
+                  )}
+                  {" · "}
+                </>
+              )}
+              {album.photos.length} photos
             </p>
           </div>
         </div>

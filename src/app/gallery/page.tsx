@@ -49,7 +49,7 @@ export default function GalleryPage() {
                       href={`/gallery/${album.slug}`}
                       tabIndex={-1}
                       aria-hidden="true"
-                      className={`group relative block aspect-(--aspect-album) overflow-hidden bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
+                      className={`group relative block aspect-square overflow-hidden md:aspect-(--aspect-album) bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
                     >
                       <Image
                         src={album.photos[0].src}
