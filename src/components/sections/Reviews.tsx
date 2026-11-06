@@ -4,12 +4,13 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Testimonials } from "@/components/Testimonials";
 import { reviews, zolaBadge } from "@/content/site";
 
-export function Reviews() {
+// `layout="marquee"`: the Contact page's endless ribbon instead of the grid.
+export function Reviews({ layout = "grid" }: { layout?: "grid" | "marquee" }) {
   return (
-    <section className="bg-mist section-band">
+    <section className="overflow-x-clip bg-mist section-band">
       <div className="mx-auto flex max-w-content flex-col items-center gap-14">
         <SectionHeading title="Testimonials" label="From our couples" />
-        <Testimonials reviews={reviews} />
+        <Testimonials reviews={reviews} layout={layout} />
         {/* Zola's "Find us on Zola" badge, as Zola supplies it (their markup and class), shown
             smaller than their 200px default so it backs up the reviews without competing. */}
         <div className="zola-vendor-badge reveal-up">

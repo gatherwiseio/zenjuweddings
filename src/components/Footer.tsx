@@ -6,7 +6,7 @@ import { contact } from "@/content/site";
 // vertically centered, so neither side sits higher than the other.
 export function Footer() {
   return (
-    <footer className="border-t border-fog px-6 md:px-14">
+    <footer className="px-6 md:px-14">
       <div className="reveal-up flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between md:py-12">
         <Link href="/" aria-label="Zenju Weddings home" className="self-start md:self-auto">
           <Logo />

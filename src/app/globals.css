@@ -108,6 +108,7 @@
   --page-hero-h: 72svh;
   --page-hero-min: 28rem;
   --aspect-team: 4 / 3; /* About: team photo */
+  --review-card-w: min(22rem, calc(100vw - 4rem)); /* Contact: testimonial ribbon card */
   --vendor-logo: 6.5rem; /* Vendors: logo / portrait box on each listing (4:3) */
   --vendor-logo-md: 8rem;
   --aspect-vendor-logo: 4 / 3;

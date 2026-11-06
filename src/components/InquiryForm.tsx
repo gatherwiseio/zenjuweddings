@@ -43,7 +43,7 @@ export function InquiryForm() {
   const labelClass = "label text-xs font-medium text-ink/70";
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-7">
+    <form onSubmit={onSubmit} className="flex flex-col gap-6">
       <div className="flex flex-col gap-1">
         <label htmlFor={`${id}-name`} className={labelClass}>Name</label>
         <input id={`${id}-name`} name="name" required maxLength={120} autoComplete="name" className={field} />
@@ -59,7 +59,7 @@ export function InquiryForm() {
           name="message"
           required
           maxLength={5000}
-          rows={4}
+          rows={3}
           placeholder="Your date, venue or island, guest count, and anything you’re dreaming of."
           className={`${field} resize-y`}
         />

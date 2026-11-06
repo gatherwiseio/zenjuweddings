@@ -7,7 +7,7 @@ import { scrollToElement } from "@/components/motion/SmoothScroll";
 import type { Vendor, VendorCategory } from "@/content/vendors";
 
 // Preferred Vendors directory: every vendor on one page, a section per category, as compact rows
-// as cards in two columns (logo or face, name, one line, icon links). Centered underline tabs, pinned under the
+// as cards in two columns (logo or face, name, one line, then website / phone / email with icons). Centered underline tabs, pinned under the
 // header, jump to each section and underline the one you're reading.
 export function VendorDirectory({ categories }: { categories: VendorCategory[] }) {
   const [active, setActive] = useState(categories[0].id);
@@ -79,7 +79,7 @@ export function VendorDirectory({ categories }: { categories: VendorCategory[] }
             aria-labelledby={`${c.id}-title`}
             className="scroll-mt-(--vendor-scroll-mt) md:scroll-mt-(--vendor-scroll-mt-md)"
           >
-            <h2 id={`${c.id}-title`} className="border-b border-fog pb-4 text-3xl leading-heading font-extralight">
+            <h2 id={`${c.id}-title`} className="text-3xl leading-heading font-extralight">
               {c.label}
             </h2>
             <ul className="mt-6 grid gap-3 lg:grid-cols-2 lg:gap-4">
@@ -103,8 +103,7 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
     .slice(0, 2)
     .map((w) => w[0])
     .join("");
-  const icon =
-    "flex size-9 items-center justify-center rounded-full border border-gold/40 text-gold-deep transition-colors hover:border-gold-deep hover:bg-gold-deep hover:text-white";
+  const link = "inline-flex min-h-6 w-fit items-center gap-2 text-ink/80 transition-colors hover:text-gold-deep";
   return (
     <li className="flex items-center gap-5 border border-fog bg-white p-4 md:gap-6 md:p-5">
       {/* Logos sit on beige; portraits fill the box; with neither, gold initials on beige. */}
@@ -123,20 +122,23 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
         <h3 className="text-lg leading-heading font-normal">{vendor.name}</h3>
         {vendor.with && <p className="label text-tiny font-medium text-gold-deep">{vendor.with}</p>}
         <p className="text-meta leading-prose text-pretty text-ink/75">{vendor.text}</p>
-        <div className="mt-2 flex gap-2">
+        <div className="mt-2 flex flex-col gap-1 text-meta">
           {vendor.url && (
-            <a href={vendor.url} target="_blank" rel="noopener noreferrer" aria-label={`${vendor.name} ${instagram ? "on Instagram" : "website"}`} className={icon}>
-              {instagram ? <InstagramLogoIcon aria-hidden="true" size={17} /> : <GlobeIcon aria-hidden="true" size={17} />}
+            <a href={vendor.url} target="_blank" rel="noopener noreferrer" className={link}>
+              {instagram ? <InstagramLogoIcon aria-hidden="true" size={16} className="shrink-0 text-gold" /> : <GlobeIcon aria-hidden="true" size={16} className="shrink-0 text-gold" />}
+              {instagram ? "Instagram" : "Website"}
             </a>
           )}
           {vendor.phone && (
-            <a href={`tel:+1${vendor.phone.replace(/\D/g, "")}`} aria-label={`Call ${vendor.name}, ${vendor.phone}`} title={vendor.phone} className={icon}>
-              <PhoneIcon aria-hidden="true" size={17} />
+            <a href={`tel:+1${vendor.phone.replace(/\D/g, "")}`} className={link}>
+              <PhoneIcon aria-hidden="true" size={16} className="shrink-0 text-gold" />
+              {vendor.phone}
             </a>
           )}
           {vendor.email && (
-            <a href={`mailto:${vendor.email}`} aria-label={`Email ${vendor.name}`} title={vendor.email} className={icon}>
-              <EnvelopeSimpleIcon aria-hidden="true" size={17} />
+            <a href={`mailto:${vendor.email}`} className={`${link} break-all`}>
+              <EnvelopeSimpleIcon aria-hidden="true" size={16} className="shrink-0 text-gold" />
+              {vendor.email}
             </a>
           )}
         </div>
