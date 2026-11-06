@@ -9,7 +9,9 @@ import { useEffect, useRef, useState } from "react";
 //
 // Gatherwise builds the form up in steps (plain fields first, then its styles and questions), so
 // it stays hidden behind a small loader until its height has stopped changing, then fades in.
-// It re-sends the same height about once a second, so only a *change* restarts the wait.
+// It re-sends the same height about once a second, so only a *change* restarts the wait. While
+// loading, the box keeps one steady size (so the loader and the pop-up don't jump around); the
+// form's real height is applied once, as it fades in, and live after that.
 const FORM_URL = "https://app.gatherwise.io/version-live/form/1775284095553x262054864607984770?embed=yes";
 const ORIGIN = new URL(FORM_URL).origin;
 const SETTLE_MS = 1200; // no height change for this long: the form is finished
@@ -18,11 +20,17 @@ const GIVE_UP_MS = 10000; // show it anyway after this, whatever state it's in
 export function GatherwiseForm() {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = useState(false);
+  const readyRef = useRef(false);
 
   useEffect(() => {
     let height = 0;
     let settle: ReturnType<typeof setTimeout> | undefined;
-    const giveUp = setTimeout(() => setReady(true), GIVE_UP_MS);
+    const reveal = () => {
+      readyRef.current = true;
+      if (height && frameRef.current) frameRef.current.style.height = `${height}px`;
+      setReady(true);
+    };
+    const giveUp = setTimeout(reveal, GIVE_UP_MS);
     const onMessage = (e: MessageEvent) => {
       const frame = frameRef.current;
       // Only this frame's own messages, from Gatherwise.
@@ -30,9 +38,12 @@ export function GatherwiseForm() {
       const next = Number(e.data?.type === "embed_resize" && e.data.height);
       if (!(next > 0) || next === height) return;
       height = next;
-      frame.style.height = `${next}px`;
+      if (readyRef.current) {
+        frame.style.height = `${next}px`;
+        return;
+      }
       clearTimeout(settle);
-      settle = setTimeout(() => setReady(true), SETTLE_MS);
+      settle = setTimeout(reveal, SETTLE_MS);
     };
     window.addEventListener("message", onMessage);
     return () => {
@@ -51,7 +62,7 @@ export function GatherwiseForm() {
         scrolling="no"
         aria-hidden={!ready}
         tabIndex={ready ? undefined : -1}
-        className={`block h-(--inquiry-form-h) w-full border-0 transition-opacity duration-500 ${ready ? "opacity-100" : "opacity-0"}`}
+        className={`block h-(--inquiry-form-h) w-full border-0 transition-[opacity,height] duration-500 ease-out-expo ${ready ? "opacity-100" : "opacity-0"}`}
       />
       {!ready && (
         <div role="status" className="absolute inset-0 flex flex-col items-center justify-center gap-4">
