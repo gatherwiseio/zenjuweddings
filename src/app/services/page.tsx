@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PackageList } from "@/components/PackageList";
@@ -9,12 +10,7 @@ import { ContactCta } from "@/components/sections/ContactCta";
 import { MarriageLicense } from "@/components/sections/MarriageLicense";
 import { servicePackages, servicesPage } from "@/content/services";
 
-export const metadata: Metadata = {
-  title: "Wedding Packages & Pricing | Zenju Weddings",
-  description:
-    "Hawaii wedding planning packages from Zenju Weddings: barefoot and all-inclusive elopements, day-of, partial and full coordination, and the all-inclusive Platinum package.",
-  alternates: { canonical: "/services" },
-};
+export const metadata: Metadata = pageMetadata(seo.services);
 
 export default function ServicesPage() {
   return (

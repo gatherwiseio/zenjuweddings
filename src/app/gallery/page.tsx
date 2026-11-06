@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { buttonClass } from "@/components/Button";
@@ -10,12 +11,7 @@ import { Parallax } from "@/components/motion/Parallax";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { albums, galleryPage } from "@/content/gallery";
 
-export const metadata: Metadata = {
-  title: "Wedding Gallery | Zenju Weddings",
-  description:
-    "Real weddings planned by Zenju Weddings across Oʻahu: Arvind + Victoria, Maksim + Albert at Kualoa Ranch, Onesis + Pavel at Loulu Palms Estate and more.",
-  alternates: { canonical: "/gallery" },
-};
+export const metadata: Metadata = pageMetadata(seo.gallery);
 
 // Gallery: the albums as a zig-zag list (after brookekeegan.com/portfolio-weddings): a tall cover
 // on one side and the couple's names, place, photo count and a View button on the other, alternating sides.

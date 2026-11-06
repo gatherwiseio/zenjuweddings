@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import Image from "next/image";
 import { FramedPortrait } from "@/components/FramedPortrait";
 import { Footer } from "@/components/Footer";
@@ -10,12 +11,7 @@ import { Statement } from "@/components/Statement";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { aboutPage } from "@/content/about";
 
-export const metadata: Metadata = {
-  title: "About Us | Zenju Weddings",
-  description:
-    "Meet Yanicke Lim Sang, who founded Zenju Weddings and Events of Hawaii in 2010, and the Zenju team of wedding and event designers in Honolulu.",
-  alternates: { canonical: "/about" },
-};
+export const metadata: Metadata = pageMetadata(seo.about);
 
 const { hero, statement, founder, vision } = aboutPage;
 

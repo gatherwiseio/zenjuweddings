@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
@@ -7,12 +8,7 @@ import { VendorDirectory } from "@/components/VendorDirectory";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { vendorCategories, vendorsPage } from "@/content/vendors";
 
-export const metadata: Metadata = {
-  title: "Preferred Wedding Vendors in Hawaii | Zenju Weddings",
-  description:
-    "Zenju Weddings' preferred Oʻahu wedding vendors: hair and makeup, officiants, photographers, videographers, florists, rentals, DJs and emcees.",
-  alternates: { canonical: "/vendors" },
-};
+export const metadata: Metadata = pageMetadata(seo.vendors);
 
 export default function VendorsPage() {
   const { hero, intro } = vendorsPage;

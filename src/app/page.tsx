@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import { BusinessJsonLd } from "@/components/BusinessJsonLd";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -9,8 +10,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Reviews } from "@/components/sections/Reviews";
 import { Services } from "@/components/sections/Services";
 
-// Title and description come from the layout; this page only states its own address.
-export const metadata: Metadata = { alternates: { canonical: "/" } };
+export const metadata: Metadata = pageMetadata(seo.home);
 
 export default function Home() {
   return (

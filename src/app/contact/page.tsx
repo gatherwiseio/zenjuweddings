@@ -5,6 +5,7 @@ import {
   PrinterIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
+import { pageMetadata, seo } from "@/content/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { GatherwiseForm } from "@/components/GatherwiseForm";
@@ -13,12 +14,7 @@ import { Reviews } from "@/components/sections/Reviews";
 import { contactPage } from "@/content/contact";
 import { contact } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Zenju Weddings",
-  description:
-    "Inquire about your Hawaii wedding with Zenju Weddings and Events of Hawaii. Share your date and vision, and founder Yanicke Lim Sang will be in touch.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMetadata(seo.contact);
 
 const { hero, heading, intro, perks } = contactPage;
 

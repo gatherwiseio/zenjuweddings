@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { albumSeo, pageMetadata } from "@/content/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -19,11 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/gallery/[slug]">)
   const { slug } = await params;
   const album = albums.find((a) => a.slug === slug);
   if (!album) return {};
-  return {
-    title: `${album.title} | Gallery | Zenju Weddings`,
-    description: `${album.title} at ${album.place}. ${album.story}`,
-    alternates: { canonical: `/gallery/${album.slug}` },
-  };
+  return pageMetadata(albumSeo(album));
 }
 
 // One album: a Gallery / names breadcrumb, the couple's place, story and photographer, then
