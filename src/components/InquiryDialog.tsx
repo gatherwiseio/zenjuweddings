@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { XIcon } from "@phosphor-icons/react";
 import { GatherwiseForm } from "@/components/GatherwiseForm";
 import { lockScroll, scrollToElement } from "@/components/motion/SmoothScroll";
-import { contactPage } from "@/content/contact";
 
 // The inquiry form as a pop-up, site-wide. Any link to /contact (the header's Inquire, every
 // "Contact us" button) opens it in place instead of leaving the page; on the Contact page itself it
@@ -40,34 +39,27 @@ export function InquiryDialog() {
 
   const close = () => dialogRef.current?.close();
 
+  // Just the form (its own beige box and "Work with us" title), with the X laid over its corner.
   return (
     <dialog
       data-lenis-prevent
       ref={dialogRef}
       onClose={() => lockScroll(false)}
       onClick={(e) => e.target === dialogRef.current && close()}
-      aria-labelledby="inquiry-dialog-title"
-      className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
+      aria-label="Inquiry form"
+      className="m-auto max-h-(--dialog-max-h) w-(--inquiry-dialog-w) overflow-y-auto overscroll-contain bg-cream p-0 text-ink backdrop:bg-ink/70"
     >
-      <div className="relative flex flex-col gap-6 px-6 py-7 sm:px-10 sm:py-10">
+      <div className="relative">
         <button
           type="button"
           onClick={close}
           aria-label="Close"
-          className="absolute top-3 right-3 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-mist hover:text-ink sm:top-4 sm:right-4"
+          className="absolute top-3 right-3 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-cream-muted hover:text-ink sm:top-4 sm:right-4"
         >
           <XIcon aria-hidden="true" size={22} weight="light" />
         </button>
-        <div className="flex flex-col gap-2 pr-10">
-          <p className="label text-xs font-medium text-gold">{contactPage.heading.label}</p>
-          <h2 id="inquiry-dialog-title" className="text-2xl leading-heading font-light sm:text-h3-lg">
-            {contactPage.heading.title}
-          </h2>
-        </div>
-        <p className="text-meta leading-prose text-pretty text-ink/75">{contactPage.intro}</p>
         <GatherwiseForm key={opens} />
       </div>
     </dialog>
   );
 }
-
