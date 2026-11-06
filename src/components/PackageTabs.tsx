@@ -5,15 +5,22 @@ import { useRef, useState } from "react";
 import { buttonClass, ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { lockScroll } from "@/components/motion/SmoothScroll";
-import { type Package } from "@/content/site";
+import { TAX_RATE_LABEL, type ServicePackage } from "@/content/services";
 
 // Split editorial packages (Claude Design variation B): package names as tabs on the left,
-// the selected package's photo, description and highlights on the right.
-export function PackageTabs({ packages }: { packages: Package[] }) {
+// the selected package's photo, description and highlights on the right. A snapshot of the
+// Services page: the same six packages in the same order, its first photo, overview, first three
+// inclusions and price, with every inclusion in the pop-up.
+const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+const inclusions = (pkg: ServicePackage) => pkg.groups.flatMap((g) => g.items.map((item) => item.title));
+
+export function PackageTabs({ packages }: { packages: ServicePackage[] }) {
   const [selected, setSelected] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const current = packages[selected];
+  const includes = inclusions(current);
+  const photo = current.photos[0];
 
   const select = (i: number) => {
     setSelected(i);
@@ -34,13 +41,13 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
     <div className="flex w-full max-w-content flex-col gap-8 xl:flex-row xl:gap-20">
       <div className="flex flex-col gap-8 xl:w-96 xl:shrink-0 xl:gap-10">
         <SectionHeading title="Our Packages" label="Tailored to your budget" tone="dark" align="left" />
-        {/* Underline tabs right above the package: two per row on phones (every name visible),
-            one row on tablets and small laptops. Wide screens (1280+): the stacked list with a gold dash. */}
+        {/* Underline tabs right above the package, every name visible: two per row on phones, three
+            on tablets, one row on small laptops. Wide screens (1280+): the stacked list with a gold dash. */}
         <div
           role="tablist"
           aria-label="Packages"
           onKeyDown={onKeyDown}
-          className="grid grid-cols-2 gap-x-6 sm:flex sm:gap-7 sm:border-b sm:border-rule xl:flex-col xl:gap-0 xl:border-t xl:border-b-0"
+          className="grid grid-cols-2 gap-x-6 sm:grid-cols-3 lg:flex lg:gap-7 lg:border-b lg:border-rule xl:flex-col xl:gap-0 xl:border-t xl:border-b-0"
         >
           {packages.map((pkg, i) => {
             const active = i === selected;
@@ -57,7 +64,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
                 aria-controls="package-panel"
                 tabIndex={active ? 0 : -1}
                 onClick={() => select(i)}
-                className={`group relative flex min-h-11 shrink-0 cursor-pointer items-center justify-between gap-4 border-b border-rule py-3 text-left whitespace-nowrap transition-colors sm:border-b-0 xl:border-b xl:py-5 xl:whitespace-normal ${
+                className={`group relative flex min-h-11 shrink-0 cursor-pointer items-center justify-between gap-4 border-b border-rule py-3 text-left text-balance transition-colors lg:border-b-0 lg:whitespace-nowrap xl:border-b xl:py-5 xl:whitespace-normal ${
                   active ? "text-gold-light" : "text-stone hover:text-cream"
                 }`}
               >
@@ -88,20 +95,20 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
       >
         <div className="wipe-in relative aspect-(--aspect-package) overflow-hidden bg-rule md:aspect-(--aspect-package-wide) xl:aspect-auto xl:h-(--package-img-h)">
           <Image
-            src={current.image.src}
-            alt={current.image.alt}
+            src={photo.src}
+            alt={photo.alt}
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
-            className={`zoom-settle object-cover ${{ top: "object-top", center: "object-center", lower: "object-(--focus-lower)" }[current.image.focus]}`}
+            className="zoom-settle object-cover"
           />
         </div>
         <p className="label text-xs font-medium text-gold-light">
           {current.type}
           {current.meaning ? ` · ${current.meaning}` : ""}
         </p>
-        <p className="text-body leading-prose text-cream-muted md:text-lg">{current.summary}</p>
+        <p className="text-body leading-prose text-cream-muted md:text-lg">{current.overview}</p>
         <ul className="flex flex-col gap-2.5">
-          {current.highlights.map((item) => (
+          {includes.slice(0, 3).map((item) => (
             <li key={item} className="flex gap-3.5 text-base">
               <span
                 aria-hidden="true"
@@ -123,10 +130,12 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
             }}
             className={buttonClass("link", "dark")}
           >
-            See all {current.includes.length} inclusions
+            See all {includes.length} inclusions
           </button>
         </div>
-        <p className="text-meta text-stone">Pricing is discussed during your consultation.</p>
+        <p className="text-meta text-stone">
+          <span className="text-lg font-light text-cream tabular-nums">{usd.format(current.price)}</span> + {TAX_RATE_LABEL}
+        </p>
       </div>
 
       <dialog
@@ -160,10 +169,10 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
           </div>
           <div className="flex flex-col gap-5 px-6 py-6 sm:px-8 sm:py-8 md:px-10">
             <h4 className="label text-xs font-semibold">
-              What&rsquo;s included <span className="text-gold">({current.includes.length})</span>
+              What&rsquo;s included <span className="text-gold">({includes.length})</span>
             </h4>
             <ul className="flex flex-col gap-3 text-body leading-snug">
-              {current.includes.map((item) => (
+              {includes.map((item) => (
                 <li key={item} className="flex gap-4">
                   <span
                     aria-hidden="true"
@@ -175,7 +184,10 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
             </ul>
           </div>
           <div className="flex flex-col gap-5 border-t border-fog bg-mist px-6 py-6 sm:px-8 sm:py-7 md:px-10">
-            <p className="text-meta leading-relaxed">{current.note}</p>
+            <p className="text-meta leading-relaxed">
+              <span className="text-lg tabular-nums">{usd.format(current.price)}</span> + {TAX_RATE_LABEL}.{" "}
+              {current.summary}
+            </p>
             <div>
               <ButtonLink href="/contact">Contact us</ButtonLink>
             </div>
