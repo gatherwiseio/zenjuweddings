@@ -119,7 +119,6 @@
   /* Vendors: sections land below the header and the sticky tabs bar */
   --vendor-scroll-mt: calc(var(--header-h) + 4.5rem);
   --vendor-scroll-mt-md: calc(var(--header-h-md) + 4.5rem);
-  --contact-aside-top: calc(var(--header-h-md) + 2.5rem); /* Contact: intro column pinned beside the tall form */
   --package-detail-cols: minmax(0, 2fr) minmax(0, 1fr); /* Services: inclusions | price card */
   --header-h: 4.75rem; /* pinned header height (phones), a hair under so open package rows tuck beneath it */
   --header-h-md: 5.25rem; /* from 768px */

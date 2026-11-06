@@ -59,9 +59,8 @@ export default function ContactPage() {
         {/* Why reach out, beside the form. */}
         <section className="px-6 pb-24 md:px-14 md:pb-32">
           <div className="mx-auto grid max-w-content gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* The form is much taller than this column, so on desktop the heading, intro and four
-                reasons stay together and stay in view (pinned under the header) as the form scrolls by. */}
-            <div className="flex flex-col gap-6 self-start lg:sticky lg:top-(--contact-aside-top) lg:gap-8">
+            {/* On desktop this column stretches to the form's height: heading at the top, table at the bottom. */}
+            <div className="flex flex-col gap-6 lg:justify-between lg:gap-8">
               <div className="flex flex-col gap-6">
                 <p className="label text-xs font-medium text-gold md:text-label">
                   {heading.label}
