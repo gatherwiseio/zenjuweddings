@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { preconnect } from "react-dom";
 import { XIcon } from "@phosphor-icons/react";
 import { GatherwiseForm } from "@/components/GatherwiseForm";
 import { lockScroll, scrollToElement } from "@/components/motion/SmoothScroll";
@@ -14,6 +15,8 @@ export function InquiryDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
   const [opens, setOpens] = useState(0); // a fresh form each time it opens
+  // Warm up the connection to Gatherwise on every page, so the form starts loading faster when opened.
+  preconnect("https://app.gatherwise.io");
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
