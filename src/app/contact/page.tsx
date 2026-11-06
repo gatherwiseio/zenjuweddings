@@ -88,10 +88,9 @@ export default function ContactPage() {
                 ))}
               </ul>
             </div>
-            <div id="inquire" className="scroll-mt-28 bg-cream p-7 md:p-10">
-              <h2 className="mb-6 text-2xl leading-heading font-light md:text-h3-lg">
-                Send us a note
-              </h2>
+            {/* The Gatherwise form draws its own beige box and "Work with us" title
+                (gatherwise/inquiry-form.css), so it sits here bare. */}
+            <div id="inquire" className="scroll-mt-28">
               <GatherwiseForm />
             </div>
           </div>
