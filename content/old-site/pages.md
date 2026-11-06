@@ -3,7 +3,8 @@
 Scanned 2026-11-06 from https://www.zenjuweddingsnevents.com/sitemap.xml (pages, blog posts and
 blog categories sitemaps) plus every internal link on those pages; nothing else is linked. When the
 domain moves to the new site, each old address redirects as below (`src/redirects.ts`), so Google
-results, bookmarks and links from other sites keep working.
+results, bookmarks and links from other sites keep working. **Switched off for now**
+(`OLD_SITE_REDIRECTS_ON = false`): turn it on in the same change that connects the domain.
 
 - **Permanent (308):** the old page has a clear new home; Google moves its ranking over.
 - The 8 blog posts and /blog also redirect permanently: the blog isn't moving to the new site
