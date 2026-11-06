@@ -102,7 +102,7 @@
   --dialog-w: min(560px, calc(100vw - 32px));
   --dialog-max-h: 88vh;
   --inquiry-dialog-w: min(760px, calc(100vw - 32px)); /* Inquire pop-up: wider, the form fills it */
-  --inquiry-form-h: 75rem; /* embedded Gatherwise form: held until it reports its real height */
+  --inquiry-form-h: 40rem; /* embedded Gatherwise form: held until it reports its real height */
   --bullet-offset: 0.6em;
   --bullet-offset-sm: 0.55em;
   --duration-slow: 1200ms;

@@ -37,7 +37,7 @@ html:has([id="gw-form"]), body:has([id="gw-form"]), .main-page:has([id="gw-form"
 }
 [id="gw-form"] [id="gw-desc"]:empty{ display:none !important; }  /* no intro text: no gap under the title */
 
-/* 24px between questions; 4px between a label and its input */
+/* 24px between questions; 4px between a label and its input (the input's text then sits 6px lower) */
 [id="gw-form"] .group-item > .bubble-element.Group{ padding-top:24px !important; gap:4px !important; }
 
 /* labels: 13px uppercase with wide tracking, like NAME / EMAIL / MESSAGE */
@@ -54,7 +54,7 @@ html:has([id="gw-form"]), body:has([id="gw-form"]), .main-page:has([id="gw-form"
   border-radius:0 !important; box-shadow:none !important;
   font-size:17px !important; font-weight:400 !important; line-height:1.5 !important; color:#27262A !important;
   width:100% !important; max-width:100% !important;
-  height:50px !important; min-height:50px !important; max-height:none !important; padding:12px 0 !important;
+  height:40px !important; min-height:40px !important; max-height:none !important; padding:6px 0 !important;
   box-sizing:border-box !important;
 }
 [id="gw-form"] [id="gw-field"] input, [id="gw-form"] [id="gw-field"] select{
@@ -63,7 +63,7 @@ html:has([id="gw-form"]), body:has([id="gw-form"]), .main-page:has([id="gw-form"
 }
 [id="gw-form"] [id="gw-field"]::placeholder, [id="gw-form"] [id="gw-field"] input::placeholder{ color:rgba(39,38,42,.4) !important; }
 [id="gw-form"] [id="gw-field"] input[type="email"]{ padding-left:28px !important; }
-[id="gw-form"] textarea[id="gw-field"]{ height:110px !important; min-height:110px !important; resize:vertical !important; }
+[id="gw-form"] textarea[id="gw-field"]{ height:100px !important; min-height:100px !important; padding:6px 0 !important; resize:vertical !important; }
 [id="gw-form"] select[id="gw-field"]{
   -webkit-appearance:none !important; appearance:none !important; padding-right:28px !important;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2327262A' stroke-width='1.3'/%3E%3C/svg%3E") !important;
@@ -75,6 +75,15 @@ html:has([id="gw-form"]), body:has([id="gw-form"]), .main-page:has([id="gw-form"
 [id="gw-form"] [id="gw-field"]:is(:focus, :focus-within){ border-bottom-color:#27262A !important; box-shadow:none !important; outline:none !important; }
 [id="gw-form"] [id="gw-field"] :is(input, select, textarea, .iti):is(:focus, :focus-visible, :focus-within){
   border:none !important; box-shadow:none !important; outline:none !important;
+}
+
+/* Zenju's "Work with us" form only (its page address, in the og:url tag, carries this form's ID):
+   show just First name, Last name, Email, Type of Event and Message. Hidden, by position in the
+   form: 4 Phone number, 6 Date of Event, 7 Budget, 8 How did you find out about us?, 9 How did you
+   find out about us (more details). None of them is required, so the form still submits.
+   If questions are added or reordered in Gatherwise, update these numbers. */
+html:has(meta[property="og:url"][content*="1775284095553x262054864607984770"]) [id="gw-form"] .group-item:is(:nth-child(4), :nth-child(6), :nth-child(7), :nth-child(8), :nth-child(9)){
+  display:none !important;
 }
 
 /* checkboxes (Bubble draws them as icons): fine outline, dark fill when ticked */
