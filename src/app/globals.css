@@ -354,19 +354,6 @@
   }
 }
 
-@keyframes reveal-rise {
-  from {
-    opacity: 0;
-    translate: 0 48px;
-    filter: blur(8px);
-  }
-}
-@keyframes reveal-track {
-  from {
-    opacity: 0;
-    letter-spacing: 0.4em;
-  }
-}
 @keyframes word-fill {
   from {
     opacity: 0.14;
@@ -439,21 +426,6 @@
   .reveal-clip {
     animation-name: reveal-clip;
     animation-range: entry 0% cover 35%;
-  }
-  /* Section titles rise out of a blur; their gold labels draw their letter-spacing in. */
-  .reveal-rise,
-  .reveal-track {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    animation-fill-mode: both;
-    animation-timeline: view();
-  }
-  .reveal-rise {
-    animation-name: reveal-rise;
-    animation-range: entry 0% entry 80%;
-  }
-  .reveal-track {
-    animation-name: reveal-track;
-    animation-range: entry 20% cover 30%;
   }
 
   /* Founding statement: words fill in from faint to full as it scrolls through the screen.
@@ -544,8 +516,6 @@
   .scroll-cue,
   .wipe-in,
   .zoom-settle,
-  .reveal-rise,
-  .reveal-track,
   .word-fill > span,
   .image-settle,
   .frame-settle,

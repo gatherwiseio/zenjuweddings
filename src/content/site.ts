@@ -13,7 +13,7 @@ export const contact = {
 // Pages marked live are clickable in the menu and links; the rest show but aren't clickable yet.
 export const pages = [
   { label: "Home", href: "/", live: true },
-  { label: "About Us / The Team", href: "/about", live: true },
+  { label: "About Us", href: "/about", live: true },
   { label: "Services & Packages", href: "/services", live: false },
   { label: "Preferred Vendors", href: "/vendors", live: false },
   { label: "Gallery", href: "/gallery", live: false },

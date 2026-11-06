@@ -16,10 +16,11 @@ export const aboutPage = {
     label: "Founder",
     portrait: "/images/current-site/yanicke-headshot.jpg",
     portraitAlt: "Yanicke Lim Sang, founder of Zenju Weddings",
+    // Paraphrased so it reads differently from the homepage's short version; same facts.
     paragraphs: [
-      "Yanicke Lim Sang hails from the island of Jamaica and has made Hawaii her home for the past 17 years, and counting. Her island is known for its cultural diversity, which is reflected in her own Chinese, African and East Indian heritage; growing up in a multicultural family gave her a deep appreciation for diversity.",
-      "Her keen eye for detail and vibrant colour palettes fuelled her passion for fashion and textile design. After earning her degree in Fashion Illustration and Design from Miami International Art University, she spent several years in the fashion industry before shifting her focus to motherhood.",
-      "She then spent five years as an apprentice to event planners, and managed concert coordination for emerging talent at a record label in Miami Beach. With that experience in event coordination and design, she founded Zenju Weddings and Events of Hawaii in 2010. The business, named after her two sons, Zen and Jude, is still closely managed by Yanicke.",
+      "Yanicke comes from Jamaica, an island celebrated for its cultural diversity. Her own family is a blend of Chinese, African and East Indian heritage, and growing up in it gave her a lifelong appreciation for diversity. Hawaii has been her home for 17 years and counting.",
+      "Design came first. A love of detail and vibrant colour led her to study Fashion Illustration and Design at Miami International Art University, and she worked in the fashion industry for several years before stepping back to focus on motherhood.",
+      "Her path into events began with five years apprenticing for event planners, alongside coordinating concerts for emerging artists at a record label in Miami Beach. In 2010 she brought that coordination and design experience together to found Zenju Weddings and Events of Hawaii, which she still oversees closely today.",
     ],
   },
 
