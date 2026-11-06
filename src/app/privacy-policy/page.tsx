@@ -5,6 +5,7 @@ import { privacyPolicy } from "@/content/legal";
 export const metadata: Metadata = {
   title: "Privacy Policy | Zenju Weddings",
   description: privacyPolicy.description,
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

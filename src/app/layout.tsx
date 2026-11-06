@@ -4,6 +4,7 @@ import "lenis/dist/lenis.css";
 import "./globals.css";
 import { InquiryDialog } from "@/components/InquiryDialog";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { siteUrl } from "@/content/site";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -18,6 +19,8 @@ const pinyon = Pinyon_Script({
 });
 
 export const metadata: Metadata = {
+  // Absolute base for canonical links and share images: her domain, even while the site is on vercel.app.
+  metadataBase: new URL(siteUrl),
   title: "Zenju Weddings | Wedding Planner in Honolulu, Hawaii",
   description:
     "Zenju Weddings and Events of Hawaii plans unique, elegant and memorable weddings across Oahu, from full coordination to oceanfront elopements. Founded in 2010 by Yanicke Lim Sang.",

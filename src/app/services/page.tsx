@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Wedding Packages & Pricing | Zenju Weddings",
   description:
     "Hawaii wedding planning packages from Zenju Weddings: barefoot and all-inclusive elopements, day-of, partial and full coordination, and the all-inclusive Platinum package.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

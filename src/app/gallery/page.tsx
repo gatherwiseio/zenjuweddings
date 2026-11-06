@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Wedding Gallery | Zenju Weddings",
   description:
     "Real weddings planned by Zenju Weddings across Oʻahu: Arvind + Victoria, Maksim + Albert at Kualoa Ranch, Onesis + Pavel at Loulu Palms Estate and more.",
+  alternates: { canonical: "/gallery" },
 };
 
 // Gallery: the albums as a zig-zag list (after brookekeegan.com/portfolio-weddings): a tall cover

@@ -5,6 +5,7 @@ import { termsAndConditions } from "@/content/legal";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Zenju Weddings",
   description: termsAndConditions.description,
+  alternates: { canonical: "/terms-and-conditions" },
 };
 
 export default function TermsAndConditionsPage() {

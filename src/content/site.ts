@@ -1,5 +1,11 @@
 // Site copy and data. Source: content/current-site.md (Yanicke's current site), tidied.
 
+// The live address (her domain, moving here from Wix). Used for canonical links, the sitemap,
+// share images and the business details Google reads, so it's set even before the domain is
+// connected: the vercel.app copy then never competes with it in search.
+export const siteUrl = "https://www.zenjuweddingsnevents.com";
+export const businessName = "Zenju Weddings and Events"; // how titles and share text name her
+
 export const contact = {
   email: "info@zenjuweddingsnevents.com",
   phone: "(808) 840-7404",

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Contact Us | Zenju Weddings",
   description:
     "Inquire about your Hawaii wedding with Zenju Weddings and Events of Hawaii. Share your date and vision, and founder Yanicke Lim Sang will be in touch.",
+  alternates: { canonical: "/contact" },
 };
 
 const { hero, heading, intro, perks } = contactPage;

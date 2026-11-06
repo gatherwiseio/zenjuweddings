@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { BusinessJsonLd } from "@/components/BusinessJsonLd";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { About } from "@/components/sections/About";
@@ -7,9 +9,13 @@ import { Hero } from "@/components/sections/Hero";
 import { Reviews } from "@/components/sections/Reviews";
 import { Services } from "@/components/sections/Services";
 
+// Title and description come from the layout; this page only states its own address.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
+
 export default function Home() {
   return (
     <>
+      <BusinessJsonLd />
       <a
         href="#main"
         className="label sr-only z-50 bg-ink px-5 py-3 text-cream focus:not-sr-only focus:fixed focus:top-4 focus:left-4"

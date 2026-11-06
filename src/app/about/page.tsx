@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "About Us | Zenju Weddings",
   description:
     "Meet Yanicke Lim Sang, who founded Zenju Weddings and Events of Hawaii in 2010, and the Zenju team of wedding and event designers in Honolulu.",
+  alternates: { canonical: "/about" },
 };
 
 const { hero, statement, founder, vision } = aboutPage;

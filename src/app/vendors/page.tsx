@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Preferred Wedding Vendors in Hawaii | Zenju Weddings",
   description:
     "Zenju Weddings' preferred Oʻahu wedding vendors: hair and makeup, officiants, photographers, videographers, florists, rentals, DJs and emcees.",
+  alternates: { canonical: "/vendors" },
 };
 
 export default function VendorsPage() {

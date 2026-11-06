@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PageProps<"/gallery/[slug]">)
   return {
     title: `${album.title} | Gallery | Zenju Weddings`,
     description: `${album.title} at ${album.place}. ${album.story}`,
+    alternates: { canonical: `/gallery/${album.slug}` },
   };
 }
 
