@@ -18,28 +18,28 @@ const pages: Redirect[] = [
   { source: "/copy-of-terms-and-conditions", destination: "/privacy-policy", permanent: true },
 ];
 
-// Her blog: temporary (307) until we decide whether the posts move here (their text is saved in
-// content/old-site/blog/). If they do, they keep their /post/<slug> addresses and these go.
+// Her blog isn't moving to the new site (user decision, 2026-11-06): each post goes to the page
+// closest to its topic, permanently (308). Their text stays saved in content/old-site/blog/.
 const blog: Redirect[] = [
-  { source: "/blog", destination: "/", permanent: false },
+  { source: "/blog", destination: "/", permanent: true },
   {
     source: "/post/hawaii-wedding-permits-in-2026-what-destination-couples-actually-need-to-know",
     destination: "/services#marriage-license",
-    permanent: false,
+    permanent: true,
   },
   {
     source: "/post/how-to-plan-a-hawaii-elopement-in-2027-a-5-step-guide-for-mainland-couples",
     destination: "/services#elopement",
-    permanent: false,
+    permanent: true,
   },
   {
     source: "/post/aimsleigh-carter-an-intimate-lanikuhonua-elopement-in-paradise",
     destination: "/gallery",
-    permanent: false,
+    permanent: true,
   },
   // The other posts (and any post added later) are about planning and coordination.
-  { source: "/post/:slug", destination: "/services", permanent: false },
-  { source: "/blog/:path*", destination: "/", permanent: false },
+  { source: "/post/:slug", destination: "/services", permanent: true },
+  { source: "/blog/:path*", destination: "/", permanent: true },
 ];
 
 export const oldSiteRedirects: Redirect[] = [...pages, ...blog];

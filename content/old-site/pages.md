@@ -6,9 +6,8 @@ domain moves to the new site, each old address redirects as below (`src/redirect
 results, bookmarks and links from other sites keep working.
 
 - **Permanent (308):** the old page has a clear new home; Google moves its ranking over.
-- **Temporary (307):** the 8 blog posts and /blog, until we decide whether the posts move to the new
-  site. Their full text is saved in `content/old-site/blog/`. If they move, the posts keep their
-  `/post/<slug>` addresses and these redirects are deleted.
+- The 8 blog posts and /blog also redirect permanently: the blog isn't moving to the new site
+  (user decision, 2026-11-06). Their full text stays saved in `content/old-site/blog/`.
 
 ## Pages (12)
 
@@ -25,11 +24,11 @@ results, bookmarks and links from other sites keep working.
 | /form-submitted | Thank You (after her old contact form) | ~66 | /contact | permanent |
 | /terms-and-conditions | Terms and Conditions | ~745 | /terms-and-conditions | none (same) |
 | /copy-of-terms-and-conditions | Privacy Policy | ~629 | /privacy-policy | permanent |
-| /blog | BLOGS (list of posts) | ~422 | / | temporary |
+| /blog | BLOGS (list of posts) | ~422 | / | permanent |
 
 ## Blog posts (8), all by Yanicke Lim Sang
 
-| Old address (/post/…) | Title | Words | Interim redirect |
+| Old address (/post/…) | Title | Words | Redirects to (permanent) |
 |---|---|---|---|
 | hawaii-wedding-permits-in-2026-what-destination-couples-actually-need-to-know | Hawaii Wedding Permits in 2026: What Destination Couples Actually Need to Know | ~1,500 | /services#marriage-license |
 | how-to-choose-the-right-island-for-your-hawaii-destination-wedding-oahu-maui-big-island-kauai | How to Choose the Right Island for Your Hawaii Destination Wedding (Oahu, Maui, Big Island & Kauai) | ~800 | /services |
