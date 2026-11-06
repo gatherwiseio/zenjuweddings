@@ -191,7 +191,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
                   {pkg.groups.map((group, g) => (
                     <div key={group.title ?? g} className="flex flex-col gap-5">
                       {group.title && <h4 className="label text-xs font-semibold">{group.title}</h4>}
-                      {pkg.layout === "tiles" ? <IconTiles items={group.items} /> : <IconList items={group.items} />}
+                      <IconList items={group.items} />
                     </div>
                   ))}
                   {pkg.closing && (
@@ -263,28 +263,6 @@ function IconList({ items }: { items: Inclusion[] }) {
               <Icon size={22} weight="light" />
             </span>
             <span className="flex flex-col gap-1 pt-1">
-              <span className="text-body font-medium text-pretty text-ink">{item.title}</span>
-              {item.text && <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{item.text}</span>}
-            </span>
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-// Trial layout (Barefoot): the same icon, name and description as cards in a grid.
-function IconTiles({ items }: { items: Inclusion[] }) {
-  return (
-    <ul className="grid gap-3 sm:grid-cols-2">
-      {items.map((item) => {
-        const Icon = icons[item.icon];
-        return (
-          <li key={item.title} className="flex flex-col gap-4 border border-fog p-6">
-            <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full bg-mist text-ink/55">
-              <Icon size={22} weight="light" />
-            </span>
-            <span className="flex flex-col gap-1.5">
               <span className="text-body font-medium text-pretty text-ink">{item.title}</span>
               {item.text && <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{item.text}</span>}
             </span>

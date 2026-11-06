@@ -24,7 +24,6 @@ export type ServicePackage = {
   price: number;
   popular?: boolean;
   photos: Photo[]; // shown when the package is opened: 2 or 3, all from one wedding
-  layout?: "tiles"; // inclusions as a grid of cards instead of one column (trial on Barefoot)
   overview: string;
   groups: InclusionGroup[];
   details: { title: string; text: string }[];
@@ -54,7 +53,6 @@ export const servicePackages: ServicePackage[] = [
     type: "Elopement\u00a0· Ceremony only",
     summary: "Perfect for couples looking to say “I do” in a serene beach setting.",
     price: 5500,
-    layout: "tiles",
     photos: [
       img("package-barefoot-beach.jpg", "Newlyweds sharing a kiss at the water\u2019s edge on a quiet North Shore beach"),
       img("package-barefoot-closeup.jpg", "The bride and groom embracing on the rocks during their beach elopement"),
