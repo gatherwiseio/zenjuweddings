@@ -67,6 +67,9 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 ## Inspiration
 <!-- One entry per site: what the user wants taken, then what Claude observed. -->
 **Overall:** both sites set the overall vibe Yanicke likes: typography (headings especially), layout, and general feel. Take the whole aesthetic, not one specific feature.
+- **Built 2026-11-06** (`/contact`, content in `src/content/contact.ts`): photo hero; "Tell us about your day" intro with four reasons to reach out (on Oʻahu since 2010, founder-led, trusted vendor network with wholesale discounts, $2.5M liability coverage on coordination packages) beside a minimal form (name, email, message, Send); her WeddingWire reviews; tiles for address, email, phone and fax, plus Facebook / Instagram.
+- **Same form as a pop-up:** every link to /contact (header Inquire, all "Contact us" buttons) opens it in place on other pages; on /contact it glides to the form; the menu's Contact Us still goes to the page.
+- **Email sending:** `/api/inquiry` sends through Resend. **To go live, set in Vercel:** `RESEND_API_KEY`, and `INQUIRY_FROM` as an address on a domain verified in Resend (e.g. `website@zenjuweddingsnevents.com`); `INQUIRY_TO` defaults to info@zenjuweddingsnevents.com. Until then the form shows "please email us at info@…" instead of losing the message. Spam honeypot included.
 
 ### https://www.brookekeegan.com
 - **Take:** overall vibe: heading typography, layout, feel

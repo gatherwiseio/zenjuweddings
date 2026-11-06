@@ -4,6 +4,7 @@ export const contact = {
   email: "info@zenjuweddingsnevents.com",
   phone: "(808) 840-7404",
   phoneHref: "tel:+18088407404",
+  fax: "415-520-9729", // from her current site
   address: ["1050 Bishop Street, Suite 450", "Honolulu, HI 96813"],
   legalName: "Zenju Weddings and Events of Hawaii, LLC",
   facebook: "https://www.facebook.com/ZenjuWeddings", // from the footer of her current site
@@ -17,7 +18,7 @@ export const pages = [
   { label: "Services & Packages", href: "/services", live: true },
   { label: "Preferred Vendors", href: "/vendors", live: true },
   { label: "Gallery", href: "/gallery", live: false },
-  { label: "Contact Us", href: "/contact", live: false },
+  { label: "Contact Us", href: "/contact", live: true },
 ];
 
 // All four packages, taken from her Packages page (zenjuweddingsnevents.com/packages).

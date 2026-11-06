@@ -62,12 +62,10 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         <div className="flex items-center gap-3">
           {/* Wrapper does the hiding: the button's own inline-flex would override `hidden`. */}
           <span className="hidden sm:block">
-            <a
-              href={`mailto:${contact.email}?subject=Inquiry`}
-              className={buttonClass("primary", tone)}
-            >
+            {/* Opens the inquiry pop-up (InquiryDialog); goes to the form on the Contact page. */}
+            <Link href="/contact" className={buttonClass("primary", tone)}>
               Inquire
-            </a>
+            </Link>
           </span>
           <button
             type="button"
@@ -101,7 +99,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
           aria-label="Site menu"
           className="fade-in fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-mist px-4 text-ink xs:px-6 md:px-14"
         >
-          <div className="border-b border-ink/25 py-4 md:py-5">
+          <div className="-mx-4 border-b border-ink/25 px-4 py-4 xs:-mx-6 xs:px-6 md:-mx-14 md:px-14 md:py-5">
             <div className="relative flex min-h-11 items-center justify-end md:min-h-12">
               <Link
                 href="/"

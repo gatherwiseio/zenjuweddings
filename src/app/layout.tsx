@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Jost, Pinyon_Script } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
+import { InquiryDialog } from "@/components/InquiryDialog";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
 const jost = Jost({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <SmoothScroll />
         {children}
+        <InquiryDialog />
       </body>
     </html>
   );
