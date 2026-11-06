@@ -114,8 +114,8 @@ const icons: Record<IconKey, typeof CameraIcon> = {
 };
 
 // Services page package list: one clean row per package (name, type, one-line summary, price on
-// the right). Opening a row pins its name under the header while you read, and reveals its photos,
-// everything it includes, and a price card with the tax and grand total. Native <details> sharing
+// the right). Opening a row reveals its photos (one wedding per package), everything it includes,
+// and a price card (named, so you know which package you're reading) with the tax and grand total. Native <details> sharing
 // one `name`, so only one is open at a time and all the text stays in the HTML for search engines.
 // Each row's id is the homepage "Learn more" anchor. PackageScroll handles scrolling to a row.
 export function PackageList({ packages }: { packages: ServicePackage[] }) {
@@ -130,7 +130,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
             name="packages"
             className="package group scroll-mt-(--header-h) border-b border-fog md:scroll-mt-(--header-h-md)"
           >
-            <summary className="z-10 flex cursor-pointer items-start gap-4 bg-white py-7 group-open:sticky group-open:top-(--header-h) group-open:border-b group-open:border-fog group-open:py-5 md:items-center md:gap-8 md:py-8 md:group-open:top-(--header-h-md) md:group-open:py-6">
+            <summary className="flex cursor-pointer items-start gap-4 py-7 md:items-center md:gap-8 md:py-8">
               <span className="label w-8 shrink-0 pt-1.5 text-xs font-medium text-gold tabular-nums md:w-10 md:pt-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -147,9 +147,8 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
                   {pkg.name}
                   {pkg.meaning && <span className="ml-3 text-lg font-normal text-ink/60">{pkg.meaning}</span>}
                 </span>
-                {/* Hidden while open, so the pinned row stays compact. */}
-                <span className="text-meta leading-prose font-normal text-pretty text-ink/75 group-open:hidden">{pkg.summary}</span>
-                <Price price={pkg.price} className="group-open:hidden md:hidden" />
+                <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{pkg.summary}</span>
+                <Price price={pkg.price} className="md:hidden" />
               </span>
               <Price price={pkg.price} className="hidden shrink-0 text-right md:flex" />
               {/* Plus turns into a minus when open. */}
@@ -163,21 +162,27 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
             </summary>
 
             <div className="flex flex-col gap-12 pt-8 pb-12 md:pt-10 md:pl-18 lg:pb-16">
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-(--package-photo-cols) md:gap-3">
-                {pkg.photos.map((photo, p) => (
-                  <div
-                    key={photo.src}
-                    className={`relative overflow-hidden bg-fog ${p === 0 ? "col-span-2 aspect-(--aspect-package) md:col-span-1 md:aspect-auto" : "aspect-square md:aspect-auto"} md:h-(--package-photo-h)`}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      sizes={p === 0 ? "(min-width: 768px) 45vw, 100vw" : "(min-width: 768px) 22vw, 50vw"}
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+              {/* Three photos: a wide lead and two tall. Two photos: side by side. */}
+              <div
+                className={`grid grid-cols-2 gap-2 md:gap-3 ${pkg.photos.length > 2 ? "md:grid-cols-(--package-photo-cols)" : ""}`}
+              >
+                {pkg.photos.map((photo, p) => {
+                  const lead = p === 0 && pkg.photos.length > 2;
+                  return (
+                    <div
+                      key={photo.src}
+                      className={`relative overflow-hidden bg-fog ${lead ? "col-span-2 aspect-(--aspect-package) md:col-span-1 md:aspect-auto" : "aspect-square md:aspect-auto"} md:h-(--package-photo-h)`}
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        sizes={lead ? "(min-width: 768px) 45vw, 100vw" : pkg.photos.length > 2 ? "(min-width: 768px) 22vw, 50vw" : "(min-width: 768px) 40vw, 50vw"}
+                        className="object-cover"
+                      />
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="grid gap-12 lg:grid-cols-(--package-detail-cols) lg:gap-16">
@@ -186,7 +191,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
                   {pkg.groups.map((group, g) => (
                     <div key={group.title ?? g} className="flex flex-col gap-5">
                       {group.title && <h4 className="label text-xs font-semibold">{group.title}</h4>}
-                      <IconList items={group.items} />
+                      {pkg.layout === "tiles" ? <IconTiles items={group.items} /> : <IconList items={group.items} />}
                     </div>
                   ))}
                   {pkg.closing && (
@@ -258,6 +263,28 @@ function IconList({ items }: { items: Inclusion[] }) {
               <Icon size={22} weight="light" />
             </span>
             <span className="flex flex-col gap-1 pt-1">
+              <span className="text-body font-medium text-pretty text-ink">{item.title}</span>
+              {item.text && <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{item.text}</span>}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+// Trial layout (Barefoot): the same icon, name and description as cards in a grid.
+function IconTiles({ items }: { items: Inclusion[] }) {
+  return (
+    <ul className="grid gap-3 sm:grid-cols-2">
+      {items.map((item) => {
+        const Icon = icons[item.icon];
+        return (
+          <li key={item.title} className="flex flex-col gap-4 border border-fog p-6">
+            <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full bg-mist text-ink/55">
+              <Icon size={22} weight="light" />
+            </span>
+            <span className="flex flex-col gap-1.5">
               <span className="text-body font-medium text-pretty text-ink">{item.title}</span>
               {item.text && <span className="text-meta leading-prose font-normal text-pretty text-ink/75">{item.text}</span>}
             </span>

@@ -111,7 +111,7 @@
   --package-detail-cols: minmax(0, 2fr) minmax(0, 1fr); /* Services: inclusions | price card */
   --header-h: 4.75rem; /* pinned header height (phones), a hair under so open package rows tuck beneath it */
   --header-h-md: 5.25rem; /* from 768px */
-  --package-card-top: 14rem; /* price card pins below the header and the pinned package row */
+  --package-card-top: 7.5rem; /* price card pins just below the header */
   --package-photo-cols: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); /* Services: photo strip */
   --package-photo-h: 20rem;
   /* Standard section band padding (phones / from 768px) */

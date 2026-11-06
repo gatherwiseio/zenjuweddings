@@ -8,12 +8,16 @@ export function PageHero({
   label,
   image,
   alt = "",
+  shade = "default",
 }: {
   title: string;
   label: string;
   image: string;
   alt?: string;
+  /** "light": softer fades for bright photos that need less darkening. */
+  shade?: "default" | "light";
 }) {
+  const light = shade === "light";
   return (
     <section id="hero" className="pb-20 md:pb-28">
       <div className="relative h-(--page-hero-h) min-h-(--page-hero-min) overflow-hidden bg-ink">
@@ -21,8 +25,8 @@ export function PageHero({
           <Image src={image} alt={alt} fill preload sizes="100vw" className="slow-zoom object-cover" />
         </div>
         {/* Top fade keeps the see-through header legible; bottom fade carries the title. */}
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-ink/50 to-transparent" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t from-ink/65 to-transparent" />
+        <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-40 bg-linear-to-b to-transparent ${light ? "from-ink/30" : "from-ink/50"}`} />
+        <div aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent ${light ? "from-ink/40" : "from-ink/65"}`} />
         <div className="hero-drift absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 px-6 pb-10 text-center text-white text-shadow-hero md:pb-14">
           <p className="hero-rise label text-xs font-medium md:text-label">{label}</p>
           <h1 className="hero-rise hero-rise-delay text-balance text-4xl leading-display font-extralight tracking-display xs:text-hero md:text-display">
