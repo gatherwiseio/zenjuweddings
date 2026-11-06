@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/Button";
+import { Parallax } from "@/components/motion/Parallax";
 import { SectionHeading } from "@/components/SectionHeading";
 import { contact } from "@/content/site";
 
@@ -7,16 +8,18 @@ import { contact } from "@/content/site";
 // over the garden ceremony photo.
 export function ContactCta() {
   return (
-    <section className="parallax-scope relative overflow-hidden bg-ink text-cream">
-      <div className="parallax-y absolute inset-x-0 -inset-y-(--parallax-bleed)">
-        <Image
-          src="/images/current-site/portfolio-13.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="slow-zoom object-cover opacity-80"
-        />
-      </div>
+    <section className="relative overflow-hidden bg-ink text-cream">
+      <Parallax className="absolute inset-0">
+        <div data-parallax="10" className="absolute inset-0">
+          <Image
+            src="/images/current-site/portfolio-13.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="slow-zoom object-cover opacity-80"
+          />
+        </div>
+      </Parallax>
       {/* A light overall wash so the garden photo reads, plus a soft darker glow centred behind the
           text (and its text shadow) so the copy stays legible over the white drapes. */}
       <div aria-hidden="true" className="absolute inset-0 bg-ink/30" />

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Jost, Pinyon_Script } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 
 const jost = Jost({
   variable: "--font-jost",
@@ -27,7 +29,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jost.variable} ${pinyon.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { buttonClass, ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
+import { lockScroll } from "@/components/motion/SmoothScroll";
 import { contact, type Package } from "@/content/site";
 
 // Split editorial packages (Claude Design variation B): package names as tabs on the left,
@@ -20,7 +21,8 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
 
   // Arrow keys move between tabs, per the WAI-ARIA tabs pattern.
   const onKeyDown = (e: React.KeyboardEvent) => {
-    const step = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
+    const step =
+      e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
     if (!step) return;
     e.preventDefault();
     const next = (selected + step + packages.length) % packages.length;
@@ -101,7 +103,10 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
         <ul className="flex flex-col gap-2.5">
           {current.highlights.map((item) => (
             <li key={item} className="flex gap-3.5 text-base">
-              <span aria-hidden="true" className="mt-(--bullet-offset) h-1.5 w-1.5 shrink-0 rounded-full bg-gold-light" />
+              <span
+                aria-hidden="true"
+                className="mt-(--bullet-offset) h-1.5 w-1.5 shrink-0 rounded-full bg-gold-light"
+              />
               {item}
             </li>
           ))}
@@ -110,7 +115,14 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
           <ButtonLink href={`/services#${current.id}`} variant="secondary" tone="dark">
             Learn more
           </ButtonLink>
-          <button type="button" onClick={() => dialogRef.current?.showModal()} className={buttonClass("link", "dark")}>
+          <button
+            type="button"
+            onClick={() => {
+              lockScroll(true);
+              dialogRef.current?.showModal();
+            }}
+            className={buttonClass("link", "dark")}
+          >
             See all {current.includes.length} inclusions
           </button>
         </div>
@@ -118,7 +130,9 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
       </div>
 
       <dialog
+        data-lenis-prevent
         ref={dialogRef}
+        onClose={() => lockScroll(false)}
         onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
         aria-labelledby="package-dialog-title"
         className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
@@ -127,11 +141,20 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
           <div className="sticky top-0 flex items-start justify-between gap-4 border-b border-fog bg-white px-6 pt-6 pb-5 sm:gap-6 sm:px-8 sm:pt-8 sm:pb-6 md:px-10">
             <div className="flex flex-col gap-2">
               <p className="label text-xs font-medium text-gold">{current.type}</p>
-              <h3 id="package-dialog-title" translate="no" className="text-2xl leading-heading font-light sm:text-h3-lg">
+              <h3
+                id="package-dialog-title"
+                translate="no"
+                className="text-2xl leading-heading font-light sm:text-h3-lg"
+              >
                 {current.name}
               </h3>
             </div>
-            <button type="button" onClick={() => dialogRef.current?.close()} className={buttonClass("secondary")} autoFocus>
+            <button
+              type="button"
+              onClick={() => dialogRef.current?.close()}
+              className={buttonClass("secondary")}
+              autoFocus
+            >
               Close
             </button>
           </div>
@@ -142,7 +165,10 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
             <ul className="flex flex-col gap-3 text-body leading-snug">
               {current.includes.map((item) => (
                 <li key={item} className="flex gap-4">
-                  <span aria-hidden="true" className="mt-(--bullet-offset-sm) h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                  <span
+                    aria-hidden="true"
+                    className="mt-(--bullet-offset-sm) h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                  />
                   {item}
                 </li>
               ))}

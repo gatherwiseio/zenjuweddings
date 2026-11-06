@@ -97,7 +97,6 @@
   --wordmark-w: 124px;
   --wordmark-w-lg: 150px;
   --legal-cols: 240px 1fr; /* legal pages: contents list + text */
-  --parallax-bleed: 8%; /* extra photo height above and below for scroll parallax */
 }
 
 @layer base {
@@ -105,6 +104,10 @@
     scroll-behavior: smooth;
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgb(39 38 42 / 0.08);
+  }
+  /* Smooth scrolling is Lenis's job when it runs; the browser's own would fight it. */
+  html.lenis {
+    scroll-behavior: auto;
   }
 
   body {
@@ -359,14 +362,6 @@
     clip-path: inset(0);
   }
 }
-@keyframes parallax-y {
-  from {
-    translate: 0 calc(var(--parallax-bleed) * -1);
-  }
-  to {
-    translate: 0 var(--parallax-bleed);
-  }
-}
 @keyframes hero-drift {
   to {
     translate: 0 -10vh;
@@ -458,16 +453,6 @@
     animation-timeline: view();
     animation-range: entry 0% cover 30%;
   }
-  /* Parallax: a photo drifts inside its frame. The frame names the timeline (.parallax-scope),
-     the oversized photo layer inside it (.parallax-y) moves. */
-  .parallax-scope {
-    view-timeline-name: --parallax;
-  }
-  .parallax-y {
-    animation: parallax-y linear both;
-    animation-timeline: --parallax;
-    animation-range: cover 0% cover 100%;
-  }
   /* Hero: the film sinks slower than the page (parallax) while the headline lifts and fades. */
   .hero-sink {
     animation: hero-sink linear both;
@@ -521,7 +506,6 @@
   .frame-settle,
   .draw-y,
   .reveal-panel,
-  .parallax-y,
   .hero-sink,
   .hero-drift,
   .link-draw,

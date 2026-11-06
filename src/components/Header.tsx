@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { buttonClass } from "@/components/Button";
 import { Logo } from "@/components/Logo";
+import { lockScroll } from "@/components/motion/SmoothScroll";
 import { contact, pages } from "@/content/site";
 
 // `overlay`: the header floats see-through over a full-screen hero (white text), then turns
@@ -34,10 +35,10 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+    lockScroll(true);
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      lockScroll(false);
     };
   }, [open]);
 
@@ -88,6 +89,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
       {open && (
         <div
           id="site-menu"
+          data-lenis-prevent
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

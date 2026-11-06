@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { buttonClass } from "@/components/Button";
+import { lockScroll } from "@/components/motion/SmoothScroll";
 import type { Review } from "@/content/site";
 
 // Equal-height testimonial cards: 3 across on desktop, 2 on tablets. On phones, one full-width
@@ -27,6 +28,7 @@ export function Testimonials({ reviews }: { reviews: Review[] }) {
 
   const show = (i: number) => {
     setOpen(i);
+    lockScroll(true);
     dialogRef.current?.showModal();
   };
   const current = open === null ? null : reviews[open];
@@ -95,8 +97,12 @@ export function Testimonials({ reviews }: { reviews: Review[] }) {
       </div>
 
       <dialog
+        data-lenis-prevent
         ref={dialogRef}
-        onClose={() => setOpen(null)}
+        onClose={() => {
+          setOpen(null);
+          lockScroll(false);
+        }}
         onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
         aria-labelledby="testimonial-dialog-title"
         className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
