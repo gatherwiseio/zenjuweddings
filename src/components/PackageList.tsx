@@ -158,7 +158,7 @@ export function PackageList({ packages }: { packages: ServicePackage[] }) {
               </span>
             </summary>
 
-            <div className="flex flex-col gap-12 pt-1 pb-12 md:pt-2 md:pl-18 lg:pb-16">
+            <div className="flex flex-col gap-12 pt-1 pb-12 md:pt-2 lg:pb-16">
               {/* Three photos: a wide lead and two tall. Two photos: side by side. */}
               <div
                 className={`grid grid-cols-2 gap-2 md:gap-3 ${pkg.photos.length > 2 ? "md:grid-cols-(--package-photo-cols)" : ""}`}

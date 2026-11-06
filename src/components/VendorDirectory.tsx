@@ -105,10 +105,11 @@ function VendorCard({ vendor }: { vendor: Vendor }) {
     .slice(0, 2)
     .map((w) => w[0])
     .join("");
-  const link = "inline-flex min-h-6 w-fit items-center gap-2 text-ink/80 transition-colors hover:text-gold-deep";
+  // Hover: the text turns gold over a light gold underline (gold-light alone is too faint to read on white).
+  const link =
+    "inline-flex min-h-6 w-fit items-center gap-2 text-ink/80 underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold-light";
   return (
-    // A gold line draws across the top of the card on hover, as on the homepage package cards.
-    <li className="relative flex items-center gap-5 border border-fog bg-white p-4 before:absolute before:inset-x-0 before:-top-px before:h-0.5 before:origin-left before:scale-x-0 before:bg-gold before:transition-transform before:duration-700 before:ease-out-expo hover:before:scale-x-100 md:gap-6 md:p-5">
+    <li className="flex items-center gap-5 border border-fog bg-white p-4 md:gap-6 md:p-5">
       {/* Logos sit on beige; portraits fill the box; with neither, gold initials on beige. */}
       <div className="relative aspect-(--aspect-vendor-logo) w-(--vendor-logo) shrink-0 overflow-hidden bg-cream md:w-(--vendor-logo-md)">
         {vendor.logo ? (
