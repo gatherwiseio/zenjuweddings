@@ -48,6 +48,8 @@ Pages, in nav order: Home · About Us / The Team · Services & Packages · Prefe
 ### Preferred Vendors
 - Move her content over from her two preferred vendor pages ([part 1](https://www.zenjuweddingsnevents.com/news-all), [part 2](https://www.zenjuweddingsnevents.com/team-1)).
 - An easily browsable directory: vendor imagery, categories, and filtering.
+- **Built 2026-11-06** (`/vendors`, content in `src/content/vendors.ts`): all 32 listings in 7 sections (Hair & makeup, Officiants, Photographers, Videographers, Florists, Rentals & décor, DJs & emcees), all visible. A bar pinned under the header holds a search box (name, company, description, category) and underline tabs that jump to each section and underline the one you're in. Cards: a photo from the vendor's own website, name, one-line description (condensed from their site; DJs from her page 2), website, phone, email. Vendors with no usable photo show a name tile.
+- **Open with Yanicke:** Cherbu's link is dead (no website shown); Spinning Web's domain is now an unrelated site (no link); she linked IMF Visions to islemedia.com (we link imfvisions.com); confirm the list is current.
 
 ### Gallery
 - 6 albums to start, each with a cover image and the couple's names.

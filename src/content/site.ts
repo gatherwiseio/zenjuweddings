@@ -15,7 +15,7 @@ export const pages = [
   { label: "Home", href: "/", live: true },
   { label: "About Us", href: "/about", live: true },
   { label: "Services & Packages", href: "/services", live: true },
-  { label: "Preferred Vendors", href: "/vendors", live: false },
+  { label: "Preferred Vendors", href: "/vendors", live: true },
   { label: "Gallery", href: "/gallery", live: false },
   { label: "Contact Us", href: "/contact", live: false },
 ];
