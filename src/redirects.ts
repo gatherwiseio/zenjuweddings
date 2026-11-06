@@ -42,8 +42,6 @@ const blog: Redirect[] = [
   { source: "/blog/:path*", destination: "/", permanent: true },
 ];
 
-// Off until her domain moves here from Wix (user decision, 2026-11-06). Set to true in the same
-// change that connects www.zenjuweddingsnevents.com in Vercel.
-export const OLD_SITE_REDIRECTS_ON = false;
-
-export const oldSiteRedirects: Redirect[] = OLD_SITE_REDIRECTS_ON ? [...pages, ...blog] : [];
+// Always on: they only apply on whatever domain serves this site, so they can't touch her Wix
+// site, and nothing needs switching on when the domain moves here.
+export const oldSiteRedirects: Redirect[] = [...pages, ...blog];
