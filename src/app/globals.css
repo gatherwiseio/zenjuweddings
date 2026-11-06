@@ -292,22 +292,7 @@ details.package[data-instant]::details-content {
    Content is always visible by default; animations only run where supported
    and are removed entirely under prefers-reduced-motion. */
 
-/* Hero: headline settles in once; the film drifts in a very slow zoom. */
-/* No opacity in either entrance: Chrome skips text that first paints fully transparent when it
-   picks the Largest Contentful Paint, which would leave the page without one (bad for SEO). */
-@keyframes hero-rise {
-  from {
-    transform: translateY(16px);
-    filter: blur(10px);
-  }
-}
-.hero-rise {
-  animation: hero-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) 150ms both;
-}
-.hero-rise-delay {
-  animation-delay: 350ms;
-}
-
+/* Hero: the film drifts in a very slow zoom. (Headlines appear without an entrance animation.) */
 @keyframes slow-zoom {
   from {
     transform: scale(1);
@@ -564,7 +549,6 @@ details.package[data-instant]::details-content {
   html {
     scroll-behavior: auto;
   }
-  .hero-rise,
   .header-in,
   .scroll-cue,
   .wipe-in,

@@ -28,8 +28,8 @@ export function PageHero({
         <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-40 bg-linear-to-b to-transparent ${light ? "from-ink/30" : "from-ink/50"}`} />
         <div aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-3/5 bg-linear-to-t to-transparent ${light ? "from-ink/40" : "from-ink/65"}`} />
         <div className="hero-drift absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 px-6 pb-10 text-center text-white text-shadow-hero md:pb-14">
-          <p className="hero-rise label text-xs font-medium md:text-label">{label}</p>
-          <h1 className="hero-rise hero-rise-delay text-balance text-4xl leading-display font-extralight tracking-display xs:text-hero md:text-display">
+          <p className="label text-xs font-medium md:text-label">{label}</p>
+          <h1 className="text-balance text-4xl leading-display font-extralight tracking-display xs:text-hero md:text-display">
             {title}
           </h1>
         </div>

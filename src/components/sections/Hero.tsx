@@ -63,11 +63,11 @@ export function Hero() {
           className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-ink/60 to-transparent"
         />
         <div className="hero-drift absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 px-6 pb-6 text-center text-white text-shadow-hero md:pb-10">
-          <h1 className="hero-rise text-balance text-3xl leading-heading font-light tracking-hero md:text-hero">
+          <h1 className="text-balance text-3xl leading-heading font-light tracking-hero md:text-hero">
             Celebrations rooted in <Script>aloha</Script>.
           </h1>
           {/* Two set lines on phones (no line starting with a "·"), one line from tablets up. */}
-          <p className="hero-rise hero-rise-delay label text-tiny leading-relaxed font-medium md:text-xs">
+          <p className="label text-tiny leading-relaxed font-medium md:text-xs">
             <span className="block md:inline">Wedding &amp; Event Planning · Designers</span>
             <span className="hidden md:inline"> · </span>
             <span className="block md:inline">Honolulu, Hawaii · Since 2010</span>
