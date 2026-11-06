@@ -109,6 +109,10 @@
   --page-hero-min: 28rem;
   --aspect-team: 4 / 3; /* About: team photo */
   --package-detail-cols: minmax(0, 2fr) minmax(0, 1fr); /* Services: inclusions | price card */
+  --package-thumb-w: 9rem; /* Services: cover photo on each row */
+  --aspect-package-thumb: 4 / 3;
+  --package-photo-cols: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); /* Services: photo strip */
+  --package-photo-h: 20rem;
   /* Standard section band padding (phones / from 768px) */
   --section-x: 1.5rem;
   --section-x-lg: 3.5rem;

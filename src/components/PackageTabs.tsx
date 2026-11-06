@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { buttonClass, ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { lockScroll } from "@/components/motion/SmoothScroll";
-import { contact, type Package } from "@/content/site";
+import { type Package } from "@/content/site";
 
 // Split editorial packages (Claude Design variation B): package names as tabs on the left,
 // the selected package's photo, description and highlights on the right.
@@ -177,12 +177,7 @@ export function PackageTabs({ packages }: { packages: Package[] }) {
           <div className="flex flex-col gap-5 border-t border-fog bg-mist px-6 py-6 sm:px-8 sm:py-7 md:px-10">
             <p className="text-meta leading-relaxed">{current.note}</p>
             <div>
-              <a
-                href={`mailto:${contact.email}?subject=${encodeURIComponent(`Inquiry: ${current.name}`)}`}
-                className={`${buttonClass("primary")} w-full text-center sm:w-auto`}
-              >
-                Inquire about {current.name}
-              </a>
+              <ButtonLink href="/contact">Contact us</ButtonLink>
             </div>
           </div>
         </div>

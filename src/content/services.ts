@@ -1,9 +1,14 @@
 // Services & Packages page. Package copy is Yanicke's updated package text (sent 2026-11-05),
 // lightly tidied for reading (spelling, consistent capitals, shorter lines); nothing added.
-// Order is hers. Prices are the base price; every package adds 4.712% Hawaii GE tax.
+// Order is hers. Prices are the base price; every package adds 4.712% Hawaii GE tax, calculated
+// here to the cent (three of her own totals were off; see BRIEF.md).
 // Marriage license section: streamlined from https://www.zenjuweddingsnevents.com/marriage-license.
 
-export type Inclusion = { title: string; text?: string };
+export type IconKey =
+  | "coordination" | "permit" | "officiant" | "beauty" | "bouquet" | "crown" | "lei"
+  | "photo" | "video" | "music" | "champagne";
+export type Inclusion = { title: string; text?: string; icon?: IconKey };
+export type Photo = { src: string; alt: string };
 export type InclusionGroup = { title?: string; items: Inclusion[] };
 export type ServicePackage = {
   id: string; // anchor: /services#<id>
@@ -14,11 +19,16 @@ export type ServicePackage = {
   price: number;
   popular?: boolean;
   overview: string;
+  photos: Photo[]; // first is the row's cover photo
   groups: InclusionGroup[];
   details: { title: string; text: string }[];
+  closing?: string;
 };
 
-export const TAX_RATE_LABEL = "4.712% Hawaii GE tax";
+export const TAX_RATE = 0.04712;
+export const TAX_RATE_LABEL = "4.712% GE tax";
+/** Hawaii general excise tax on a package price, to the cent. */
+export const taxFor = (price: number) => Math.round(price * TAX_RATE * 100) / 100;
 
 export const servicesPage = {
   hero: {
@@ -35,31 +45,37 @@ export const servicePackages: ServicePackage[] = [
     id: "barefoot",
     name: "Barefoot Nuptials",
     type: "Elopement · Ceremony only",
-    summary: "A serene beach ceremony with photography, video and live ukulele.",
+    summary: "Perfect for couples looking to say \u201cI do\u201d in a serene beach setting.",
     price: 5500,
+    photos: [
+      { src: "/images/current-site/package-barefoot-beach.jpg", alt: "Newlyweds sharing a kiss at the water\u2019s edge on a quiet beach" },
+      { src: "/images/current-site/package-barefoot-closeup.jpg", alt: "A bride and groom embracing during their beach elopement" },
+      { src: "/images/current-site/package-barefoot-lei.jpg", alt: "Green maile leaf lei laid out on a white table" },
+    ],
+    // Her exact package copy (sent 2026-11-05), one item per line with an icon.
     overview:
-      "Experience the simplicity and beauty of love with our Basic Barefoot Nuptials elopement package, perfect for couples looking to say “I do” in a serene beach setting.",
+      "Experience the simplicity and beauty of love with our Zenju Basic Barefoot Nuptials Elopement Package. Perfect for couples looking to say \u201cI do\u201d in a serene beach setting!",
     groups: [
       {
         items: [
-          { title: "Coordination", text: "Expert coordination so your ceremony runs smoothly, letting you relax and focus on your special moments." },
-          { title: "Beach permit", text: "The permit needed for your ceremony at your chosen nearby beach, in line with local regulations." },
-          { title: "Officiant", text: "A professional officiant to conduct your bespoke ceremony, with a personal touch to your vows." },
-          { title: "Bridal hair and makeup", text: "Professional hair and makeup so the bride has the perfect look for her day." },
-          { title: "Tropical bridal bouquet", text: "A vibrant bouquet of fresh, colorful tropical flowers to complement the bride’s style." },
-          { title: "Tropical bridal crown (haku)", text: "A floral crown of tropical flowers, adding a unique and elegant touch." },
-          { title: "Groom’s maile lei", text: "A traditional Hawaiian maile lei, symbolizing love and honor during the ceremony." },
-          { title: "2 hours of photography", text: "Meaningful moments of your elopement captured as beautiful, lasting memories." },
-          { title: "2 hours of videography, with drone", text: "Your day documented on film, including aerial drone footage." },
-          { title: "1 hour ukulele singer", text: "Live music for a romantic atmosphere during your ceremony." },
-          { title: "Champagne for two", text: "A bottle of bubbly with two engraved champagne glasses for your toast." },
+          { icon: "coordination", title: "Coordination", text: "Expert coordination to ensure your elopement ceremony runs smoothly, allowing you to relax and focus on your special moments." },
+          { icon: "permit", title: "Beach permit for surrounding beaches", text: "Necessary beach permit to host your ceremony at your chosen beach location, ensuring compliance with local regulations." },
+          { icon: "officiant", title: "Officiant", text: "A professional officiant to conduct your bespoke ceremony, providing a personal touch to your vows." },
+          { icon: "beauty", title: "Bridal hair and makeup", text: "Professional hair and makeup services for the bride to achieve the perfect look for her special day." },
+          { icon: "bouquet", title: "1 tropical bridal bouquet", text: "A vibrant tropical bouquet tailored with fresh, colorful flowers to complement the bride\u2019s style." },
+          { icon: "crown", title: "1 tropical bridal crown (haku)", text: "A beautiful floral crown crafted from tropical flowers, adding a unique and elegant touch to the bride\u2019s look." },
+          { icon: "lei", title: "1 groom maile lei", text: "A traditional Hawaiian maile lei for the groom, symbolizing love and honor during the ceremony." },
+          { icon: "photo", title: "2 hours of photography", text: "Professional photography service to capture meaningful moments during your elopement, providing beautiful and lasting memories." },
+          { icon: "video", title: "2 hours of videography (including drone footage)", text: "Comprehensive videography to document your special day, featuring aerial drone footage for stunning perspectives." },
+          { icon: "music", title: "1 hour ukulele singer", text: "A talented ukulele musician to create a romantic atmosphere with live music during your ceremony." },
+          { icon: "champagne", title: "1 bottle of champagne + 2 champagne glasses", text: "A bottle of bubbly for you to celebrate your love, complete with two engraved champagne glasses for a special toast." },
         ],
       },
     ],
     details: [
-      { title: "Duration", text: "Everything needed for an intimate elopement ceremony." },
-      { title: "Personalization", text: "The elements of the package are fixed, and we work closely with you so your ceremony reflects your vision." },
-      { title: "Booking", text: "A deposit secures your date, with the balance due before the event." },
+      { title: "Duration", text: "The package includes all services to cover an intimate elopement ceremony." },
+      { title: "Personalization", text: "While the elements of the package are fixed, we\u2019ll work closely with you to ensure your ceremony reflects your vision." },
+      { title: "Booking", text: "A deposit will be required to secure your date, with the remaining balance due prior to the event." },
     ],
   },
   {
@@ -68,6 +84,7 @@ export const servicePackages: ServicePackage[] = [
     type: "Elopement · Ceremony and 2-hour photoshoot",
     summary: "An oceanfront ceremony for up to 20 guests, with everything included.",
     price: 8750,
+    photos: [{ src: "/images/current-site/package-elopement-turtle-bay.jpg", alt: "A bride in her gown on an oceanfront lanai at Turtle Bay Resort" }],
     overview:
       "Celebrate your love with our All Inclusive Elopement Package, designed for couples who want an intimate and unforgettable ceremony.",
     groups: [
@@ -102,6 +119,7 @@ export const servicePackages: ServicePackage[] = [
     type: "Day-of coordination",
     summary: "For couples who have planned it themselves and want the day taken care of.",
     price: 2900,
+    photos: [{ src: "/images/current-site/package-hoopono-cake-kiss.jpg", alt: "Newlyweds sharing a kiss as they cut their cake at an evening reception under the palms" }],
     overview:
       "Hoʻopono means “faithful” in Hawaiian. This package is for couples who want day-of coordination only: it covers the day itself, with no planning leading up to the event and no wholesale vendor discounts.",
     groups: [
@@ -146,6 +164,7 @@ export const servicePackages: ServicePackage[] = [
     type: "Partial coordination",
     summary: "You plan, and we step in once your venue and three vendors are booked.",
     price: 4800,
+    photos: [{ src: "/images/current-site/package-hoopono-paradise-cove.jpg", alt: "Newlyweds walking out to cheering guests at Paradise Cove" }],
     overview:
       "I Ke Aloha, meaning “in love” in Hawaiian, is for couples who prefer a hands-on approach to planning but want professional support as the big day approaches. Our team steps in once your venue is secured with a deposit and three more vendors are confirmed, so you enjoy the planning while every essential detail is expertly managed.",
     groups: [
@@ -222,6 +241,7 @@ export const servicePackages: ServicePackage[] = [
     summary: "Full planning from the day your date is set, with our team every step of the way.",
     price: 7500,
     popular: true,
+    photos: [{ src: "/images/current-site/package-kuulei-loulu-tent.jpg", alt: "Sailcloth tent reception lit at dusk at Loulu Palms Estate" }],
     overview:
       "Kuʻu Lei, meaning “beloved” in Hawaiian, is our most popular package, for couples who want to enjoy planning without the stress. It covers every logistic from the moment your date is set, with the Zenju team beside you every step of the way.",
     groups: [
@@ -282,6 +302,7 @@ export const servicePackages: ServicePackage[] = [
     type: "All-inclusive · Full coordination",
     summary: "Full coordination with DJ, emcee, lighting, photobooth and 6 hours of photography.",
     price: 15000,
+    photos: [{ src: "/images/current-site/package-platinum-cafe-julia.jpg", alt: "Reception tables set beneath the arches at Cafe Julia" }],
     overview:
       "Our all-inclusive platinum package brings full coordination together with entertainment, lighting and photography, with 6 hours of coverage on the day.",
     groups: [
