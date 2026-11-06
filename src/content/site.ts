@@ -7,6 +7,7 @@ export const contact = {
   address: ["1050 Bishop Street, Suite 450", "Honolulu, HI 96813"],
   legalName: "Zenju Weddings and Events of Hawaii, LLC",
   facebook: "https://www.facebook.com/ZenjuWeddings", // from the footer of her current site
+  instagram: "https://www.instagram.com/zenjuweddings_yanicke/", // given by the client
 };
 
 // Only Home is live for now; the rest show in the menu but aren't clickable yet.

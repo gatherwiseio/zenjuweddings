@@ -48,6 +48,19 @@ export function Footer() {
               <path d="M13.5 21v-7.5h2.53l.38-2.94H13.5V8.69c0-.85.24-1.43 1.46-1.43h1.55V4.63a20.6 20.6 0 0 0-2.26-.13c-2.24 0-3.78 1.37-3.78 3.89v2.17H7.94v2.94h2.53V21z" />
             </svg>
           </a>
+          <a
+            href={contact.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Zenju Weddings on Instagram"
+            className="-mx-2 flex h-8 w-8 items-center justify-center transition-colors hover:text-gold"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4.5 w-4.5 fill-none stroke-current" strokeWidth="1.6">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+              <circle cx="12" cy="12" r="3.9" />
+              <circle cx="17.2" cy="6.8" r="0.9" className="fill-current stroke-none" />
+            </svg>
+          </a>
         </div>
       </div>
     </footer>
