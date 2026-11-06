@@ -7,7 +7,7 @@ import {
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { InquiryForm } from "@/components/InquiryForm";
+import { GatherwiseForm } from "@/components/GatherwiseForm";
 import { PageHero } from "@/components/PageHero";
 import { Reviews } from "@/components/sections/Reviews";
 import { contactPage } from "@/content/contact";
@@ -92,7 +92,7 @@ export default function ContactPage() {
               <h2 className="mb-6 text-2xl leading-heading font-light md:text-h3-lg">
                 Send us a note
               </h2>
-              <InquiryForm />
+              <GatherwiseForm />
             </div>
           </div>
         </section>

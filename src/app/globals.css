@@ -101,6 +101,7 @@
   --portrait-w: 320px;
   --dialog-w: min(560px, calc(100vw - 32px));
   --dialog-max-h: 88vh;
+  --inquiry-form-h: 75rem; /* embedded Gatherwise form: held until it reports its real height */
   --bullet-offset: 0.6em;
   --bullet-offset-sm: 0.55em;
   --duration-slow: 1200ms;

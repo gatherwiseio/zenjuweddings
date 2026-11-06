@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { XIcon } from "@phosphor-icons/react";
-import { InquiryForm } from "@/components/InquiryForm";
+import { GatherwiseForm } from "@/components/GatherwiseForm";
 import { lockScroll, scrollToElement } from "@/components/motion/SmoothScroll";
 import { contactPage } from "@/content/contact";
 
@@ -65,7 +65,7 @@ export function InquiryDialog() {
           </h2>
         </div>
         <p className="text-meta leading-prose text-pretty text-ink/75">{contactPage.intro}</p>
-        <InquiryForm key={opens} />
+        <GatherwiseForm key={opens} />
       </div>
     </dialog>
   );
