@@ -15,5 +15,4 @@ export const contactPage = {
     { title: "Trusted vendors", text: "Wholesale discounts on full coordination." },
     { title: "Fully insured", text: "$2.5M liability coverage on coordination." },
   ],
-  success: "Mahalo! Your message is on its way, and Yanicke will be in touch soon.",
 };
