@@ -349,9 +349,9 @@ export const servicePackages: ServicePackage[] = [
       },
     ],
     details: [
-      { title: "Duration", text: "This package includes services for a total of 6 hours of coverage, with additional hours available upon request." },
-      { title: "Customization", text: "While the elements of this package are fixed, we ensure your experience is tailored to your unique vision through planning sessions and consultations." },
-      { title: "Booking", text: "A deposit will be required to secure your date, with the balance due prior to the event." },
+      { title: "Duration", text: "6 hours of coverage, with more hours available on request." },
+      { title: "Customization", text: "Fixed elements, tailored to your vision through planning sessions." },
+      { title: "Booking", text: "A deposit secures your date; the balance is due before the event." },
     ],
   },
 ];
