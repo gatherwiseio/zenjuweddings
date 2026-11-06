@@ -1,5 +1,5 @@
 // Gallery: albums by couple, from the portfolio on her current site (zenjuweddingsnevents.com/about-3-1).
-// Names, dates, venues and photo credits are from her gallery's own captions; the photos that
+// Names, venues and photo credits are from her gallery's own captions; the photos that
 // carry no caption are grouped with their wedding by venue and look. Photos: public/images/gallery/<album>/.
 
 export type GalleryPhoto = { src: string; width: number; height: number; alt: string };
@@ -7,7 +7,6 @@ export type Album = {
   slug: string;
   title: string; // the couple's names
   place: string;
-  date?: string;
   credit?: string; // photographer
   story: string;
   photos: GalleryPhoto[]; // the first is the cover
@@ -23,7 +22,6 @@ export const albums: Album[] = [
     slug: "arvind-victoria",
     title: "Arvind + Victoria",
     place: "St. Peter and Paul Church & Oahu Wedding Villas",
-    date: "August 9, 2025",
     credit: "Stephen Ludwig",
     story: "Two cultural ceremonies in one day: a Polish Catholic church ceremony and a beautiful Indian ceremony, leading into a reception that combined both cultures.",
     photos: [

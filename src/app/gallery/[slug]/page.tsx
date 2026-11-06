@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps<"/gallery/[slug]">)
   };
 }
 
-// One album: a Gallery / names breadcrumb, the couple's place, story, date and photographer, then
+// One album: a Gallery / names breadcrumb, the couple's place, story and photographer, then
 // every photo in justified rows with a lightbox, and links to the albums before and after it. The
 // album reads `params` inside Suspense, so the page shell renders instantly on navigation.
 export default function AlbumPage({ params }: PageProps<"/gallery/[slug]">) {
@@ -80,7 +80,7 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
           <div className="flex flex-col gap-3">
             <p className="text-lg leading-prose text-pretty text-ink/75">{album.story}</p>
             <p className="text-meta text-ink/60">
-              {[album.date, album.credit && `Photos by ${album.credit}`, `${album.photos.length} photos`].filter(Boolean).join(" · ")}
+              {[album.credit && `Photos by ${album.credit}`, `${album.photos.length} photos`].filter(Boolean).join(" · ")}
             </p>
           </div>
         </div>

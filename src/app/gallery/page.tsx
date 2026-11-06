@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 // Gallery: the albums as a zig-zag list (after brookekeegan.com/portfolio-weddings): a tall cover
-// on one side and the couple's names, place and a View button on the other, alternating sides.
+// on one side and the couple's names, place, photo count and a View button on the other, alternating sides.
 export default function GalleryPage() {
   const { hero, intro } = galleryPage;
   return (
@@ -67,10 +67,7 @@ export default function GalleryPage() {
                       <h2 className="text-4xl leading-heading font-extralight tracking-display text-balance md:text-5xl">
                         {album.title}
                       </h2>
-                      <p className="text-meta text-ink/60">
-                        {album.date ? `${album.date} · ` : ""}
-                        {album.photos.length} photos
-                      </p>
+                      <p className="text-meta text-ink/60">{album.photos.length} photos</p>
                       <Link href={`/gallery/${album.slug}`} className={`${buttonClass("secondary")} mt-3 w-fit`}>
                         View album
                         <span className="sr-only">: {album.title}</span>
