@@ -66,8 +66,11 @@ export function Hero() {
           <h1 className="hero-rise text-balance text-3xl leading-heading font-light tracking-hero md:text-hero">
             Celebrations rooted in <Script>aloha</Script>.
           </h1>
-          <p className="hero-rise hero-rise-delay label text-tiny font-medium md:text-xs">
-            Wedding planning &amp; design · Honolulu, Hawaii · Since 2010
+          {/* Two set lines on phones (no line starting with a "·"), one line from tablets up. */}
+          <p className="hero-rise hero-rise-delay label text-tiny leading-relaxed font-medium md:text-xs">
+            <span className="block md:inline">Wedding &amp; Event Planning · Designers</span>
+            <span className="hidden md:inline"> · </span>
+            <span className="block md:inline">Honolulu, Hawaii · Since 2010</span>
           </p>
           <span
             aria-hidden="true"
