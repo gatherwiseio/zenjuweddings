@@ -129,9 +129,8 @@ export const servicePackages: ServicePackage[] = [
     summary: "Day-of management for your wedding, with no planning leading up.",
     price: 2900,
     photos: [
-      img("package-hoopono-chapel-ceremony.jpg", "A bride and groom exchanging vows at the altar with their bridal party"),
-      img("package-hoopono-chapel-tower.jpg", "The couple sharing a kiss on the lawn beneath a white chapel tower"),
-      img("package-hoopono-banyan-couple.jpg", "The newlyweds standing together in a banyan grove"),
+      img("package-hoopono-paradise-cove.jpg", "Newlyweds walking out to cheering guests at Paradise Cove"),
+      img("package-kuulei-loulu-tent.jpg", "Sailcloth tent reception lit at dusk at Loulu Palms Estate"),
     ],
     overview:
       "Hoʻopono means faithful in Hawaiian. This exclusive package is for the couple who wants the day of coordination only. It covers just the day-of coordination, with no planning leading up to the event and no wholesale vendor discounts.",
