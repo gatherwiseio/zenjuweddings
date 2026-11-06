@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { buttonClass } from "@/components/Button";
+import { XIcon } from "@phosphor-icons/react";
 import { InquiryForm } from "@/components/InquiryForm";
 import { lockScroll, scrollToElement } from "@/components/motion/SmoothScroll";
 import { contactPage } from "@/content/contact";
@@ -49,17 +49,20 @@ export function InquiryDialog() {
       aria-labelledby="inquiry-dialog-title"
       className="m-auto max-h-(--dialog-max-h) w-(--dialog-w) overflow-y-auto overscroll-contain bg-white p-0 text-ink backdrop:bg-ink/70"
     >
-      <div className="flex flex-col gap-6 px-6 py-7 sm:px-10 sm:py-10">
-        <div className="flex items-start justify-between gap-6">
-          <div className="flex flex-col gap-2">
-            <p className="label text-xs font-medium text-gold">{contactPage.heading.label}</p>
-            <h2 id="inquiry-dialog-title" className="text-2xl leading-heading font-light sm:text-h3-lg">
-              {contactPage.heading.title}
-            </h2>
-          </div>
-          <button type="button" onClick={close} className={buttonClass("secondary")}>
-            Close
-          </button>
+      <div className="relative flex flex-col gap-6 px-6 py-7 sm:px-10 sm:py-10">
+        <button
+          type="button"
+          onClick={close}
+          aria-label="Close"
+          className="absolute top-3 right-3 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-ink/70 transition-colors hover:bg-mist hover:text-ink sm:top-4 sm:right-4"
+        >
+          <XIcon aria-hidden="true" size={22} weight="light" />
+        </button>
+        <div className="flex flex-col gap-2 pr-10">
+          <p className="label text-xs font-medium text-gold">{contactPage.heading.label}</p>
+          <h2 id="inquiry-dialog-title" className="text-2xl leading-heading font-light sm:text-h3-lg">
+            {contactPage.heading.title}
+          </h2>
         </div>
         <p className="text-meta leading-prose text-pretty text-ink/75">{contactPage.intro}</p>
         <InquiryForm key={opens} />

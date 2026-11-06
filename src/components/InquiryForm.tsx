@@ -79,9 +79,9 @@ export function InquiryForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className={`${buttonClass("primary")} w-full disabled:cursor-default disabled:opacity-60 sm:w-fit`}
+        className={`${buttonClass("primary")} w-full disabled:cursor-default disabled:opacity-60 sm:w-fit sm:self-end`}
       >
-        {status === "sending" ? "Sending…" : "Send"}
+        {status === "sending" ? "Sending…" : "Send message"}
       </button>
     </form>
   );
