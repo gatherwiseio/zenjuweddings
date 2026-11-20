@@ -142,6 +142,24 @@ export const albums: Album[] = [
     ],
   },
   {
+    slug: "jennifer-alex",
+    title: "Jennifer + Alex",
+    place: "Windward Oʻahu", // venue to come from Yanicke
+    story: "A ceremony circle looking out to Mokoliʻi, then a reception under draped sailcloth with greenery and candlelight.",
+    coverPosition: "50% 0%", // faces sit high in the photo: keep the top in both crops
+    coverDrift: 2, // gentle drift so their heads stay in frame
+    photos: [
+      { src: "/images/gallery/jennifer-alex/IMG_6903", width: 1179, height: 1671, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 1" },
+      { src: "/images/gallery/jennifer-alex/IMG_6911", width: 1179, height: 880, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 2" },
+      { src: "/images/gallery/jennifer-alex/IMG_6910", width: 1179, height: 1231, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 3" },
+      { src: "/images/gallery/jennifer-alex/IMG_6913", width: 1179, height: 1484, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 4" },
+      { src: "/images/gallery/jennifer-alex/IMG_6905", width: 1179, height: 877, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 5" },
+      { src: "/images/gallery/jennifer-alex/IMG_6906", width: 1179, height: 877, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 6" },
+      { src: "/images/gallery/jennifer-alex/IMG_6907", width: 1179, height: 1558, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 7" },
+      { src: "/images/gallery/jennifer-alex/IMG_6908", width: 1179, height: 1564, alt: "Jennifer and Alex’s wedding on windward Oʻahu, photo 8" },
+    ],
+  },
+  {
     slug: "arvind-victoria",
     title: "Arvind + Victoria",
     place: "St. Peter and Paul Church & Oahu Wedding Villas",
