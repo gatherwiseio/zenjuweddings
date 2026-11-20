@@ -126,6 +126,22 @@ export const albums: Album[] = [
     ],
   },
   {
+    slug: "kaylie-mitchell",
+    title: "Kaylie + Mitchell",
+    place: "Windward Oʻahu", // venue to come from Yanicke
+    story: "Tropical florals in coral, pink and gold, with views out to Mokoliʻi.",
+    coverPosition: "50% 0%", // faces sit high in the photo: keep the top in both crops
+    coverDrift: 2, // gentle drift so the bride's head stays in frame
+    photos: [
+      { src: "/images/gallery/kaylie-mitchell/IMG_6890", width: 1179, height: 1549, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 1" },
+      { src: "/images/gallery/kaylie-mitchell/IMG_6886", width: 1179, height: 872, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 2" },
+      { src: "/images/gallery/kaylie-mitchell/IMG_6887", width: 1179, height: 1579, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 3" },
+      { src: "/images/gallery/kaylie-mitchell/IMG_6889", width: 1179, height: 1555, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 4" },
+      { src: "/images/gallery/kaylie-mitchell/IMG_6891", width: 1179, height: 1517, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 5" },
+      { src: "/images/gallery/kaylie-mitchell/IMG_6888", width: 1179, height: 1554, alt: "Kaylie and Mitchell’s wedding on windward Oʻahu, photo 6" },
+    ],
+  },
+  {
     slug: "arvind-victoria",
     title: "Arvind + Victoria",
     place: "St. Peter and Paul Church & Oahu Wedding Villas",
