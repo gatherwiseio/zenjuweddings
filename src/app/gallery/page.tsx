@@ -46,7 +46,7 @@ export default function GalleryPage() {
                         aria-hidden="true"
                         className={`group relative block aspect-square overflow-hidden md:aspect-(--aspect-album) bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
                       >
-                        <div data-parallax="8" className="absolute inset-0">
+                        <div data-parallax={album.coverDrift ?? 8} className="absolute inset-0">
                           <GalleryImage
                             src={album.photos[0].src}
                             alt=""

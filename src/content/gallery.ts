@@ -13,6 +13,8 @@ export type Album = {
   photos: GalleryPhoto[]; // the first is the cover
   /** Where the cover crop centres (CSS object-position), so the couple's faces stay in the middle. */
   coverPosition?: string;
+  /** How far the cover drifts and zooms as you scroll (percent, default 8). Lower it when heads sit close to the top edge. */
+  coverDrift?: number;
 };
 
 export const galleryPage = {
@@ -90,6 +92,7 @@ export const albums: Album[] = [
     place: "Oceanfront on Oʻahu", // venue to come from Yanicke
     story: "An oceanfront celebration in white orchids and roses, with the sun setting over the Pacific.",
     coverPosition: "48% 50%", // their faces, centred in the 4:5 and square crops
+    coverDrift: 2, // little headroom above the groom: a gentle drift keeps his head in frame
     photos: [
       { src: "/images/gallery/rico-nicolette/IMG_6827", width: 1179, height: 642, alt: "Rico and Nicolette’s oceanfront wedding on Oʻahu, photo 1" },
       { src: "/images/gallery/rico-nicolette/IMG_6925", width: 1179, height: 1392, alt: "Rico and Nicolette’s oceanfront wedding on Oʻahu, photo 2" },
