@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   // No Next.js badge in the corner while previewing locally (it never shows on the live site).
   devIndicators: false,
   partialPrefetching: true,
+  // Set by the Next.js security upgrade (16.4.1 → 16.4.6).
+  experimental: { agentUpgrade: "security" },
   // AVIF first (smaller), WebP for browsers without it.
   images: { formats: ["image/avif", "image/webp"] },
   // Her old Wix page addresses, sent to their new homes (src/redirects.ts).
