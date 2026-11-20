@@ -2,13 +2,14 @@ import { buttonClass } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { marriageLicense } from "@/content/services";
 
-// Services page, bottom: the essentials of a Hawaii marriage license (from her current page), as
+// The Marriage License page (/marriage-license): the essentials of a Hawaii marriage license (from her current page), as
 // three numbered steps, then a white "at a glance" panel (fees and validity as big figures, what
 // to bring, good to know) and the State's own application link.
 export function MarriageLicense() {
+  // Sits right under the page banner, on white like the other inner pages (no grey band).
   const { title, label, intro, steps, facts, bring, goodToKnow, applyUrl, note } = marriageLicense;
   return (
-    <section id="marriage-license" className="scroll-mt-28 bg-mist section-band">
+    <section id="marriage-license" className="scroll-mt-28 px-6 pb-20 md:px-14 md:pb-28">
       <div className="mx-auto flex max-w-content flex-col gap-10 md:gap-12">
         <div className="flex flex-col items-center gap-5 text-center">
           <SectionHeading title={title} label={label} />
@@ -29,7 +30,7 @@ export function MarriageLicense() {
           ))}
         </ol>
 
-        <div className="grid gap-8 bg-white p-7 md:grid-cols-2 md:p-9 lg:grid-cols-4 lg:gap-10">
+        <div className="grid gap-8 bg-mist p-7 md:grid-cols-2 md:p-9 lg:grid-cols-4 lg:gap-10">
           {facts.map((fact) => (
             <div key={fact.label} className="flex flex-col gap-2">
               <p className="label text-xs font-semibold">{fact.label}</p>

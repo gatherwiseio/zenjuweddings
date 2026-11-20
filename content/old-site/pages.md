@@ -18,7 +18,7 @@ only apply on the domain serving the new site, so nothing needs switching on at 
 | /about-5 | OUR STORY | ~445 | /about | permanent |
 | /about-3-1 | PORTFOLIO | ~67 | /gallery | permanent |
 | /packages | Wedding Packages | ~550 | /services | permanent |
-| /marriage-license | Marriage License Requirements - Your Guide to Oahu Weddings | ~374 | /services#marriage-license | permanent |
+| /marriage-license | Marriage License Requirements - Your Guide to Oahu Weddings | ~374 | same address on the new site (its own page since 2026-11-19, no redirect) | none |
 | /news-all | Preset News (her Preferred Vendors I page) | ~171 | /vendors | permanent |
 | /team-1 | PREFERRED VENDORS II | ~629 | /vendors | permanent |
 | /contact | CONTACT | ~75 | /contact | none (same) |

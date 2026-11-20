@@ -56,6 +56,7 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
   const index = albums.findIndex((a) => a.slug === slug);
   if (index === -1) notFound();
   const album = albums[index];
+  const photographerUrl = photographers.find((v) => v.name === album.credit)?.url;
   const prev = albums[(index - 1 + albums.length) % albums.length];
   const next = albums[(index + 1) % albums.length];
 
@@ -86,11 +87,11 @@ async function Album({ params }: Pick<PageProps<"/gallery/[slug]">, "params">) {
               {album.credit && (
                 <>
                   Photos by{" "}
-                  {/* A photographer from her preferred vendors links to their card there. */}
-                  {photographers.some((v) => v.name === album.credit) ? (
-                    <Link href="/vendors#photographers" className="link-draw font-medium text-gold-deep">
+                  {/* A photographer from her preferred vendors links to their own website (new tab). */}
+                  {photographerUrl ? (
+                    <a href={photographerUrl} target="_blank" rel="noopener noreferrer" className="link-draw font-medium text-gold-deep">
                       {album.credit}
-                    </Link>
+                    </a>
                   ) : (
                     album.credit
                   )}

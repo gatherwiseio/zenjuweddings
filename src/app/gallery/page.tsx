@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { pageMetadata, seo } from "@/content/seo";
-import Image from "next/image";
+import { GalleryImage } from "@/components/GalleryImage";
 import Link from "next/link";
 import { buttonClass } from "@/components/Button";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
-import { SectionHeading } from "@/components/SectionHeading";
 import { Parallax } from "@/components/motion/Parallax";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { albums, galleryPage } from "@/content/gallery";
@@ -16,7 +15,7 @@ export const metadata: Metadata = pageMetadata(seo.gallery);
 // Gallery: the albums as a zig-zag list (after brookekeegan.com/portfolio-weddings): a tall cover
 // on one side and the couple's names, place, photo count and a View button on the other, alternating sides.
 export default function GalleryPage() {
-  const { hero, intro } = galleryPage;
+  const { hero } = galleryPage;
   return (
     <>
       <a
@@ -31,10 +30,6 @@ export default function GalleryPage() {
 
         <section className="px-6 pb-24 md:px-14 md:pb-32">
           <div className="mx-auto flex max-w-content flex-col gap-14 md:gap-20">
-            <div className="flex flex-col items-center gap-6 text-center">
-              <SectionHeading title="Our Albums" label="Real weddings" />
-              <p className="max-w-copy-legal text-lg leading-prose text-pretty text-ink/75">{intro}</p>
-            </div>
             {/* Each cover drifts inside its frame as you scroll (off for reduced motion). */}
             <Parallax>
               <ul className="flex flex-col gap-16 lg:gap-0">
@@ -52,12 +47,13 @@ export default function GalleryPage() {
                         className={`group relative block aspect-square overflow-hidden md:aspect-(--aspect-album) bg-mist md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}
                       >
                         <div data-parallax="8" className="absolute inset-0">
-                          <Image
+                          <GalleryImage
                             src={album.photos[0].src}
                             alt=""
                             fill
                             sizes="(min-width: 768px) 40vw, 100vw"
                             priority={i < 2}
+                            style={album.coverPosition ? { objectPosition: album.coverPosition } : undefined}
                             className="object-cover transition-transform duration-(--duration-slow) ease-out-expo group-hover:scale-105"
                           />
                         </div>

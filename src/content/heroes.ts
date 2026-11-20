@@ -2,7 +2,7 @@
 // scripts/hero-images.mjs turns each into ready-made WebP files in public/images/hero/ at these
 // widths, so the banner is a plain file from the CDN: nothing is resized on the fly, and the
 // first visitor gets it as fast as everyone else.
-export const heroPhotos = ["portfolio-05", "portfolio-09", "portfolio-10", "portfolio-12", "portfolio-13"];
+export const heroPhotos = ["portfolio-05", "portfolio-09", "portfolio-11", "portfolio-10", "portfolio-12", "portfolio-13"];
 export const heroWidths = [640, 1080, 1600];
 
 export const heroSrc = (name: string, width: number) => `/images/hero/${name}-${width}.webp`;

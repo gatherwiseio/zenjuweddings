@@ -38,6 +38,13 @@ export const seo = {
       "Oahu wedding packages from $2,900: barefoot and all-inclusive elopements, day-of, partial and full coordination, Zenju Platinum and marriage license steps.",
     share: "Six Oahu wedding packages, from elopements to full coordination, with prices and everything included.",
   },
+  license: {
+    path: "/marriage-license",
+    title: `Hawaii Marriage License Guide | ${businessName}`,
+    description:
+      "How to get your Hawaii marriage license for an Oahu wedding: apply online, meet the agent together, fees, what to bring and how long it’s valid.",
+    share: "Getting married in Hawaii? How to get your marriage license, step by step.",
+  },
   vendors: {
     path: "/vendors",
     title: `Preferred Vendors in Hawaii | ${businessName}`,
@@ -50,7 +57,7 @@ export const seo = {
     title: `Oahu Wedding Gallery | ${businessName}`,
     description:
       "Real Oahu weddings planned by Zenju Weddings and Events: Arvind + Victoria, Maksim + Albert at Kualoa Ranch, Onesis + Pavel at Loulu Palms Estate and more.",
-    share: "Real weddings planned by Zenju Weddings and Events across Oahu, from Kualoa Ranch to Turtle Bay Resort.",
+    share: "Real weddings planned by Zenju Weddings and Events across Oahu, from Kualoa Ranch to Loulu Palms Estate.",
   },
   contact: {
     path: "/contact",

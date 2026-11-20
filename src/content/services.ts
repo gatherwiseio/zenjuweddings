@@ -2,8 +2,10 @@
 // kept word for word apart from capitals and small typos; one item per line with an icon.
 // Order is hers. Prices are the base price; every package adds 4.712% Hawaii GE tax, calculated
 // here to the cent (three of her own totals were off; see BRIEF.md).
-// Marriage license section: streamlined from https://www.zenjuweddingsnevents.com/marriage-license.
+// Marriage license: its own page (/marriage-license, in the menu since 2026-11-19 so couples can find it),
+// streamlined from https://www.zenjuweddingsnevents.com/marriage-license.
 import servicesHero from "../../public/images/current-site/portfolio-09.jpg"; // imported, so the banner gets a blurred preview while it loads
+import licenseHero from "../../public/images/current-site/portfolio-11.jpg";
 
 export type IconKey =
   | "coordination" | "permit" | "officiant" | "beauty" | "bouquet" | "crown" | "lei" | "photo" | "video"
@@ -12,7 +14,7 @@ export type IconKey =
   | "gift" | "sitecheck" | "insurance" | "sound" | "consultation" | "questionnaire" | "storyboard"
   | "budget" | "quotes" | "vendorlist" | "negotiate" | "contracts" | "meetings" | "communication"
   | "facetoface" | "mailing" | "discount" | "vendors" | "tips" | "assistant" | "familyphoto" | "dj"
-  | "sparks" | "lighting" | "photobooth";
+  | "sparks" | "lighting" | "photobooth" | "design";
 export type Inclusion = { title: string; text?: string; icon: IconKey };
 export type InclusionGroup = { title?: string; items: Inclusion[] };
 export type Photo = { src: string; alt: string };
@@ -51,7 +53,7 @@ export const servicePackages: ServicePackage[] = [
   {
     id: "barefoot",
     name: "Barefoot Nuptials",
-    type: "Elopement\u00a0· Ceremony only",
+    type: "No venue\u00a0· Beach ceremony",
     summary: "Perfect for couples looking to say “I do” in a serene beach setting.",
     price: 5500,
     photos: [
@@ -88,7 +90,7 @@ export const servicePackages: ServicePackage[] = [
     id: "elopement",
     name: "All Inclusive Elopement",
     type: "Elopement\u00a0· Ceremony\u00a0+ 2-hour photoshoot",
-    summary: "An intimate and unforgettable oceanfront ceremony, with everything included.",
+    summary: "An intimate and unforgettable oceanfront ceremony, wedding venue included.",
     price: 8750,
     photos: [
       img("package-elopement-kualoa-ceremony.jpg", "Two grooms in maile lei walking back up the aisle at Kualoa Ranch, guests cheering"),
@@ -96,7 +98,7 @@ export const servicePackages: ServicePackage[] = [
       img("package-elopement-kualoa-chairs.jpg", "Cross-back ceremony chairs with white aisle florals at Kualoa Ranch"),
     ],
     overview:
-      "Celebrate your love with our Zenju Elopement Package, designed for those who want an intimate and unforgettable ceremony!",
+      "Celebrate your love with our Zenju Elopement Package, designed for those who want an intimate and unforgettable ceremony, with the wedding venue included!",
     groups: [
       {
         items: [
@@ -168,7 +170,7 @@ export const servicePackages: ServicePackage[] = [
     name: "I Ke Aloha",
     meaning: "In love",
     type: "Partial coordination",
-    summary: "You plan hands-on, and our team steps in once your venue and three vendors are set.",
+    summary: "For couples who prefer to lead their own planning, with our team stepping in once your venue and three key vendors are booked.",
     price: 4800,
     photos: [
       img("package-ikealoha-golf-bridge.jpg", "Newlyweds on a wooden bridge in the greenery at the Royal Hawaiian Golf Club"),
@@ -257,7 +259,7 @@ export const servicePackages: ServicePackage[] = [
     name: "Kuʻu Lei",
     meaning: "Beloved",
     type: "Full coordination",
-    summary: "All the logistics from the moment your date is set, with our team every step of the way.",
+    summary: "Full planning and the overall design of your event, with our team every step of the way.",
     price: 7500,
     popular: true,
     photos: [
@@ -278,6 +280,7 @@ export const servicePackages: ServicePackage[] = [
       {
         title: "Planning & coordination",
         items: [
+          { icon: "design", title: "Overall event design", text: "The look and feel of your whole event, from colors and florals to décor and layout." },
           { icon: "storyboard", title: "Storyboard design", text: "Visual layout of the wedding theme and logistics." },
           { icon: "communication", title: "Unlimited emails, calls & Zoom meetings", text: "Ongoing communication to discuss plans, updates, and any concerns." },
           { icon: "facetoface", title: "Unlimited face-to-face meetings", text: "Scheduled in advance for personalized consultations." },
@@ -339,6 +342,7 @@ export const servicePackages: ServicePackage[] = [
       {
         items: [
           { icon: "coordination", title: "Full coordination", text: "Complete event planning: overall management and design from start to finish to ensure a seamless experience." },
+          { icon: "design", title: "Overall event design", text: "The look and feel of your whole event, from colors and florals to décor and layout." },
           { icon: "dj", title: "DJ services", text: "Experienced DJ to provide music tailored to your taste, including a variety of genres and personalized playlists." },
           { icon: "emcee", title: "Emcee services", text: "Professional emcee to host your event, ensuring smooth transitions and engaging entertainment." },
           { icon: "sparks", title: "Cold sparks", text: "Stunning cold spark fountains for a captivating and safe way to enhance your special moments, such as the grand entrance or first dance." },
@@ -357,9 +361,20 @@ export const servicePackages: ServicePackage[] = [
   },
 ];
 
-export const marriageLicense = {
-  title: "Marriage license",
+export const marriageLicensePage = {
+  hero: { label: "Marriage license", title: "Getting married in Hawaii", image: licenseHero },
+};
+
+/** The short pointer on the Services page, under the packages. */
+export const licensePointer = {
   label: "Getting married in Hawaii",
+  text: "Everything you need to get your Hawaii marriage license: the steps, fees and what to bring.",
+  cta: "Marriage license guide",
+};
+
+export const marriageLicense = {
+  title: "Your license in three steps",
+  label: "How it works",
   intro: "A Hawaii marriage license is quick to get. Here’s what to know before you apply.",
   steps: [
     {

@@ -61,7 +61,7 @@ export const vendorCategories: VendorCategory[] = [
     tab: "Photography",
     vendors: [
       { name: "Keoni Michael", text: "Fine art wedding photography across Oʻahu, Maui, Kauaʻi and the Big Island.", url: "https://keonimichael.com", logo: logo("keoni-michael") },
-      { name: "Stephen Ludwig", text: "Modern Hawaii wedding photography on every island.", url: "http://www.ludwighawaii.com", logo: logo("stephen-ludwig") },
+      { name: "Stephen Ludwig", text: "Modern Hawaii wedding photography on every island.", url: "https://www.ludwighawaii.com", logo: logo("stephen-ludwig") },
       { name: "Mersadi Olson", text: "Elopement and wedding photographer and videographer.", url: "https://mersadiolson.com", logo: logo("mersadi-olson") },
       { name: "Dave Miyamoto", text: "Multi-award-winning photographer of emotion and fleeting moments.", url: "https://www.davemiyamoto.com/dave-miyamoto", face: face("dave-miyamoto") },
       { name: "Rachel Robertson", text: "Wedding and portrait photography in Hawaii.", url: "http://www.rachelrobertson.com", logo: logo("rachel-robertson") },

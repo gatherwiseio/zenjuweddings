@@ -7,8 +7,9 @@ import { PackageScroll } from "@/components/PackageScroll";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ContactCta } from "@/components/sections/ContactCta";
-import { MarriageLicense } from "@/components/sections/MarriageLicense";
-import { servicePackages, servicesPage } from "@/content/services";
+import Link from "next/link";
+import { buttonClass } from "@/components/Button";
+import { licensePointer, servicePackages, servicesPage } from "@/content/services";
 
 export const metadata: Metadata = pageMetadata(seo.services);
 
@@ -40,8 +41,16 @@ export default function ServicesPage() {
           <PackageScroll />
         </section>
 
-        {/* Marriage license: the essentials from her current page, with the state's own link. */}
-        <MarriageLicense />
+        {/* Marriage license: now its own page in the menu; a short pointer to it here. */}
+        <section className="bg-mist section-band">
+          <div className="mx-auto flex max-w-content flex-col items-center gap-5 text-center">
+            <p className="label text-xs font-semibold">{licensePointer.label}</p>
+            <p className="max-w-statement text-lg leading-prose text-pretty text-ink/75">{licensePointer.text}</p>
+            <Link href="/marriage-license" className={`${buttonClass("secondary")} w-full sm:w-fit`}>
+              {licensePointer.cta}
+            </Link>
+          </div>
+        </section>
 
         <ContactCta />
       </main>

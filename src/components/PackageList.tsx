@@ -35,6 +35,7 @@ import {
   MusicNotesIcon,
   NotepadIcon,
   PackageIcon,
+  PaletteIcon,
   PaintBrushIcon,
   PhoneIcon,
   ReceiptIcon,
@@ -110,6 +111,7 @@ const icons: Record<IconKey, typeof CameraIcon> = {
   dj: VinylRecordIcon,
   sparks: FireIcon,
   lighting: LightbulbIcon,
+  design: PaletteIcon,
   photobooth: UserFocusIcon,
 };
 

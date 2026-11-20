@@ -24,6 +24,7 @@ export const pages = [
   { label: "Services & Packages", href: "/services", live: true },
   { label: "Gallery", href: "/gallery", live: true },
   { label: "Preferred Vendors", href: "/vendors", live: true },
+  { label: "Marriage License", href: "/marriage-license", live: true },
   { label: "Contact Us", href: "/contact", live: true },
 ];
 

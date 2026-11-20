@@ -1,7 +1,7 @@
 "use client";
 
 import { CaretLeftIcon, CaretRightIcon, XIcon } from "@phosphor-icons/react";
-import Image from "next/image";
+import { GalleryImage } from "@/components/GalleryImage";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { lockScroll } from "@/components/motion/SmoothScroll";
 import type { GalleryPhoto } from "@/content/gallery";
@@ -145,7 +145,7 @@ export function AlbumPhotos({ photos }: { photos: GalleryPhoto[] }) {
                 className="relative h-full w-full bg-contain bg-center bg-no-repeat"
                 style={thumb?.i === index ? { backgroundImage: `url(${thumb.src})` } : undefined}
               >
-                <Image key={current.src} src={current.src} alt={current.alt} fill sizes="100vw" className="object-contain" />
+                <GalleryImage key={current.src} src={current.src} alt={current.alt} fill sizes="100vw" className="object-contain" />
               </div>
               <button type="button" onClick={() => step(-1)} data-chrome aria-label="Previous photo" className={`${navButton} left-2 md:left-6`}>
                 <CaretLeftIcon aria-hidden="true" size={24} />
@@ -225,7 +225,7 @@ function Rows({
                   className="group relative block w-full cursor-zoom-in overflow-hidden bg-mist"
                   style={{ aspectRatio: `${photo.width} / ${photo.height}` }}
                 >
-                  <Image
+                  <GalleryImage
                     src={photo.src}
                     alt={photo.alt}
                     fill

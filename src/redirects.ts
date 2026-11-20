@@ -11,7 +11,6 @@ const pages: Redirect[] = [
   { source: "/about-5", destination: "/about", permanent: true },
   { source: "/about-3-1", destination: "/gallery", permanent: true },
   { source: "/packages", destination: "/services", permanent: true },
-  { source: "/marriage-license", destination: "/services#marriage-license", permanent: true },
   { source: "/news-all", destination: "/vendors", permanent: true },
   { source: "/team-1", destination: "/vendors", permanent: true },
   { source: "/form-submitted", destination: "/contact", permanent: true },
@@ -24,7 +23,7 @@ const blog: Redirect[] = [
   { source: "/blog", destination: "/", permanent: true },
   {
     source: "/post/hawaii-wedding-permits-in-2026-what-destination-couples-actually-need-to-know",
-    destination: "/services#marriage-license",
+    destination: "/marriage-license",
     permanent: true,
   },
   {
@@ -42,6 +41,12 @@ const blog: Redirect[] = [
   { source: "/blog/:path*", destination: "/", permanent: true },
 ];
 
+// Gallery albums taken down (Yanicke, 2026-11-19: only two photos each), sent to the gallery.
+const removedAlbums: Redirect[] = [
+  { source: "/gallery/chaeli-ryan", destination: "/gallery", permanent: true },
+  { source: "/gallery/serena-bradley", destination: "/gallery", permanent: true },
+];
+
 // Always on: they only apply on whatever domain serves this site, so they can't touch her Wix
 // site, and nothing needs switching on when the domain moves here.
-export const oldSiteRedirects: Redirect[] = [...pages, ...blog];
+export const oldSiteRedirects: Redirect[] = [...pages, ...blog, ...removedAlbums];
