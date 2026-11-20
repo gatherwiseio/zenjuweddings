@@ -160,6 +160,27 @@ export const albums: Album[] = [
     ],
   },
   {
+    slug: "ritu-ravi",
+    title: "Ritu + Ravi",
+    place: "Oceanfront on Oʻahu", // venue to come from Yanicke
+    story: "An oceanfront ceremony beneath a canopy of blush roses, then dinner and dancing under a clear tent.",
+    coverPosition: "50% 0%", // faces sit in the upper part of the photo: keep the top in both crops
+    coverDrift: 2, // gentle drift so their heads stay in frame
+    photos: [
+      { src: "/images/gallery/ritu-ravi/IMG_6511", width: 1179, height: 1315, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 1" },
+      { src: "/images/gallery/ritu-ravi/IMG_5944", width: 1081, height: 1114, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 2" },
+      { src: "/images/gallery/ritu-ravi/IMG_6933", width: 1153, height: 1408, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 3" },
+      { src: "/images/gallery/ritu-ravi/IMG_6926", width: 1179, height: 1449, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 4" },
+      { src: "/images/gallery/ritu-ravi/IMG_2631", width: 1179, height: 726, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 5" },
+      { src: "/images/gallery/ritu-ravi/IMG_6512", width: 1179, height: 1341, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 6" },
+      { src: "/images/gallery/ritu-ravi/IMG_6508", width: 1179, height: 1265, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 7" },
+      { src: "/images/gallery/ritu-ravi/IMG_6930", width: 1179, height: 1549, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 8" },
+      { src: "/images/gallery/ritu-ravi/IMG_6932", width: 1179, height: 1368, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 9" },
+      { src: "/images/gallery/ritu-ravi/IMG_6927", width: 1179, height: 1557, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 10" },
+      { src: "/images/gallery/ritu-ravi/IMG_6928", width: 1179, height: 1558, alt: "Ritu and Ravi’s oceanfront wedding on Oʻahu, photo 11" },
+    ],
+  },
+  {
     slug: "arvind-victoria",
     title: "Arvind + Victoria",
     place: "St. Peter and Paul Church & Oahu Wedding Villas",
