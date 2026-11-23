@@ -27,11 +27,13 @@ only apply on the domain serving the new site, so nothing needs switching on at 
 | /copy-of-terms-and-conditions | Privacy Policy | ~629 | /privacy-policy | permanent |
 | /blog | BLOGS (list of posts) | ~422 | / | permanent |
 
-## Blog posts (8), all by Yanicke Lim Sang
+## Blog posts (9), all by Yanicke Lim Sang
+
+Re-scanned 2026-11-23 before the domain moved: one new post (marked new); pages unchanged.
 
 | Old address (/post/…) | Title | Words | Redirects to (permanent) |
 |---|---|---|---|
-| hawaii-wedding-permits-in-2026-what-destination-couples-actually-need-to-know | Hawaii Wedding Permits in 2026: What Destination Couples Actually Need to Know | ~1,500 | /services#marriage-license |
+| hawaii-wedding-permits-in-2026-what-destination-couples-actually-need-to-know | Hawaii Wedding Permits in 2026: What Destination Couples Actually Need to Know | ~1,500 | /marriage-license |
 | how-to-choose-the-right-island-for-your-hawaii-destination-wedding-oahu-maui-big-island-kauai | How to Choose the Right Island for Your Hawaii Destination Wedding (Oahu, Maui, Big Island & Kauai) | ~800 | /services |
 | full-coordination-vs-day-of-coordination-hawaii-which-is-better-for-your-big-day | Full Coordination Vs Day of Coordination Hawaii: Which Is Better For Your Big Day? | ~1,100 | /services |
 | the-ultimate-hawaii-destination-wedding-guide | The Ultimate Hawaii Destination Wedding Guide | ~1,100 | /services |
@@ -39,6 +41,7 @@ only apply on the domain serving the new site, so nothing needs switching on at 
 | planning-a-2027-hawaii-wedding-why-coordination-should-be-booked-now | Planning a 2027 Hawaii Wedding? Why Coordination Should Be Booked Now | ~1,550 | /services |
 | how-to-plan-a-hawaii-elopement-in-2027-a-5-step-guide-for-mainland-couples | How to Plan a Hawaii Elopement in 2027: A 5-Step Guide for Mainland Couples | ~1,100 | /services#elopement |
 | navigating-hawaii-destination-wedding-costs-what-to-expect-how-to-budget | Navigating Hawaii Destination Wedding Costs: What to Expect & How to Budget | ~1,500 | /services |
+| hawaiʻi-elopement-package-vs-full-wedding-which-one-actually-fits-your-vision (new, 2026-11-23) | Hawaiʻi Elopement Package vs Full Wedding: Which One Actually Fits Your Vision | – | /services (the /post/:slug catch-all) |
 
 Notes:
 - The posts' cover images are hosted on cdn.marblism.com (an AI blog tool), not on Wix; save copies
