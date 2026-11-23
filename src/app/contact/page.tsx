@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { pageMetadata, seo } from "@/content/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { GatherwiseForm } from "@/components/GatherwiseForm";
+import { InquiryForm } from "@/components/InquiryForm";
 import { PageHero } from "@/components/PageHero";
 import { Reviews } from "@/components/sections/Reviews";
 import { contactPage } from "@/content/contact";
@@ -86,10 +86,9 @@ export default function ContactPage() {
                 ))}
               </ul>
             </div>
-            {/* The Gatherwise form draws its own beige box and "Work with us" title
-                (gatherwise/inquiry-form.css), so it sits here bare. */}
+            {/* The form draws its own beige box and "Work with us" title, so it sits here bare. */}
             <div id="inquire" className="scroll-mt-28">
-              <GatherwiseForm />
+              <InquiryForm />
             </div>
           </div>
         </section>

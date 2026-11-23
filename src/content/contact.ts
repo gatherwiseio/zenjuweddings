@@ -10,6 +10,26 @@ export const contactPage = {
   heading: { title: "Tell us about your day", label: "Inquire" },
   intro:
     "Share your date, your vision and your island, and Yanicke will be in touch personally. From a barefoot beach ceremony to a full celebration, we’ll help you find the package that fits your day.",
+  // The inquiry form (src/components/InquiryForm.tsx): the same questions her Gatherwise form asked.
+  form: {
+    title: "Work with us",
+    eventTypes: [
+      "Wedding",
+      "Corporate Event",
+      "Festival/Fair",
+      "Training Session",
+      "Social Event (Birthday, Anniversary, etc.)",
+      "Nonprofit Event/Fundraiser",
+      "Conference",
+      "Client Appreciation Event",
+      "Launch Event",
+      "Awards Gala",
+      "Celebration of Life",
+      "Gender Reveal",
+      "Other",
+    ],
+    success: "Mahalo! Your message is on its way, and Yanicke will be in touch soon.",
+  },
   perks: [
     { title: "On Oʻahu since 2010", text: "Fifteen-plus years of weddings across the island." },
     { title: "Founder-led", text: "Yanicke still manages Zenju closely herself." },

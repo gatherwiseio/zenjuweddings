@@ -2,9 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { preconnect } from "react-dom";
 import { XIcon } from "@phosphor-icons/react";
-import { GatherwiseForm } from "@/components/GatherwiseForm";
+import { InquiryForm } from "@/components/InquiryForm";
 import { lockScroll, scrollToElement } from "@/components/motion/SmoothScroll";
 
 // The inquiry form as a pop-up, site-wide. Any link to /contact (the header's Inquire, every
@@ -15,8 +14,6 @@ export function InquiryDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const pathname = usePathname();
   const [opens, setOpens] = useState(0); // a fresh form each time it opens
-  // Warm up the connection to Gatherwise on every page, so the form starts loading faster when opened.
-  preconnect("https://app.gatherwise.io");
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -42,7 +39,7 @@ export function InquiryDialog() {
 
   const close = () => dialogRef.current?.close();
 
-  // Just the form (its own beige box and "Work with us" title), with the X laid over its corner.
+  // Just the form (its beige box and "Work with us" title), with the X laid over its corner.
   return (
     <dialog
       data-lenis-prevent
@@ -61,7 +58,7 @@ export function InquiryDialog() {
         >
           <XIcon aria-hidden="true" size={22} weight="light" />
         </button>
-        <GatherwiseForm key={opens} />
+        <InquiryForm key={opens} />
       </div>
     </dialog>
   );
