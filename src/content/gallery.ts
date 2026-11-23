@@ -26,6 +26,7 @@ export const albums: Album[] = [
     slug: "lila-chuck",
     title: "Lila + Chuck",
     place: "Heʻeia State Park",
+    credit: "Mersadi Olson",
     story: "Lush gardens and Kāneʻohe Bay views at Heʻeia State Park, then a colorful celebration into the night.",
     photos: [
       { src: "/images/gallery/lila-chuck/IMG_7623", width: 1366, height: 2048, alt: "Lila and Chuck’s wedding at Heʻeia State Park, photo 1" },
